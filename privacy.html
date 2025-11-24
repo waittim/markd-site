@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Privacy Policy - Mark'd respects your privacy and protects your personal data.">
+    <title>Privacy Policy - Mark'd</title>
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700;900&family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body data-page="privacy" data-download-link="index.html#download">
+    <!-- Navigation will be inserted by components -->
+
+    <!-- Content Page -->
+    <main class="content-page">
+        <div class="content-container">
+            <h1 class="content-title sf-display" data-i18n="privacy.title">Privacy Policy</h1>
+            <p class="content-subtitle" data-i18n="privacy.lastUpdated">Last updated: <span id="privacy-date"></span></p>
+
+            <div class="content-section">
+                <h2 data-i18n="privacy.intro.title">Our Commitment to Privacy</h2>
+                <div data-i18n="privacy.intro.content"></div>
+            </div>
+
+            <div class="content-section">
+                <h2 data-i18n="privacy.data.title">What Data We Collect</h2>
+                <h3 data-i18n="privacy.data.local.title">Local Data</h3>
+                <p data-i18n="privacy.data.local.content">All your logs, photos, ratings, and notes are stored locally on your device. This data never leaves your device unless you explicitly choose to sync it via iCloud.</p>
+
+                <h3 data-i18n="privacy.data.icloud.title">iCloud Sync</h3>
+                <p data-i18n="privacy.data.icloud.content">If you enable iCloud sync, your data is encrypted and stored in your personal iCloud account. This data is subject to Apple's Privacy Policy and is not accessible to us.</p>
+
+                <h3 data-i18n="privacy.data.analytics.title">Analytics</h3>
+                <p data-i18n="privacy.data.analytics.content">We may collect anonymous usage analytics to improve the app. This data does not include any personal information or content from your logs.</p>
+            </div>
+
+            <div class="content-section">
+                <h2 data-i18n="privacy.use.title">How We Use Your Data</h2>
+                <ul data-i18n="privacy.use.list"></ul>
+                <p data-i18n="privacy.use.note">We do not sell, rent, or share your personal data with third parties for marketing purposes.</p>
+            </div>
+
+            <div class="content-section">
+                <h2 data-i18n="privacy.security.title">Data Security</h2>
+                <div data-i18n="privacy.security.content"></div>
+            </div>
+
+            <div class="content-section">
+                <h2 data-i18n="privacy.rights.title">Your Rights</h2>
+                <div data-i18n="privacy.rights.content"></div>
+                <ul data-i18n="privacy.rights.list"></ul>
+            </div>
+
+            <div class="content-section">
+                <h2 data-i18n="privacy.children.title">Children's Privacy</h2>
+                <p data-i18n="privacy.children.content">Mark'd is not intended for children under the age of 13. We do not knowingly collect personal information from children under 13.</p>
+            </div>
+
+            <div class="content-section">
+                <h2 data-i18n="privacy.changes.title">Changes to This Policy</h2>
+                <p data-i18n="privacy.changes.content">We may update this Privacy Policy from time to time. We will notify you of any changes by posting the new Privacy Policy on this page and updating the "Last updated" date.</p>
+            </div>
+
+            <div class="content-section">
+                <h2 data-i18n="privacy.contact.title">Contact Us</h2>
+                <p data-i18n="privacy.contact.content">If you have any questions about this Privacy Policy, please contact us at:</p>
+                <p>
+                    <a href="mailto:support@mark-d.com">support@mark-d.com</a>
+                </p>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer will be inserted by components -->
+
+    <!-- Scripts -->
+    <!-- Error handling (load first) -->
+    <script src="assets/js/error-handler.js"></script>
+    <!-- Utility functions -->
+    <script src="assets/js/utils.js"></script>
+    <!-- Performance monitoring -->
+    <script src="assets/js/performance.js"></script>
+    <!-- Load components -->
+    <script src="assets/js/components/config.js"></script>
+    <script src="assets/js/components/navbar.js"></script>
+    <script src="assets/js/components/footer.js"></script>
+    <script src="assets/js/components/index.js"></script>
+    <!-- Load modules in dependency order -->
+    <script src="assets/js/translations.js"></script>
+    <script src="assets/js/icons.js"></script>
+    <script src="assets/js/theme.js"></script>
+    <script src="assets/js/i18n.js"></script>
+    <script src="assets/js/animations.js"></script>
+    <!-- Lazy loading -->
+    <script src="assets/js/lazy-load.js"></script>
+    <!-- Main application -->
+    <script src="assets/js/main.js"></script>
+    <script>
+        // Set privacy policy date
+        document.addEventListener('DOMContentLoaded', function() {
+            const privacyDateEl = document.getElementById('privacy-date');
+            if (privacyDateEl) {
+                privacyDateEl.textContent = new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+            }
+        });
+    </script>
+</body>
+</html>
+

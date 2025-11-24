@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Mark'd - Your Life Library. A private space to cultivate your own taste and preserve your experiences.">
+    <title>Mark'd - Your Life Library</title>
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700;900&family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body data-page="home" data-download-link="#download">
+    <!-- Navigation will be inserted by components -->
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="fluid-bg">
+            <div class="orb" style="width: 60vw; height: 60vw; top: -20%; left: -10%; background-color: var(--orb-color-1);"></div>
+            <div class="orb" style="width: 50vw; height: 50vw; top: 10%; right: -10%; animation-delay: 2s; background-color: var(--orb-color-2);"></div>
+            <div class="orb" style="width: 70vw; height: 70vw; bottom: -20%; left: 20%; animation-delay: 4s; background-color: var(--orb-color-3);"></div>
+        </div>
+
+        <div class="hero-content">
+            <div class="hero-app-icon fade-in-up">
+                <img src="assets/images/Markd-iOS-Default-1024x1024@1x.png" alt="Mark'd" class="app-icon app-icon-light" width="120" height="120">
+                <img src="assets/images/Markd-iOS-Dark-1024x1024@1x.png" alt="Mark'd" class="app-icon app-icon-dark" width="120" height="120">
+            </div>
+            
+            <div class="hero-badge fade-in-up delay-100">
+                <span class="hero-badge-dot"></span>
+                <span class="hero-badge-text" data-i18n="hero.badge">iOS 26 Ready</span>
+            </div>
+            
+            <h1 class="hero-title sf-display fade-in-up delay-200 text-gradient-main">
+                <span data-i18n="hero.titleLine1">Your Life</span><br>
+                <span data-i18n="hero.titleLine2">Library.</span>
+            </h1>
+
+            <p class="hero-subtitle fade-in-up delay-300">
+                <span data-i18n="hero.subtitlePre">Not to record everything.</span><br>
+                <span data-i18n="hero.subtitlePost">But to keep what matters.</span>
+            </p>
+
+            <div class="hero-phone-mockup fade-in-up delay-300">
+                <img src="assets/images/screenshot-light.PNG" alt="Mark'd App Screenshot" class="phone-screenshot phone-screenshot-light">
+                <img src="assets/images/screenshot-dark.PNG" alt="Mark'd App Screenshot" class="phone-screenshot phone-screenshot-dark">
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+        <div class="features-background">
+            <div class="orb" style="width: 50vw; height: 50vw; top: 20%; left: -10%; opacity: 0.4; background-color: var(--orb-color-3);"></div>
+            <div class="orb" style="width: 60vw; height: 60vw; top: 40%; right: -20%; opacity: 0.4; animation-delay: 2s; background-color: var(--orb-color-1);"></div>
+        </div>
+
+        <div class="features-container">
+            <div class="features-header">
+                <h2 class="features-title sf-display">
+                    <span data-i18n="features.titleLine1">Designed for</span><br>
+                    <span class="text-gradient-accent" data-i18n="features.titleHighlight">instant capture.</span>
+                    <span data-i18n="features.titleSuffix"></span>
+                </h2>
+            </div>
+
+            <div class="features-grid">
+                <div class="liquid-glass feature-card feature-card-large">
+                    <div>
+                        <div class="icon-box feature-icon-box">
+                            <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <path d="M12 2v4m0 12v4M4.93 4.93l2.83 2.83m8.48 8.48l2.83 2.83M2 12h4m12 0h4M4.93 19.07l2.83-2.83m8.48-8.48l2.83-2.83"/>
+                                <circle cx="12" cy="12" r="3"/>
+                            </svg>
+                        </div>
+                        <h3 class="feature-title" data-i18n="features.cards.scan.title">Scan & Log</h3>
+                        <p class="feature-desc" data-i18n="features.cards.scan.desc">Point your camera at a barcode. Mark'd recognizes the product instantly, fusing digital data with reality.</p>
+                    </div>
+                </div>
+
+                <div class="liquid-glass feature-card">
+                    <div>
+                        <div class="icon-box feature-icon-box">
+                            <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <path d="M23 19a2 2 0 01-2 2H3a2 2 0 01-2-2V8a2 2 0 012-2h4l2-3h6l2 3h4a2 2 0 012 2z"/>
+                                <circle cx="12" cy="13" r="4"/>
+                            </svg>
+                        </div>
+                        <h3 class="feature-title" data-i18n="features.cards.visual.title">Visual Memory</h3>
+                        <p class="feature-desc" data-i18n="features.cards.visual.desc">Capture the mood. Your photos are stored with pristine quality and zero compression.</p>
+                    </div>
+                </div>
+
+                <div class="liquid-glass feature-card">
+                    <div>
+                        <div class="icon-box feature-icon-box">
+                            <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+                            </svg>
+                        </div>
+                        <h3 class="feature-title" data-i18n="features.cards.rating.title">Your Rating</h3>
+                        <p class="feature-desc" data-i18n="features.cards.rating.desc">No public averages. No algorithms. Just your personal preference preserved in glass.</p>
+                    </div>
+                </div>
+
+                <div class="liquid-glass feature-card">
+                    <div>
+                        <div class="icon-box feature-icon-box">
+                            <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <circle cx="18" cy="5" r="3"/>
+                                <circle cx="6" cy="12" r="3"/>
+                                <circle cx="18" cy="19" r="3"/>
+                                <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/>
+                                <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/>
+                            </svg>
+                        </div>
+                        <h3 class="feature-title" data-i18n="features.cards.share.title">Share Cards</h3>
+                        <p class="feature-desc" data-i18n="features.cards.share.desc">Generate beautiful, crystalline images to share your finds with friends.</p>
+                    </div>
+                </div>
+
+                <div class="liquid-glass feature-card">
+                    <div>
+                        <div class="icon-box feature-icon-box">
+                            <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <path d="M18 10h-1.26A8 8 0 109 20h9a5 5 0 000-10z"/>
+                            </svg>
+                        </div>
+                        <h3 class="feature-title" data-i18n="features.cards.cloud.title">iCloud Sync</h3>
+                        <p class="feature-desc" data-i18n="features.cards.cloud.desc">Your data lives on your device and your iCloud. Private, secure, and always in sync.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Philosophy Section -->
+    <section class="philosophy">
+        <div class="philosophy-pattern"></div>
+        <div class="philosophy-container">
+            <h2 class="philosophy-title sf-display">
+                <span data-i18n="philosophy.titleLine1">Your taste,</span><br>
+                <span style="color: var(--text-secondary);" data-i18n="philosophy.titleLine2">not the algorithm.</span>
+            </h2>
+
+            <div class="philosophy-content" data-i18n="philosophy.content"></div>
+
+            <p class="philosophy-signature" data-i18n="philosophy.signature">Mark'd — Remember your experience, understand your life.</p>
+
+            <a href="privacy.html" class="philosophy-link">
+                <span data-i18n="philosophy.link">Read our Privacy Pledge</span>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="5" y1="12" x2="19" y2="12"/>
+                    <polyline points="12 5 19 12 12 19"/>
+                </svg>
+            </a>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section" id="download">
+        <div class="cta-container">
+            <div class="cta-app-icon">
+                <img src="assets/images/Markd-iOS-Default-1024x1024@1x.png" alt="Mark'd" class="app-icon app-icon-light" width="80" height="80">
+                <img src="assets/images/Markd-iOS-Dark-1024x1024@1x.png" alt="Mark'd" class="app-icon app-icon-dark" width="80" height="80">
+            </div>
+            <h2 class="cta-title sf-display" data-i18n="cta.title">Start Your Journey</h2>
+            <p class="cta-subtitle" data-i18n="cta.subtitle">Download Mark'd and begin building your personal library of experiences.</p>
+            <div class="cta-buttons">
+                <a href="https://apps.apple.com/app/markd" class="app-store-btn" target="_blank" rel="noopener noreferrer" style="display: inline-flex; align-items: center; justify-content: center; padding: 12px 24px; background: #000; color: #fff; border-radius: 8px; text-decoration: none; font-weight: 600;">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" style="margin-right: 8px; flex-shrink: 0;">
+                        <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/>
+                    </svg>
+                    <span data-i18n="cta.appStore">Download on the App Store</span>
+                </a>
+                <a href="https://testflight.apple.com/join/example" class="app-store-btn" target="_blank" rel="noopener noreferrer" style="display: none;">
+                    <span data-i18n="cta.testFlight">Try on TestFlight</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer will be inserted by components -->
+
+    <!-- Scripts -->
+    <!-- Error handling (load first) -->
+    <script src="assets/js/error-handler.js"></script>
+    <!-- Utility functions -->
+    <script src="assets/js/utils.js"></script>
+    <!-- Performance monitoring -->
+    <script src="assets/js/performance.js"></script>
+    <!-- Load components -->
+    <script src="assets/js/components/config.js"></script>
+    <script src="assets/js/components/navbar.js"></script>
+    <script src="assets/js/components/footer.js"></script>
+    <script src="assets/js/components/index.js"></script>
+    <!-- Load modules in dependency order -->
+    <script src="assets/js/translations.js"></script>
+    <script src="assets/js/icons.js"></script>
+    <script src="assets/js/theme.js"></script>
+    <script src="assets/js/i18n.js"></script>
+    <script src="assets/js/animations.js"></script>
+    <!-- Lazy loading -->
+    <script src="assets/js/lazy-load.js"></script>
+    <!-- Main application -->
+    <script src="assets/js/main.js"></script>
+</body>
+</html>
+
