@@ -19,21 +19,36 @@ markd-site/
 ├── index.html              # Homepage
 ├── about.html              # About page
 ├── privacy.html            # Privacy Policy page
-├── template.html           # Original template (reference)
 ├── CNAME                   # GitHub Pages custom domain
 ├── README.md               # This file
-├── PROJECT_STRUCTURE.md    # Detailed project documentation
-├── LOCAL_VIEWING.md        # Local viewing guide
+├── ARCHITECTURE_ANALYSIS.md # Architecture analysis and improvements
+├── archive/                 # Archived files
+│   └── template.html       # Original React template (archived)
 │
 └── assets/
     ├── css/
     │   └── style.css       # Main stylesheet (all styles)
     │
     ├── js/
-    │   └── main.js         # Main JavaScript (i18n, theme, interactions)
+    │   ├── components/     # Reusable HTML components
+    │   │   ├── navbar.js   # Navigation bar component
+    │   │   ├── footer.js   # Footer component
+    │   │   └── index.js    # Component loader
+    │   ├── translations/  # Translation files (optional, for future use)
+    │   │   ├── en.js
+    │   │   ├── zh.js
+    │   │   └── zh-TW.js
+    │   ├── error-handler.js # Global error handling
+    │   ├── translations.js  # All translations (backward compatible)
+    │   ├── translations-loader.js # Dynamic translation loader
+    │   ├── icons.js         # Icon helper
+    │   ├── theme.js         # Theme management
+    │   ├── i18n.js          # Internationalization
+    │   ├── animations.js    # Scroll animations
+    │   └── main.js         # Main application entry
     │
     └── images/
-        └── (placeholder for App Store badge)
+        └── (app icons and screenshots)
 ```
 
 ## 🎨 Design System
@@ -83,12 +98,32 @@ Privacy Policy page with:
 - User rights
 - Contact for privacy concerns
 
-## 🔧 JavaScript Features
+## 🔧 JavaScript Architecture
 
-### main.js
-- **Theme Management**: Auto-detect system theme, manual toggle, localStorage persistence
-- **Language Management**: Auto-detect browser language, manual toggle, localStorage persistence
+### Component System
+- **Components**: Reusable HTML components (navbar, footer) to eliminate code duplication
+- **Component Loader**: Automatic component injection on page load
+- **Component Config**: Configuration system for customizing component behavior
+- **Configurable Options**: Components support configuration via data attributes or JavaScript options
+
+### Core Modules
+- **error-handler.js**: Global error handling and module dependency checking
+- **utils.js**: Utility functions (debounce, throttle, viewport checking, etc.)
+- **performance.js**: Performance monitoring and metrics collection
+- **lazy-load.js**: Image lazy loading for improved performance
+- **theme.js**: Theme management with auto-detect system theme, manual toggle, localStorage persistence
+- **i18n.js**: Internationalization with auto-detect browser language, manual toggle, localStorage persistence
+- **translations.js**: All translations in one file (backward compatible)
+- **translations-loader.js**: Dynamic translation loader for future optimization (optional)
+- **animations.js**: Scroll-triggered fade-in animations using Intersection Observer
+- **icons.js**: SVG icon helper functions
+- **main.js**: Main application entry point and event coordination
+
+### Features
+- **Component-based**: Reusable HTML components eliminate duplication
+- **Error Handling**: Global error handling with module dependency checking
 - **i18n System**: Data-driven translations with `data-i18n` attributes
+- **Theme System**: Automatic system theme detection with manual override
 - **Scroll Animations**: Intersection Observer for fade-in effects
 - **SVG Icons**: Inline SVG icons (no external dependencies)
 
@@ -165,9 +200,22 @@ Visit: http://localhost:8000
 
 ## 📝 Technical Notes
 
+### Architecture Improvements
+- **Component System**: HTML components (navbar, footer) are now reusable, eliminating code duplication
+- **Error Handling**: Global error handler monitors module loading and JavaScript errors
+- **Modular Design**: JavaScript is organized into focused modules for better maintainability
+- **Backward Compatible**: All existing functionality preserved while improving code organization
+
+### Technology Stack
 - All styles are in `style.css` (no Tailwind dependency)
 - All JavaScript is vanilla JS (no React/frameworks)
 - Icons are inline SVG (no icon library)
 - Fonts loaded from Google Fonts CDN
 - No build process required - pure static files
+
+### File Organization
+- Components in `assets/js/components/` for reusable HTML
+- Modules in `assets/js/` for core functionality
+- Translations can be split by language (optional optimization)
+- See `ARCHITECTURE_ANALYSIS.md` for detailed architecture documentation
 

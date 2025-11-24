@@ -12,20 +12,8 @@
     <!-- Styles -->
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
-<body data-page="privacy">
-    <!-- Navigation -->
-    <nav class="navbar">
-        <div class="navbar-container">
-            <div class="navbar-glass">
-                <a href="index.html" class="navbar-brand">
-                    <img src="assets/images/Markd-iOS-Default-1024x1024@1x.png" alt="Mark'd" class="app-icon app-icon-light" width="32" height="32">
-                    <img src="assets/images/Markd-iOS-Dark-1024x1024@1x.png" alt="Mark'd" class="app-icon app-icon-dark" width="32" height="32">
-                    <span class="navbar-brand-text">Mark'd</span>
-                </a>
-                <a href="index.html#download" class="navbar-download-btn" data-i18n="nav.download">Download</a>
-            </div>
-        </div>
-    </nav>
+<body data-page="privacy" data-download-link="index.html#download">
+    <!-- Navigation will be inserted by components -->
 
     <!-- Content Page -->
     <main class="content-page">
@@ -87,51 +75,38 @@
         </div>
     </main>
 
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="footer-container">
-            <div class="footer-content">
-                <div class="footer-brand">Mark'd</div>
-
-                <div class="footer-links">
-                    <a href="privacy.html" data-i18n="footer.privacy">Privacy Policy</a>
-                    <a href="about.html" data-i18n="nav.about">About</a>
-                    <a href="mailto:support@mark-d.com" data-i18n="footer.support">Support</a>
-                </div>
-
-                <div class="footer-controls">
-                    <div class="footer-controls-group">
-                        <button class="footer-btn lang-toggle" aria-label="Switch Language">
-                            <svg class="footer-btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <circle cx="12" cy="12" r="10"/>
-                                <line x1="2" y1="12" x2="22" y2="12"/>
-                                <path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/>
-                            </svg>
-                            <span class="lang-text">中</span>
-                        </button>
-                        <button class="footer-btn theme-toggle" aria-label="Toggle Theme">
-                            <svg class="footer-btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/>
-                            </svg>
-                        </button>
-                    </div>
-                    <div class="footer-copyright">© <span id="year"></span></div>
-                </div>
-            </div>
-        </div>
-    </footer>
+    <!-- Footer will be inserted by components -->
 
     <!-- Scripts -->
+    <!-- Error handling (load first) -->
+    <script src="assets/js/error-handler.js"></script>
+    <!-- Utility functions -->
+    <script src="assets/js/utils.js"></script>
+    <!-- Performance monitoring -->
+    <script src="assets/js/performance.js"></script>
+    <!-- Load components -->
+    <script src="assets/js/components/config.js"></script>
+    <script src="assets/js/components/navbar.js"></script>
+    <script src="assets/js/components/footer.js"></script>
+    <script src="assets/js/components/index.js"></script>
     <!-- Load modules in dependency order -->
     <script src="assets/js/translations.js"></script>
     <script src="assets/js/icons.js"></script>
     <script src="assets/js/theme.js"></script>
     <script src="assets/js/i18n.js"></script>
     <script src="assets/js/animations.js"></script>
+    <!-- Lazy loading -->
+    <script src="assets/js/lazy-load.js"></script>
+    <!-- Main application -->
     <script src="assets/js/main.js"></script>
     <script>
-        document.getElementById('year').textContent = new Date().getFullYear();
-        document.getElementById('privacy-date').textContent = new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+        // Set privacy policy date
+        document.addEventListener('DOMContentLoaded', function() {
+            const privacyDateEl = document.getElementById('privacy-date');
+            if (privacyDateEl) {
+                privacyDateEl.textContent = new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+            }
+        });
     </script>
 </body>
 </html>

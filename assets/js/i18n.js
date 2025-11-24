@@ -47,12 +47,36 @@
     function updateLanguage(saveAsManual = true) {
         if (!window.translations) {
             console.warn('Translations not loaded yet');
+            // Try to load translations dynamically if loader is available
+            if (window.MarkdTranslationsLoader) {
+                window.MarkdTranslationsLoader.load(currentLang).then(translation => {
+                    window.translations = window.translations || {};
+                    window.translations[currentLang] = translation;
+                    updateLanguage(saveAsManual);
+                }).catch(error => {
+                    console.error('Failed to load translation:', error);
+                });
+            }
             return;
         }
 
         const t = window.translations[currentLang];
         if (!t) {
             console.warn(`Translations for language '${currentLang}' not found`);
+            // Try to load dynamically
+            if (window.MarkdTranslationsLoader) {
+                window.MarkdTranslationsLoader.load(currentLang).then(translation => {
+                    window.translations[currentLang] = translation;
+                    updateLanguage(saveAsManual);
+                }).catch(error => {
+                    console.error('Failed to load translation:', error);
+                    // Fallback to English
+                    if (currentLang !== 'en' && window.translations.en) {
+                        currentLang = 'en';
+                        updateLanguage(saveAsManual);
+                    }
+                });
+            }
             return;
         }
 
@@ -227,6 +251,10 @@
     }
 
     function getNestedValue(obj, path) {
+        // Use utility function if available, otherwise fallback
+        if (window.MarkdUtils && window.MarkdUtils.getNestedValue) {
+            return window.MarkdUtils.getNestedValue(obj, path);
+        }
         return path.split('.').reduce((o, p) => o && o[p], obj);
     }
 
