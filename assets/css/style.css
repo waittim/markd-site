@@ -241,10 +241,45 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .navbar-brand {
+    display: flex;
+    align-items: center;
+    gap: 8px;
     font-size: 20px;
     font-weight: 700;
     letter-spacing: -0.02em;
     color: var(--accent);
+    text-decoration: none;
+    transition: opacity 0.3s;
+}
+
+.navbar-brand:hover {
+    opacity: 0.8;
+}
+
+.navbar-brand-text {
+    display: inline-block;
+}
+
+.navbar-brand .app-icon {
+    border-radius: 8px;
+    flex-shrink: 0;
+}
+
+/* App Icon Theme Switching */
+.app-icon-light {
+    display: block !important;
+}
+
+.app-icon-dark {
+    display: none !important;
+}
+
+[data-theme='dark'] .app-icon-light {
+    display: none !important;
+}
+
+[data-theme='dark'] .app-icon-dark {
+    display: block !important;
 }
 
 .navbar-download-btn {
@@ -285,6 +320,22 @@ h1, h2, h3, h4, h5, h6 {
     text-align: center;
     position: relative;
     z-index: 10;
+}
+
+.hero-app-icon {
+    margin-bottom: 32px;
+    display: flex;
+    justify-content: center;
+}
+
+.hero-app-icon .app-icon {
+    border-radius: 28px;
+    box-shadow: 0 20px 60px -12px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease;
+}
+
+.hero-app-icon .app-icon:hover {
+    transform: scale(1.05);
 }
 
 .hero-badge {
@@ -360,6 +411,38 @@ h1, h2, h3, h4, h5, h6 {
 
 .phone-container:hover {
     transform: rotateY(6deg) rotateX(2deg);
+}
+
+.phone-screenshot {
+    max-width: 360px;
+    width: 100%;
+    height: auto;
+    border-radius: 68px;
+    box-shadow: 0 60px 120px -30px rgba(0, 0, 0, 0.4);
+    transition: transform 0.7s, opacity 0.3s;
+    display: block;
+}
+
+.phone-screenshot:hover {
+    transform: rotateY(6deg) rotateX(2deg);
+}
+
+/* Show light screenshot in light mode, hide dark screenshot */
+.phone-screenshot-light {
+    display: block;
+}
+
+.phone-screenshot-dark {
+    display: none;
+}
+
+/* Show dark screenshot in dark mode, hide light screenshot */
+[data-theme='dark'] .phone-screenshot-light {
+    display: none;
+}
+
+[data-theme='dark'] .phone-screenshot-dark {
+    display: block;
 }
 
 .phone-notch {
@@ -698,7 +781,7 @@ h1, h2, h3, h4, h5, h6 {
     gap: 8px;
     font-size: 17px;
     font-weight: 700;
-    color: var(--accent);
+    color: var(--text-secondary);
     text-decoration: none;
     transition: gap 0.3s;
 }
@@ -823,6 +906,22 @@ h1, h2, h3, h4, h5, h6 {
 .cta-container {
     max-width: 640px;
     margin: 0 auto;
+}
+
+.cta-app-icon {
+    margin-bottom: 32px;
+    display: flex;
+    justify-content: center;
+}
+
+.cta-app-icon .app-icon {
+    border-radius: 20px;
+    box-shadow: 0 10px 40px -10px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease;
+}
+
+.cta-app-icon .app-icon:hover {
+    transform: scale(1.05);
 }
 
 .cta-title {
@@ -966,6 +1065,11 @@ h1, h2, h3, h4, h5, h6 {
     .phone-container {
         width: 300px;
         height: 600px;
+        border-radius: 56px;
+    }
+    
+    .phone-screenshot {
+        max-width: 300px;
         border-radius: 56px;
     }
     

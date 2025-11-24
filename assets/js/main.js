@@ -45,9 +45,10 @@ const translations = {
             titleLine1: "Your taste,",
             titleLine2: "not the algorithm.",
             content: [
-                "Mark'd has no social feed. No \"Hot Right Now\". No influencers.",
-                "It is a quiet space to cultivate your own taste. Like a message in a bottle, preserved for your future self.",
-                "When you look back, you don't see what was popular. You see who you were."
+                "You encounter a bottle of wine, a café, a scent.\nIt might be just a fleeting experience, or it could be the beginning of a memory.",
+                "Mark'd lets you preserve them in the lightest moment.\nNo posting, no likes, no explanations needed. You write down your own feelings, leaving an answer for your future self.",
+                "This is not a social platform designed for others. It's a private library where your preferences are stored.",
+                "When you look back at your records, you'll discover\nit's not that the world changed you, but that you've begun to understand yourself more clearly."
             ],
             signature: "Mark'd — Remember your experience, understand your life.",
             link: "Read our Privacy Pledge",
@@ -104,7 +105,7 @@ const translations = {
             },
             team: {
                 title: "Behind Mark'd",
-                content: "Mark'd is built by a small team of designers and developers who believe in the power of personal reflection and authentic taste. We're not trying to build the next social network—we're building a tool for you to understand yourself better."
+                content: "I built Mark'd because I believe in the power of personal reflection and authentic taste. I'm not trying to build the next social network—I'm building a tool for you to understand yourself better."
             },
             contact: {
                 title: "Get in Touch",
@@ -219,10 +220,10 @@ const translations = {
             titleLine1: "你的品味，",
             titleLine2: "而非算法。",
             content: [
-                "你遇见一瓶酒、一家咖啡馆、一种香气。它可能只是短暂的体验，也可能是一段回忆的起点。",
-                "Mark'd 让你在最轻的瞬间保存它们——不需要发布、不需要点赞、不需要解释。你写下自己的感受，你为未来的自己留一个答案。",
+                "你遇见一瓶酒、一家咖啡馆、一种香气。\n它可能只是短暂的体验，也可能是一段回忆的起点。",
+                "Mark'd 让你在最轻的瞬间保存它们。\n不需要发布、不需要点赞、不需要解释。你写下自己的感受，你为未来的自己留一个答案。",
                 "这不是一个为了他人设计的社交平台。而是一座存放你偏好的私人图鉴。",
-                "当你回望自己的记录，你会发现——不是世界改变了你，而是你开始更清晰地理解自己。"
+                "当你回望自己的记录，你会发现\n不是世界改变了你，是你开始更清晰地理解自己。"
             ],
             signature: "Mark'd — 记住你的体验，理解你的生活。",
             link: "阅读隐私承诺",
@@ -279,7 +280,7 @@ const translations = {
             },
             team: {
                 title: "Mark'd 背后",
-                content: "Mark'd 由一小群设计师和开发者打造，他们相信个人反思和真实品味的力量。我们不是在尝试构建下一个社交网络——我们是在为你构建一个更好地理解自己的工具。"
+                content: "我们相信个人反思和真实品味的力量。这不是在尝试构建下一个社交网络——这是在为你构建一个更好地理解自己的工具。"
             },
             contact: {
                 title: "联系我们",
@@ -445,8 +446,12 @@ function updateLanguage() {
                         // If parent is UL, create list items
                         el.innerHTML = value.map(item => `<li>${item}</li>`).join('');
                     } else {
-                        // Otherwise create paragraphs
-                        el.innerHTML = value.map(item => `<p>${item}</p>`).join('');
+                        // Otherwise create paragraphs, preserving line breaks within each paragraph
+                        el.innerHTML = value.map(item => {
+                            // Replace \n\n with paragraph break, \n with <br>
+                            const formatted = item.replace(/\n\n/g, '</p><p>').replace(/\n/g, '<br>');
+                            return `<p>${formatted}</p>`;
+                        }).join('');
                     }
                 } else {
                     el.innerHTML = value.join('');
