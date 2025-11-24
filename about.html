@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="About Mark'd - Learn about our mission to help you preserve and understand your personal experiences.">
+    <title>About - Mark'd</title>
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700;900&family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body data-page="about">
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="navbar-container">
+            <div class="navbar-glass">
+                <a href="index.html" class="navbar-brand" style="text-decoration: none;">Mark'd</a>
+                <a href="index.html#download" class="navbar-download-btn" data-i18n="nav.download">Download</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Content Page -->
+    <main class="content-page">
+        <div class="content-container">
+            <h1 class="content-title sf-display" data-i18n="about.title">About Mark'd</h1>
+            <p class="content-subtitle" data-i18n="about.subtitle">A private space to cultivate your own taste and preserve your experiences.</p>
+
+            <div class="content-section">
+                <h2 data-i18n="about.mission.title">Our Mission</h2>
+                <div data-i18n="about.mission.content"></div>
+            </div>
+
+            <div class="content-section">
+                <h2 data-i18n="about.values.title">What We Stand For</h2>
+                <h3 data-i18n="about.values.privacy.title">Privacy First</h3>
+                <p data-i18n="about.values.privacy.content">Your data belongs to you. Mark'd stores everything locally on your device and syncs securely through iCloud. We don't track you, we don't sell your data, and we don't show you ads.</p>
+
+                <h3 data-i18n="about.values.authenticity.title">Authentic Experience</h3>
+                <p data-i18n="about.values.authenticity.content">No social feeds. No popularity contests. No algorithms telling you what to like. Just you, your experiences, and your honest reflections.</p>
+
+                <h3 data-i18n="about.values.quality.title">Quality Over Quantity</h3>
+                <p data-i18n="about.values.quality.content">We're not about recording everything. We're about capturing what matters—those moments, products, and experiences that shape who you are.</p>
+            </div>
+
+            <div class="content-section">
+                <h2 data-i18n="about.how.title">How It Works</h2>
+                <div data-i18n="about.how.content"></div>
+                <ul data-i18n="about.how.list"></ul>
+            </div>
+
+            <div class="content-section">
+                <h2 data-i18n="about.team.title">Behind Mark'd</h2>
+                <p data-i18n="about.team.content">Mark'd is built by a small team of designers and developers who believe in the power of personal reflection and authentic taste. We're not trying to build the next social network—we're building a tool for you to understand yourself better.</p>
+            </div>
+
+            <div class="content-section">
+                <h2 data-i18n="about.contact.title">Get in Touch</h2>
+                <p data-i18n="about.contact.content">Have questions, feedback, or suggestions? We'd love to hear from you.</p>
+                <p>
+                    <a href="mailto:hello@markd.app">hello@markd.app</a>
+                </p>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-content">
+                <div class="footer-brand">Mark'd</div>
+
+                <div class="footer-links">
+                    <a href="privacy.html" data-i18n="footer.privacy">Privacy Policy</a>
+                    <a href="about.html" data-i18n="nav.about">About</a>
+                    <a href="mailto:support@markd.app" data-i18n="footer.support">Support</a>
+                </div>
+
+                <div class="footer-controls">
+                    <div class="footer-controls-group">
+                        <button class="footer-btn lang-toggle" aria-label="Switch Language">
+                            <svg class="footer-btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="12" cy="12" r="10"/>
+                                <line x1="2" y1="12" x2="22" y2="12"/>
+                                <path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/>
+                            </svg>
+                            <span class="lang-text">中</span>
+                        </button>
+                        <button class="footer-btn theme-toggle" aria-label="Toggle Theme">
+                            <svg class="footer-btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/>
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="footer-copyright">© <span id="year"></span></div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="assets/js/main.js"></script>
+    <script>
+        document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
+</body>
+</html>
+

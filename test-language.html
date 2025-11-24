@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Language Toggle Test</title>
+    <style>
+        body {
+            font-family: system-ui, -apple-system, sans-serif;
+            padding: 40px;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        .test-btn {
+            padding: 12px 24px;
+            background: #007AFF;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+            margin: 10px;
+        }
+        .test-btn:hover {
+            background: #0051D5;
+        }
+        .status {
+            margin: 20px 0;
+            padding: 16px;
+            background: #f5f5f5;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+<body>
+    <h1>语言切换测试页面</h1>
+    
+    <div class="status">
+        <p><strong>当前语言:</strong> <span id="current-lang">-</span></p>
+        <p><strong>按钮状态:</strong> <span id="button-status">检查中...</span></p>
+    </div>
+    
+    <button class="test-btn lang-toggle">切换语言 (测试按钮)</button>
+    <button class="test-btn" onclick="testDirectToggle()">直接调用函数</button>
+    <button class="test-btn" onclick="checkButtons()">检查按钮</button>
+    
+    <div class="status" id="log" style="margin-top: 20px; font-family: monospace; font-size: 12px;">
+        <strong>日志:</strong><br>
+    </div>
+    
+    <script src="assets/js/main.js"></script>
+    <script>
+        function log(message) {
+            const logEl = document.getElementById('log');
+            logEl.innerHTML += new Date().toLocaleTimeString() + ': ' + message + '<br>';
+            console.log(message);
+        }
+        
+        function updateStatus() {
+            document.getElementById('current-lang').textContent = window.MarkdApp ? 
+                (window.currentLang || 'unknown') : 'MarkdApp not loaded';
+            
+            const buttons = document.querySelectorAll('.lang-toggle');
+            document.getElementById('button-status').textContent = 
+                `找到 ${buttons.length} 个语言切换按钮`;
+        }
+        
+        function testDirectToggle() {
+            log('直接调用 toggleLanguage');
+            if (window.MarkdApp && window.MarkdApp.toggleLanguage) {
+                window.MarkdApp.toggleLanguage();
+                updateStatus();
+            } else {
+                log('ERROR: toggleLanguage 函数不可用');
+            }
+        }
+        
+        function checkButtons() {
+            const buttons = document.querySelectorAll('.lang-toggle');
+            log(`找到 ${buttons.length} 个 .lang-toggle 按钮`);
+            buttons.forEach((btn, i) => {
+                log(`按钮 ${i + 1}: ${btn.outerHTML.substring(0, 100)}`);
+            });
+        }
+        
+        // 检查 MarkdApp 是否加载
+        window.addEventListener('load', function() {
+            log('页面加载完成');
+            setTimeout(() => {
+                if (window.MarkdApp) {
+                    log('✅ MarkdApp 已加载');
+                    log('当前语言: ' + (window.currentLang || 'unknown'));
+                } else {
+                    log('❌ MarkdApp 未加载');
+                }
+                updateStatus();
+            }, 500);
+        });
+        
+        // 监听按钮点击
+        document.addEventListener('click', function(e) {
+            if (e.target.closest('.lang-toggle')) {
+                log('检测到语言按钮点击事件');
+            }
+        });
+        
+        updateStatus();
+    </script>
+</body>
+</html>
+

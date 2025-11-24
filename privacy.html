@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Privacy Policy - Mark'd respects your privacy and protects your personal data.">
+    <title>Privacy Policy - Mark'd</title>
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700;900&family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body data-page="privacy">
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="navbar-container">
+            <div class="navbar-glass">
+                <a href="index.html" class="navbar-brand" style="text-decoration: none;">Mark'd</a>
+                <a href="index.html#download" class="navbar-download-btn" data-i18n="nav.download">Download</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Content Page -->
+    <main class="content-page">
+        <div class="content-container">
+            <h1 class="content-title sf-display" data-i18n="privacy.title">Privacy Policy</h1>
+            <p class="content-subtitle" data-i18n="privacy.lastUpdated">Last updated: <span id="privacy-date"></span></p>
+
+            <div class="content-section">
+                <h2 data-i18n="privacy.intro.title">Our Commitment to Privacy</h2>
+                <div data-i18n="privacy.intro.content"></div>
+            </div>
+
+            <div class="content-section">
+                <h2 data-i18n="privacy.data.title">What Data We Collect</h2>
+                <h3 data-i18n="privacy.data.local.title">Local Data</h3>
+                <p data-i18n="privacy.data.local.content">All your logs, photos, ratings, and notes are stored locally on your device. This data never leaves your device unless you explicitly choose to sync it via iCloud.</p>
+
+                <h3 data-i18n="privacy.data.icloud.title">iCloud Sync</h3>
+                <p data-i18n="privacy.data.icloud.content">If you enable iCloud sync, your data is encrypted and stored in your personal iCloud account. This data is subject to Apple's Privacy Policy and is not accessible to us.</p>
+
+                <h3 data-i18n="privacy.data.analytics.title">Analytics</h3>
+                <p data-i18n="privacy.data.analytics.content">We may collect anonymous usage analytics to improve the app. This data does not include any personal information or content from your logs.</p>
+            </div>
+
+            <div class="content-section">
+                <h2 data-i18n="privacy.use.title">How We Use Your Data</h2>
+                <ul data-i18n="privacy.use.list"></ul>
+                <p data-i18n="privacy.use.note">We do not sell, rent, or share your personal data with third parties for marketing purposes.</p>
+            </div>
+
+            <div class="content-section">
+                <h2 data-i18n="privacy.security.title">Data Security</h2>
+                <div data-i18n="privacy.security.content"></div>
+            </div>
+
+            <div class="content-section">
+                <h2 data-i18n="privacy.rights.title">Your Rights</h2>
+                <div data-i18n="privacy.rights.content"></div>
+                <ul data-i18n="privacy.rights.list"></ul>
+            </div>
+
+            <div class="content-section">
+                <h2 data-i18n="privacy.children.title">Children's Privacy</h2>
+                <p data-i18n="privacy.children.content">Mark'd is not intended for children under the age of 13. We do not knowingly collect personal information from children under 13.</p>
+            </div>
+
+            <div class="content-section">
+                <h2 data-i18n="privacy.changes.title">Changes to This Policy</h2>
+                <p data-i18n="privacy.changes.content">We may update this Privacy Policy from time to time. We will notify you of any changes by posting the new Privacy Policy on this page and updating the "Last updated" date.</p>
+            </div>
+
+            <div class="content-section">
+                <h2 data-i18n="privacy.contact.title">Contact Us</h2>
+                <p data-i18n="privacy.contact.content">If you have any questions about this Privacy Policy, please contact us at:</p>
+                <p>
+                    <a href="mailto:privacy@markd.app">privacy@markd.app</a>
+                </p>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-content">
+                <div class="footer-brand">Mark'd</div>
+
+                <div class="footer-links">
+                    <a href="privacy.html" data-i18n="footer.privacy">Privacy Policy</a>
+                    <a href="about.html" data-i18n="nav.about">About</a>
+                    <a href="mailto:support@markd.app" data-i18n="footer.support">Support</a>
+                </div>
+
+                <div class="footer-controls">
+                    <div class="footer-controls-group">
+                        <button class="footer-btn lang-toggle" aria-label="Switch Language">
+                            <svg class="footer-btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="12" cy="12" r="10"/>
+                                <line x1="2" y1="12" x2="22" y2="12"/>
+                                <path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/>
+                            </svg>
+                            <span class="lang-text">中</span>
+                        </button>
+                        <button class="footer-btn theme-toggle" aria-label="Toggle Theme">
+                            <svg class="footer-btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/>
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="footer-copyright">© <span id="year"></span></div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="assets/js/main.js"></script>
+    <script>
+        document.getElementById('year').textContent = new Date().getFullYear();
+        document.getElementById('privacy-date').textContent = new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+    </script>
+</body>
+</html>
+
