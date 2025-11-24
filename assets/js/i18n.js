@@ -96,28 +96,110 @@
             }
         });
 
-        // Update language button (show next language)
+        // Update language button (show current language)
         const langButtons = document.querySelectorAll('.lang-toggle');
         langButtons.forEach(btn => {
             const span = btn.querySelector('.lang-text');
             if (span) {
-                const currentIndex = supportedLangs.indexOf(currentLang);
-                const nextIndex = (currentIndex + 1) % supportedLangs.length;
-                const nextLang = supportedLangs[nextIndex];
-                span.textContent = langLabels[nextLang] || nextLang;
+                // Show current language label
+                span.textContent = langLabels[currentLang] || currentLang;
             }
         });
+        
+        // Update language dropdown if exists
+        updateLanguageDropdown();
 
         // Update page title
         updatePageTitle();
     }
 
+    function setLanguage(lang) {
+        if (supportedLangs.includes(lang) && lang !== currentLang) {
+            currentLang = lang;
+            console.log('Language switched to:', currentLang);
+            updateLanguage(true); // true = user manually toggled, save as preference
+            closeLanguageDropdown();
+        }
+    }
+    
     function toggleLanguage() {
+        // For backward compatibility, cycle through languages
         const currentIndex = supportedLangs.indexOf(currentLang);
         const nextIndex = (currentIndex + 1) % supportedLangs.length;
-        currentLang = supportedLangs[nextIndex];
-        console.log('Language switched to:', currentLang);
-        updateLanguage(true); // true = user manually toggled, save as preference
+        setLanguage(supportedLangs[nextIndex]);
+    }
+    
+    function toggleLanguageDropdown() {
+        const dropdowns = document.querySelectorAll('.lang-dropdown');
+        dropdowns.forEach(dropdown => {
+            dropdown.classList.toggle('active');
+        });
+    }
+    
+    function closeLanguageDropdown() {
+        const dropdowns = document.querySelectorAll('.lang-dropdown');
+        dropdowns.forEach(dropdown => {
+            dropdown.classList.remove('active');
+        });
+    }
+    
+    function updateLanguageDropdown() {
+        const dropdowns = document.querySelectorAll('.lang-dropdown');
+        dropdowns.forEach(dropdown => {
+            // Update active state for each language option
+            const options = dropdown.querySelectorAll('.lang-option');
+            options.forEach(option => {
+                const lang = option.getAttribute('data-lang');
+                if (lang === currentLang) {
+                    option.classList.add('active');
+                } else {
+                    option.classList.remove('active');
+                }
+            });
+        });
+    }
+    
+    function initLanguageDropdown() {
+        // Create dropdown menu if it doesn't exist
+        const langButtons = document.querySelectorAll('.lang-toggle');
+        langButtons.forEach(btn => {
+            // Check if dropdown already exists
+            if (btn.parentElement.querySelector('.lang-dropdown')) {
+                return;
+            }
+            
+            // Create dropdown container
+            const dropdown = document.createElement('div');
+            dropdown.className = 'lang-dropdown';
+            
+            // Create language options
+            supportedLangs.forEach(lang => {
+                const option = document.createElement('button');
+                option.className = 'lang-option';
+                option.setAttribute('data-lang', lang);
+                option.textContent = langLabels[lang] || lang;
+                if (lang === currentLang) {
+                    option.classList.add('active');
+                }
+                option.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    setLanguage(lang);
+                });
+                dropdown.appendChild(option);
+            });
+            
+            // Insert dropdown after button
+            btn.parentElement.style.position = 'relative';
+            btn.parentElement.appendChild(dropdown);
+        });
+        
+        // Close dropdown when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!e.target.closest('.lang-toggle') && !e.target.closest('.lang-dropdown')) {
+                closeLanguageDropdown();
+            }
+        });
     }
     
     function resetToAuto() {
@@ -193,6 +275,10 @@
         window.MarkdI18n = {
             init: initLanguage,
             toggle: toggleLanguage,
+            setLanguage: setLanguage,
+            toggleDropdown: toggleLanguageDropdown,
+            closeDropdown: closeLanguageDropdown,
+            initDropdown: initLanguageDropdown,
             getCurrentLang: getCurrentLang,
             getTranslation: getTranslation,
             update: updateLanguage,

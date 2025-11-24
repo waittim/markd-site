@@ -61,19 +61,23 @@ function setupEventListeners() {
         });
     });
 
-    // Language toggle
+    // Language toggle - show dropdown instead of cycling
     const langButtons = document.querySelectorAll('.lang-toggle');
     langButtons.forEach(btn => {
         btn.addEventListener('click', function(e) {
             e.preventDefault();
             e.stopPropagation();
             if (window.MarkdI18n) {
-                window.MarkdI18n.toggle();
-                currentLang = window.MarkdI18n.getCurrentLang();
-                window.currentLang = currentLang;
+                // Toggle dropdown menu
+                window.MarkdI18n.toggleDropdown();
             }
         });
     });
+    
+    // Initialize language dropdown
+    if (window.MarkdI18n) {
+        window.MarkdI18n.initDropdown();
+    }
     
     if (langButtons.length === 0) {
         console.warn('No language toggle buttons found!');

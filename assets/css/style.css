@@ -853,6 +853,7 @@ h1, h2, h3, h4, h5, h6 {
     display: flex;
     align-items: center;
     gap: 12px;
+    position: relative;
 }
 
 .footer-btn {
@@ -890,6 +891,61 @@ h1, h2, h3, h4, h5, h6 {
     gap: 4px;
     font-size: 12px;
     font-weight: 500;
+}
+
+/* Language Dropdown */
+.lang-dropdown {
+    position: absolute;
+    bottom: calc(100% + 8px);
+    right: 0;
+    background: var(--bg-primary);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    padding: 4px;
+    min-width: 80px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(4px);
+    transition: opacity 0.2s, transform 0.2s, visibility 0.2s;
+    z-index: 1000;
+    pointer-events: none;
+}
+
+[data-theme='dark'] .lang-dropdown {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.lang-dropdown.active {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+    pointer-events: auto;
+}
+
+.lang-option {
+    display: block;
+    width: 100%;
+    padding: 8px 12px;
+    text-align: left;
+    background: transparent;
+    border: none;
+    color: var(--text-primary);
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    border-radius: 6px;
+    transition: background-color 0.2s;
+}
+
+.lang-option:hover {
+    background-color: var(--bg-secondary);
+}
+
+.lang-option.active {
+    background-color: var(--bg-secondary);
+    color: var(--text-primary);
+    font-weight: 600;
 }
 
 .footer-copyright {
