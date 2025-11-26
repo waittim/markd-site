@@ -3,7 +3,7 @@
    ============================================ */
 
 const icons = {
-    scan: '<path d="M12 2v4m0 12v4M4.93 4.93l2.83 2.83m8.48 8.48l2.83 2.83M2 12h4m12 0h4M4.93 19.07l2.83-2.83m8.48-8.48l2.83-2.83"/><circle cx="12" cy="12" r="3"/>',
+    scan: '<rect x="4" y="6" width="16" height="12" rx="1"/><rect x="6" y="8" width="0.6" height="8" fill="currentColor"/><rect x="8.5" y="8" width="0.8" height="8" fill="currentColor"/><rect x="11.5" y="8" width="0.6" height="8" fill="currentColor"/><rect x="14" y="8" width="1.2" height="8" fill="currentColor"/><rect x="18" y="8" width="0.4" height="8" fill="currentColor"/>',
     camera: '<path d="M23 19a2 2 0 01-2 2H3a2 2 0 01-2-2V8a2 2 0 012-2h4l2-3h6l2 3h4a2 2 0 012 2z"/><circle cx="12" cy="13" r="4"/>',
     star: '<polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>',
     share: '<circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/>',
@@ -26,4 +26,6 @@ if (typeof window !== 'undefined') {
         createIcon
     };
 }
+
+
 

@@ -32,7 +32,7 @@ const translationsEn = {
         titleHighlight: "instant capture.",
         titleSuffix: "",
         cards: {
-            scan: { title: "Scan & Log", desc: "Point your camera at a barcode. Mark'd recognizes the product instantly, fusing digital data with reality." },
+            scan: { title: "scan & mark", desc: "Point your camera at a barcode. Mark'd recognizes the product instantly, fusing digital data with reality." },
             visual: { title: "Visual Memory", desc: "Capture the mood. Your photos are stored with pristine quality and zero compression." },
             rating: { title: "Your Rating", desc: "No public averages. No algorithms. Just your personal preference preserved in glass." },
             share: { title: "Share Cards", desc: "Generate beautiful, crystalline images to share your finds with friends." },
@@ -94,17 +94,17 @@ const translationsEn = {
                 "Mark'd makes it effortless to capture and remember your experiences:"
             ],
             list: [
-                "Scan & Log: Point your camera at a barcode to instantly recognize products and add them to your library.",
+                    "scan & mark: Point your camera at a barcode to instantly recognize products and add them to your library.",
                 "Visual Memory: Capture photos with zero compression, preserving the moment exactly as you experienced it.",
                 "Personal Ratings: Rate items based on your own preferences, not public opinion.",
                 "Private Reflection: Add notes and thoughts that only you can see.",
                 "Share When You Want: Generate beautiful share cards to show friends, but only when you choose to."
             ]
         },
-        team: {
-            title: "Behind Mark'd",
-            content: "I built Mark'd because I believe in the power of personal reflection and authentic taste. I'm not trying to build the next social network—I'm building a tool for you to understand yourself better."
-        },
+            team: {
+                title: "Behind Mark'd",
+                content: "We believe in the power of personal reflection and authentic taste. We're not trying to build the next social network—we're building a tool for you to understand yourself better."
+            },
         contact: {
             title: "Get in Touch",
             content: "Have questions, feedback, or suggestions? We'd love to hear from you."
@@ -182,4 +182,6 @@ const translationsEn = {
 if (typeof window !== 'undefined') {
     window.translationsEn = translationsEn;
 }
+
+
 

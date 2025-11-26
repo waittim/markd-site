@@ -17,3 +17,5 @@ If you want to use a TestFlight badge instead, you can:
 2. Update the link in `index.html` CTA section
 3. Place the image file here
 
+
+
