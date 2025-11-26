@@ -283,8 +283,8 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .navbar-download-btn {
-    background-color: var(--text-primary);
-    color: var(--bg-primary);
+    background-color: var(--accent);
+    color: #FFFFFF;
     padding: 10px 20px;
     border-radius: 9999px;
     font-size: 14px;
@@ -298,6 +298,12 @@ h1, h2, h3, h4, h5, h6 {
 .navbar-download-btn:hover {
     transform: scale(1.05);
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    opacity: 0.9;
+}
+
+/* Optional: Darker hover effect for better contrast */
+[data-theme='dark'] .navbar-download-btn:hover {
+    background-color: var(--gradient-end);
 }
 
 /* --- Hero Section --- */
@@ -759,7 +765,7 @@ h1, h2, h3, h4, h5, h6 {
     display: flex;
     flex-direction: column;
     gap: 32px;
-    font-size: clamp(20px, 2.5vw, 28px);
+    font-size: clamp(18px, 2.2vw, 25px);
     line-height: 1.6;
     font-weight: 500;
     color: var(--text-secondary);
@@ -770,7 +776,7 @@ h1, h2, h3, h4, h5, h6 {
 .philosophy-signature {
     font-weight: 700;
     padding-top: 32px;
-    font-size: clamp(18px, 2vw, 24px);
+    font-size: clamp(16px, 1.8vw, 22px);
     color: var(--accent);
 }
 
@@ -779,7 +785,7 @@ h1, h2, h3, h4, h5, h6 {
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    font-size: 17px;
+    font-size: 15px;
     font-weight: 700;
     color: var(--text-secondary);
     text-decoration: none;

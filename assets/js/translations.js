@@ -104,7 +104,7 @@ const translations = {
             },
             team: {
                 title: "Behind Mark'd",
-                content: "I built Mark'd because I believe in the power of personal reflection and authentic taste. I'm not trying to build the next social network—I'm building a tool for you to understand yourself better."
+                content: "We believe in the power of personal reflection and authentic taste. We're not trying to build the next social network—we're building a tool for you to understand yourself better."
             },
             contact: {
                 title: "Get in Touch",
