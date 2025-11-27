@@ -765,7 +765,7 @@ h1, h2, h3, h4, h5, h6 {
     display: flex;
     flex-direction: column;
     gap: 32px;
-    font-size: clamp(18px, 2.2vw, 25px);
+    font-size: clamp(16px, 1.8vw, 22px);
     line-height: 1.6;
     font-weight: 500;
     color: var(--text-secondary);

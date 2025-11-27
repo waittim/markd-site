@@ -34,9 +34,9 @@ const translations = {
             titleSuffix: "",
             cards: {
                 scan: { title: "scan & mark", desc: "Point your camera at a barcode. Mark'd recognizes the product instantly, fusing digital data with reality." },
-                visual: { title: "Visual Memory", desc: "Capture the mood. Your photos are stored with pristine quality and zero compression." },
-                rating: { title: "Your Rating", desc: "No public averages. No algorithms. Just your personal preference preserved in glass." },
-                share: { title: "Share Cards", desc: "Generate beautiful, crystalline images to share your finds with friends." },
+                visual: { title: "Visual Memory", desc: "Capture the atmosphere of the moment. Your photos are archived in pristine, high-resolution quality." },
+                rating: { title: "Your Rating", desc: "No public averages and no algorithmic feeds—only your private scores and notes." },
+                share: { title: "Share Cards", desc: "Auto-layout your photo and rating into a refined card to share your discoveries with friends." },
                 cloud: { title: "iCloud Sync", desc: "Your data lives on your device and your iCloud. Private, secure, and always in sync." }
             }
         },
@@ -209,9 +209,9 @@ const translations = {
             titleSuffix: "而生。",
             cards: {
                 scan: { title: "扫码即录", desc: "对准条形码。Mark'd 瞬间识别商品，将数字信息无缝融合进现实体验。" },
-                visual: { title: "视觉记忆", desc: "记录当下的氛围。你的照片将以零压缩的原始画质完美保存。" },
-                rating: { title: "私人评分", desc: "没有大众均分，没有算法推荐。只有凝固在玻璃般的私密评价。" },
-                share: { title: "分享卡片", desc: "生成精美、晶莹剔透的分享卡片，与好友分享你的发现。" },
+                visual: { title: "视觉记忆", desc: "记录当下的氛围。你的照片会以高清画质妥善存档。" },
+                rating: { title: "私人评分", desc: "不是大众评分，没有算法推荐。只有你自己的私人评价和笔记。" },
+                share: { title: "分享卡片", desc: "自动排版你的照片和评分，生成简洁有质感的分享卡片，与好友分享你的发现。" },
                 cloud: { title: "iCloud 同步", desc: "数据保存在你的设备和 iCloud 中。私密、安全，时刻保持同步。" }
             }
         },
@@ -384,9 +384,9 @@ const translations = {
             titleSuffix: "而生。",
             cards: {
                 scan: { title: "掃碼即錄", desc: "對準條碼。Mark'd 瞬間識別商品，將數位資訊無縫融合進現實體驗。" },
-                visual: { title: "視覺記憶", desc: "記錄當下的氛圍。你的照片將以零壓縮的原始畫質完美保存。" },
-                rating: { title: "私人評分", desc: "沒有大眾均分，沒有演算法推薦。只有凝固在玻璃般的私密評價。" },
-                share: { title: "分享卡片", desc: "生成精美、晶瑩剔透的分享卡片，與好友分享你的發現。" },
+                visual: { title: "視覺記憶", desc: "記錄當下的氛圍。你的照片會以高畫質妥善封存。" },
+                rating: { title: "私人評分", desc: "不是大眾評分，沒有演算法推薦。只有你自己的私人評價和筆記。" },
+                share: { title: "分享卡片", desc: "自動排版你的照片和評分，生成簡潔有質感的分享卡片，與好友分享你的發現。" },
                 cloud: { title: "iCloud 同步", desc: "資料保存在你的裝置和 iCloud 中。私密、安全，時刻保持同步。" }
             }
         },
