@@ -190,7 +190,7 @@ const translations = {
             titleLine2: "生活图鉴",
             subtitlePre: "不是为了记录所有东西。",
             subtitleHighlight: "",
-            subtitlePost: "而是为了留下重要的那一些。",
+            subtitlePost: "而是为了留下重要的那些。",
             cta: "下载 Mark'd",
             phone: {
                 header: "记录",
@@ -365,7 +365,7 @@ const translations = {
             titleLine2: "生活圖鑑",
             subtitlePre: "不是為了記錄所有東西。",
             subtitleHighlight: "",
-            subtitlePost: "而是為了留下重要的那一些。",
+            subtitlePost: "而是為了留下重要的那些。",
             cta: "下載 Mark'd",
             phone: {
                 header: "記錄",
