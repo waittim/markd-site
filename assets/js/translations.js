@@ -29,9 +29,9 @@ const translations = {
             }
         },
         features: {
-            titleLine1: "Designed for",
-            titleHighlight: "instant capture.",
-            titleSuffix: "",
+            titleLine1: "Keep what ",
+            titleHighlight: "matters,",
+            titleSuffix: "for your future self.",
             cards: {
                 scan: { title: "scan & mark", desc: "Point your camera at a barcode. Mark'd recognizes the product instantly, fusing digital data with reality." },
                 visual: { title: "Visual Memory", desc: "Capture the atmosphere of the moment. Your photos are archived in pristine, high-resolution quality." },
@@ -204,9 +204,9 @@ const translations = {
             }
         },
         features: {
-            titleLine1: "为",
-            titleHighlight: "瞬间记录",
-            titleSuffix: "而生。",
+            titleLine1: "把",
+            titleHighlight: "体验",
+            titleSuffix: "留给未来的你。",
             cards: {
                 scan: { title: "扫码即录", desc: "对准条形码。Mark'd 瞬间识别商品，将数字信息无缝融合进现实体验。" },
                 visual: { title: "视觉记忆", desc: "记录当下的氛围。你的照片会以高清画质妥善存档。" },
@@ -379,9 +379,9 @@ const translations = {
             }
         },
         features: {
-            titleLine1: "為",
-            titleHighlight: "瞬間記錄",
-            titleSuffix: "而生。",
+            titleLine1: "把",
+            titleHighlight: "體驗",
+            titleSuffix: "留給未來的你。",
             cards: {
                 scan: { title: "掃碼即錄", desc: "對準條碼。Mark'd 瞬間識別商品，將數位資訊無縫融合進現實體驗。" },
                 visual: { title: "視覺記憶", desc: "記錄當下的氛圍。你的照片會以高畫質妥善封存。" },
