@@ -33,7 +33,7 @@ const translations = {
             titleHighlight: "matters,",
             titleSuffix: "for your future self.",
             cards: {
-                scan: { title: "scan & mark", desc: "Point your camera at a barcode. Mark'd recognizes the product instantly, fusing digital data with reality." },
+                scan: { title: "Scan & Mark", desc: "Point your camera at a barcode. Mark'd recognizes the product instantly, fusing digital data with reality." },
                 visual: { title: "Visual Memory", desc: "Capture the atmosphere of the moment. Your photos are archived in pristine, high-resolution quality." },
                 rating: { title: "Your Rating", desc: "No public averages and no algorithmic feeds—only your private scores and notes." },
                 share: { title: "Share Cards", desc: "Auto-layout your photo and rating into a refined card to share your discoveries with friends." },
