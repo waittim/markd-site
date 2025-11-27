@@ -9,8 +9,9 @@
     --bg-secondary: #FFFFFF;
     --text-primary: #1D1D1F;
     --text-secondary: rgba(29, 29, 31, 0.7);
-    --accent: #7AA4FF; 
-    --gradient-end: #A78BFA;
+    --accent: #7AA4FF;
+    --accent-secondary: #4CC9FF;
+    --gradient-end: var(--accent-secondary);
     
     /* Glass Materials */
     --glass-bg: linear-gradient(135deg, rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0.4));
@@ -38,7 +39,8 @@
     --text-primary: #F5F5F7;
     --text-secondary: rgba(235, 235, 245, 0.6);
     --accent: #6080C7;
-    --gradient-end: #9333EA;
+    --accent-secondary: #3AA1FF;
+    --gradient-end: var(--accent-secondary);
 
     /* Glass Materials */
     --glass-bg: linear-gradient(135deg, rgba(40, 40, 40, 0.6), rgba(30, 30, 30, 0.4));
@@ -198,7 +200,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .text-gradient-accent {
-    background: linear-gradient(to right, var(--accent), var(--gradient-end));
+    background: linear-gradient(120deg, var(--accent), var(--gradient-end));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -283,7 +285,9 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .navbar-download-btn {
-    background-color: var(--accent);
+    background-image: linear-gradient(120deg, var(--accent), var(--accent-secondary));
+    background-size: 200% 100%;
+    background-position: 0% 50%;
     color: #FFFFFF;
     padding: 10px 20px;
     border-radius: 9999px;
@@ -293,17 +297,13 @@ h1, h2, h3, h4, h5, h6 {
     cursor: pointer;
     transition: all 0.3s;
     white-space: nowrap;
+    text-decoration: none;
 }
 
 .navbar-download-btn:hover {
     transform: scale(1.05);
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-    opacity: 0.9;
-}
-
-/* Optional: Darker hover effect for better contrast */
-[data-theme='dark'] .navbar-download-btn:hover {
-    background-color: var(--gradient-end);
+    background-position: 100% 50%;
 }
 
 /* --- Hero Section --- */
