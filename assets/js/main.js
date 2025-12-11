@@ -138,6 +138,65 @@ function setupEventListeners() {
             setTimeout(safeNavigate, 150);
         });
     });
+
+    // Navbar download button tracking (GA4 optimized)
+    // Handles both anchor links (page scroll) and external links (navigation)
+    const navbarDownloadButtons = document.querySelectorAll('.navbar-download-btn');
+    navbarDownloadButtons.forEach(btn => {
+        btn.addEventListener('click', function(e) {
+            const href = this.getAttribute('href') || '';
+            const buttonText = this.textContent.trim() || 'Download';
+            
+            // If gtag is not available, allow normal navigation
+            if (typeof gtag === 'undefined') {
+                return; // Let the default link behavior proceed
+            }
+            
+            // Check if it's an anchor link (starts with #) or relative link with anchor
+            // External links start with http:// or https://
+            const isAnchorLink = href.startsWith('#') || 
+                                (href.includes('#') && !href.startsWith('http://') && !href.startsWith('https://'));
+            
+            if (isAnchorLink) {
+                // For anchor links, allow default scroll behavior but still track the event
+                gtag('event', 'navbar_download_click', {
+                    button_text: buttonText,
+                    link_url: href,
+                    link_type: 'navbar_anchor',
+                    value: 1
+                });
+                // Let the default anchor link behavior proceed (smooth scroll)
+                return;
+            } else {
+                // For external links, prevent default and ensure event is sent before navigation
+                e.preventDefault();
+                
+                // Flag to prevent double navigation
+                let navigated = false;
+                const safeNavigate = () => {
+                    if (!navigated) {
+                        navigated = true;
+                        window.location.href = href;
+                    }
+                };
+                
+                // Send GA4 event with custom event name and parameters
+                gtag('event', 'navbar_download_click', {
+                    button_text: buttonText,
+                    link_url: href,
+                    link_type: 'navbar_external',
+                    value: 1,
+                    event_callback: () => {
+                        // Navigate after event is confirmed sent
+                        safeNavigate();
+                    }
+                });
+                
+                // Fallback: navigate after 150ms if callback doesn't fire
+                setTimeout(safeNavigate, 150);
+            }
+        });
+    });
 }
 
 // Initialize when DOM is ready
