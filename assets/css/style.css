@@ -830,6 +830,13 @@ h1, h2, h3, h4, h5, h6 {
     font-weight: 700;
     letter-spacing: -0.02em;
     color: var(--text-primary);
+    text-decoration: none;
+    transition: opacity 0.3s;
+    cursor: pointer;
+}
+
+.footer-brand:hover {
+    opacity: 0.8;
 }
 
 .footer-links {
@@ -1062,7 +1069,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .content-subtitle {
-    font-size: clamp(20px, 2.5vw, 24px);
+    font-size: 17px;
     color: var(--text-secondary);
     margin-bottom: 48px;
     line-height: 1.6;

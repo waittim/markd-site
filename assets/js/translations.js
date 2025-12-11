@@ -113,7 +113,7 @@ const translations = {
         },
         privacy: {
             title: "Privacy Policy",
-            lastUpdated: "Last updated:",
+            lastUpdated: "Last updated: 2025-12-10",
             intro: {
                 title: "Our Commitment to Privacy",
                 content: [
@@ -288,7 +288,7 @@ const translations = {
         },
         privacy: {
             title: "隐私政策",
-            lastUpdated: "最后更新：",
+            lastUpdated: "最后更新：2025-12-10",
             intro: {
                 title: "我们对隐私的承诺",
                 content: [
@@ -463,7 +463,7 @@ const translations = {
         },
         privacy: {
             title: "隱私政策",
-            lastUpdated: "最後更新：",
+            lastUpdated: "最後更新：2025-12-10",
             intro: {
                 title: "我們對隱私的承諾",
                 content: [

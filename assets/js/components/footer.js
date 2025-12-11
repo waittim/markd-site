@@ -30,7 +30,7 @@
             <footer class="footer">
                 <div class="footer-container">
                     <div class="footer-content">
-                        ${showBrand ? '<div class="footer-brand">Mark\'d</div>' : ''}
+                        ${showBrand ? '<a href="index.html" class="footer-brand">Mark\'d</a>' : ''}
 
                         ${showLinks ? `
                         <div class="footer-links">
