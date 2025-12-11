@@ -96,6 +96,48 @@ function setupEventListeners() {
             }
         });
     });
+
+    // App Store download button tracking (GA4 optimized)
+    // Note: This runs after DOM is loaded (via initializeApp -> initApp -> setupEventListeners)
+    const appStoreButtons = document.querySelectorAll('.app-store-btn');
+    appStoreButtons.forEach(btn => {
+        btn.addEventListener('click', function(e) {
+            const href = this.getAttribute('href') || '';
+            const buttonText = this.textContent.trim() || 'App Store Download';
+            
+            // If gtag is not available, allow normal navigation
+            if (typeof gtag === 'undefined') {
+                return; // Let the default link behavior proceed
+            }
+            
+            // Prevent default navigation to ensure event is sent
+            e.preventDefault();
+            
+            // Flag to prevent double navigation
+            let navigated = false;
+            const safeNavigate = () => {
+                if (!navigated) {
+                    navigated = true;
+                    window.location.href = href;
+                }
+            };
+            
+            // Send GA4 event with custom event name and parameters
+            gtag('event', 'app_store_click', {
+                button_text: buttonText,
+                link_url: href,
+                link_type: 'app_store_badge',
+                value: 1,
+                event_callback: () => {
+                    // Navigate after event is confirmed sent
+                    safeNavigate();
+                }
+            });
+            
+            // Fallback: navigate after 150ms if callback doesn't fire
+            setTimeout(safeNavigate, 150);
+        });
+    });
 }
 
 // Initialize when DOM is ready
