@@ -28,7 +28,7 @@
     <main class="content-page">
         <div class="content-container">
             <h1 class="content-title sf-display" data-i18n="privacy.title">Privacy Policy</h1>
-            <p class="content-subtitle" data-i18n="privacy.lastUpdated">Last updated: <span id="privacy-date"></span></p>
+            <p class="content-subtitle" data-i18n="privacy.lastUpdated">Last updated: 2025-12-10</p>
 
             <div class="content-section">
                 <h2 data-i18n="privacy.intro.title">Our Commitment to Privacy</h2>
@@ -108,15 +108,5 @@
     <script src="assets/js/lazy-load.js"></script>
     <!-- Main application -->
     <script src="assets/js/main.js"></script>
-    <script>
-        // Set privacy policy date
-        document.addEventListener('DOMContentLoaded', function() {
-            const privacyDateEl = document.getElementById('privacy-date');
-            if (privacyDateEl) {
-                privacyDateEl.textContent = new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
-            }
-        });
-    </script>
 </body>
 </html>
-

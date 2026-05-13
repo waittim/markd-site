@@ -20,6 +20,9 @@
             // Override with passed options
             navbarConfig = { ...navbarConfig, ...options.navbar };
             footerConfig = { ...footerConfig, ...options.footer };
+            if (options.downloadLink && !options.navbar?.downloadLink) {
+                navbarConfig.downloadLink = options.downloadLink;
+            }
         } else {
             // Fallback: use downloadLink from options for navbar
             if (options.downloadLink) {
@@ -81,4 +84,3 @@
         initialize();
     }
 })();
-

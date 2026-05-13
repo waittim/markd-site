@@ -30,8 +30,8 @@
                     <div class="navbar-glass">
                         ${showBrand ? `
                         <a href="index.html" class="navbar-brand">
-                            <img src="assets/images/Markd-iOS-Default-1024x1024@1x.png" alt="Mark'd" class="app-icon app-icon-light" width="32" height="32">
-                            <img src="assets/images/Markd-iOS-Dark-1024x1024@1x.png" alt="Mark'd" class="app-icon app-icon-dark" width="32" height="32">
+                            <img src="assets/images/Markd-iOS-Default-240.png" alt="Mark'd" class="app-icon app-icon-light" width="32" height="32" decoding="async">
+                            <img src="assets/images/Markd-iOS-Dark-240.png" alt="Mark'd" class="app-icon app-icon-dark" width="32" height="32" decoding="async">
                             <span class="navbar-brand-text">Mark'd</span>
                         </a>
                         ` : ''}
@@ -67,4 +67,3 @@
         };
     }
 })();
-

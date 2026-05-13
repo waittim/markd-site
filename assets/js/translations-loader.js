@@ -9,6 +9,63 @@
     const translationsCache = {};
     const supportedLangs = ['en', 'zh', 'zh-TW'];
 
+    function getLoadedTranslation(lang) {
+        const translationMap = {
+            'en': window.translationsEn,
+            'zh': window.translationsZh,
+            'zh-TW': window.translationsZhTW
+        };
+
+        return translationMap[lang];
+    }
+
+    function getCanonicalTranslation(lang) {
+        return window.translations?.[lang];
+    }
+
+    function isCompleteTranslation(translation) {
+        return Boolean(
+            translation &&
+            translation.nav &&
+            translation.hero &&
+            translation.features &&
+            translation.cta
+        );
+    }
+
+    function loadCanonicalTranslations(lang) {
+        const loaded = getCanonicalTranslation(lang);
+        if (isCompleteTranslation(loaded)) {
+            translationsCache[lang] = loaded;
+            return Promise.resolve(loaded);
+        }
+
+        return new Promise((resolve, reject) => {
+            const existingScript = document.querySelector('script[src="assets/js/translations.js"]');
+            const resolveFromGlobal = () => {
+                const translation = getCanonicalTranslation(lang);
+                if (isCompleteTranslation(translation)) {
+                    translationsCache[lang] = translation;
+                    resolve(translation);
+                } else {
+                    reject(new Error(`Canonical translation for '${lang}' not found`));
+                }
+            };
+
+            if (existingScript) {
+                existingScript.addEventListener('load', resolveFromGlobal, { once: true });
+                existingScript.addEventListener('error', () => reject(new Error('Failed to load canonical translations')), { once: true });
+                return;
+            }
+
+            const script = document.createElement('script');
+            script.src = 'assets/js/translations.js';
+            script.onload = resolveFromGlobal;
+            script.onerror = () => reject(new Error('Failed to load canonical translations'));
+            document.head.appendChild(script);
+        });
+    }
+
     /**
      * Load translation file for a specific language
      * @param {string} lang - Language code
@@ -20,39 +77,43 @@
             return Promise.resolve(translationsCache[lang]);
         }
 
+        const loaded = getCanonicalTranslation(lang);
+        if (isCompleteTranslation(loaded)) {
+            translationsCache[lang] = loaded;
+            return Promise.resolve(loaded);
+        }
+
         // Validate language
         if (!supportedLangs.includes(lang)) {
             console.warn(`Unsupported language: ${lang}, falling back to 'en'`);
             lang = 'en';
         }
 
-        // Load translation file
+        return loadCanonicalTranslations(lang).catch(() => loadSplitTranslation(lang));
+    }
+
+    function loadSplitTranslation(lang) {
         return new Promise((resolve, reject) => {
             const script = document.createElement('script');
             script.src = `assets/js/translations/${lang}.js`;
             script.onload = () => {
-                // Get translation from global namespace
-                const translationMap = {
-                    'en': window.translationsEn,
-                    'zh': window.translationsZh,
-                    'zh-TW': window.translationsZhTW
-                };
-                
-                const translation = translationMap[lang];
-                if (translation) {
+                const translation = getLoadedTranslation(lang);
+                if (isCompleteTranslation(translation)) {
                     translationsCache[lang] = translation;
                     resolve(translation);
                 } else {
-                    reject(new Error(`Translation for '${lang}' not found`));
+                    loadCanonicalTranslations(lang).then(resolve).catch(reject);
                 }
             };
             script.onerror = () => {
                 console.error(`Failed to load translation for '${lang}'`);
                 // Fallback to English
                 if (lang !== 'en') {
-                    loadTranslation('en').then(resolve).catch(reject);
+                    loadTranslation('en').then(resolve).catch(() => {
+                        loadCanonicalTranslations(lang).then(resolve).catch(reject);
+                    });
                 } else {
-                    reject(new Error('Failed to load fallback translation'));
+                    loadCanonicalTranslations(lang).then(resolve).catch(reject);
                 }
             };
             document.head.appendChild(script);
@@ -83,8 +144,6 @@
         };
     }
 })();
-
-
 
 
 
