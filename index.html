@@ -5,13 +5,44 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Mark'd - Your Life Library. A private space to cultivate your own taste and preserve your experiences.">
     <title>Mark'd - Your Life Library</title>
-    
-    <!-- Fonts: CJK only; Latin uses system SF / system UI -->
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet">
-    
+
+    <script>
+      (function () {
+        try {
+          var manualTheme = localStorage.getItem('theme_manual') === 'true';
+          var theme = manualTheme ? localStorage.getItem('theme') : null;
+          if (theme !== 'light' && theme !== 'dark') {
+            theme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+          }
+          document.documentElement.setAttribute('data-theme', theme);
+
+          var manualLang = localStorage.getItem('lang_manual') === 'true';
+          var lang = manualLang ? localStorage.getItem('lang') : null;
+          if (!lang) {
+            var browserLang = (navigator.language || '').toLowerCase();
+            if (browserLang === 'zh-tw' || browserLang === 'zh-hant') lang = 'zh-TW';
+            else if (browserLang.indexOf('zh') === 0) lang = 'zh';
+            else lang = 'en';
+          }
+          var htmlLang = { en: 'en', zh: 'zh-Hans', 'zh-TW': 'zh-Hant' };
+          document.documentElement.lang = htmlLang[lang] || 'en';
+          if (String(lang).indexOf('zh') === 0) {
+            var fontLink = document.createElement('link');
+            fontLink.id = 'font-noto-sc';
+            fontLink.rel = 'stylesheet';
+            fontLink.href = 'https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700&display=swap';
+            document.head.appendChild(fontLink);
+          }
+        } catch (e) {}
+      })();
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
     <!-- Styles -->
     <link rel="stylesheet" href="assets/css/style.css">
-    
+
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-NCP461WXRW"></script>
     <script>
@@ -22,8 +53,10 @@
     </script>
 </head>
 <body data-page="home" data-download-link="#download">
+    <a href="#main-content" class="skip-link" data-i18n="a11y.skip">Skip to content</a>
     <!-- Navigation will be inserted by components -->
 
+    <main id="main-content">
     <!-- Hero Section -->
     <section class="hero">
         <div class="fluid-bg" aria-hidden="true">
@@ -34,8 +67,15 @@
         <div class="hero-layout">
             <div class="hero-copy">
                 <div class="hero-brand fade-in-up">
-                    <img src="assets/images/Markd-iOS-Default-240.png" alt="" class="app-icon app-icon-light" width="56" height="56" decoding="async">
-                    <img src="assets/images/Markd-iOS-Dark-240.png" alt="" class="app-icon app-icon-dark" width="56" height="56" decoding="async">
+                    <img
+                        data-src-light="assets/images/Markd-iOS-Default-240.png"
+                        data-src-dark="assets/images/Markd-iOS-Dark-240.png"
+                        alt=""
+                        class="app-icon"
+                        width="56"
+                        height="56"
+                        decoding="async"
+                    >
                     <span class="hero-brand-name sf-display">Mark'd</span>
                 </div>
 
@@ -61,18 +101,10 @@
 
             <div class="hero-visual fade-in-up delay-200">
                 <img
-                    src="assets/images/screenshot-light-720.png"
+                    data-src-light="assets/images/screenshot-light-720.png"
+                    data-src-dark="assets/images/screenshot-dark-720.png"
                     alt="Mark'd Library screen"
-                    class="phone-screenshot phone-screenshot-light"
-                    width="360"
-                    height="736"
-                    fetchpriority="high"
-                    decoding="async"
-                >
-                <img
-                    src="assets/images/screenshot-dark-720.png"
-                    alt="Mark'd Library screen"
-                    class="phone-screenshot phone-screenshot-dark"
+                    class="phone-screenshot"
                     width="360"
                     height="736"
                     fetchpriority="high"
@@ -95,18 +127,10 @@
             <article class="feature-spotlight">
                 <div class="feature-spotlight-visual">
                     <img
-                        src="assets/images/collection-light-720.png"
-                        alt=""
-                        class="feature-spotlight-img phone-screenshot-light"
-                        width="280"
-                        height="572"
-                        loading="lazy"
-                        decoding="async"
-                    >
-                    <img
-                        src="assets/images/collection-dark-720.png"
-                        alt=""
-                        class="feature-spotlight-img phone-screenshot-dark"
+                        data-src-light="assets/images/collection-light-720.png"
+                        data-src-dark="assets/images/collection-dark-720.png"
+                        alt="Mark'd collection screen with private ratings and notes"
+                        class="feature-spotlight-img"
                         width="280"
                         height="572"
                         loading="lazy"
@@ -171,8 +195,16 @@
     <section class="cta-section" id="download">
         <div class="cta-container">
             <div class="cta-app-icon">
-                <img src="assets/images/Markd-iOS-Default-240.png" alt="" class="app-icon app-icon-light" width="72" height="72" loading="lazy" decoding="async">
-                <img src="assets/images/Markd-iOS-Dark-240.png" alt="" class="app-icon app-icon-dark" width="72" height="72" loading="lazy" decoding="async">
+                <img
+                    data-src-light="assets/images/Markd-iOS-Default-240.png"
+                    data-src-dark="assets/images/Markd-iOS-Dark-240.png"
+                    alt=""
+                    class="app-icon"
+                    width="72"
+                    height="72"
+                    loading="lazy"
+                    decoding="async"
+                >
             </div>
             <h2 class="cta-title sf-display" data-i18n="cta.title">Build your library</h2>
             <p class="cta-subtitle" data-i18n="cta.subtitle">Download Mark'd and keep a private record of what you actually like.</p>
@@ -186,23 +218,32 @@
             </div>
         </div>
     </section>
+    </main>
 
     <!-- Footer will be inserted by components -->
 
+    <script>
+      (function () {
+        var theme = document.documentElement.getAttribute('data-theme') || 'light';
+        document.querySelectorAll('[data-src-light][data-src-dark]').forEach(function (el) {
+          el.src = theme === 'dark' ? el.getAttribute('data-src-dark') : el.getAttribute('data-src-light');
+        });
+      })();
+    </script>
+
     <!-- Scripts -->
-    <script src="assets/js/error-handler.js"></script>
-    <script src="assets/js/utils.js"></script>
-    <script src="assets/js/performance.js"></script>
-    <script src="assets/js/components/config.js"></script>
-    <script src="assets/js/components/navbar.js"></script>
-    <script src="assets/js/components/footer.js"></script>
-    <script src="assets/js/components/index.js"></script>
-    <script src="assets/js/translations.js"></script>
-    <script src="assets/js/icons.js"></script>
-    <script src="assets/js/theme.js"></script>
-    <script src="assets/js/i18n.js"></script>
-    <script src="assets/js/animations.js"></script>
-    <script src="assets/js/lazy-load.js"></script>
-    <script src="assets/js/main.js"></script>
+    <script defer src="assets/js/error-handler.js"></script>
+    <script defer src="assets/js/utils.js"></script>
+    <script defer src="assets/js/performance.js"></script>
+    <script defer src="assets/js/components/config.js"></script>
+    <script defer src="assets/js/theme.js"></script>
+    <script defer src="assets/js/components/navbar.js"></script>
+    <script defer src="assets/js/components/footer.js"></script>
+    <script defer src="assets/js/components/index.js"></script>
+    <script defer src="assets/js/translations.js"></script>
+    <script defer src="assets/js/icons.js"></script>
+    <script defer src="assets/js/i18n.js"></script>
+    <script defer src="assets/js/animations.js"></script>
+    <script defer src="assets/js/main.js"></script>
 </body>
 </html>

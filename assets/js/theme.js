@@ -37,17 +37,26 @@
         applyTheme(false); // false = initial load, don't mark as manual
     }
 
+    function syncThemeMedia() {
+        document.querySelectorAll('[data-src-light][data-src-dark]').forEach((el) => {
+            const next = currentTheme === 'dark' ? el.dataset.srcDark : el.dataset.srcLight;
+            if (!next) return;
+            const current = el.getAttribute('src') || '';
+            if (!current.endsWith(next) && current !== next) {
+                el.setAttribute('src', next);
+            }
+        });
+    }
+
     function applyTheme(saveAsManual = true) {
         document.documentElement.setAttribute('data-theme', currentTheme);
+        syncThemeMedia();
         
         if (saveAsManual) {
             // User manually changed theme, save preference
             localStorage.setItem('theme', currentTheme);
             localStorage.setItem('theme_manual', 'true');
             isManualTheme = true;
-        } else {
-            // Auto-detected, don't save (or clear if exists)
-            // Keep current state but don't mark as manual
         }
         
         updateThemeButton();
@@ -74,6 +83,8 @@
         const themeButtons = document.querySelectorAll('.theme-toggle');
         themeButtons.forEach(btn => {
             const icon = btn.querySelector('svg');
+            const nextLabel = currentTheme === 'dark' ? 'Switch to light theme' : 'Switch to dark theme';
+            btn.setAttribute('aria-label', nextLabel);
             if (icon) {
                 if (currentTheme === 'dark') {
                     icon.innerHTML = '<path d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/>';
@@ -99,9 +110,9 @@
             toggle: toggleTheme,
             getCurrentTheme: getCurrentTheme,
             apply: applyTheme,
+            syncMedia: syncThemeMedia,
             resetToAuto: resetToAuto,
             isManual: isManual
         };
     }
 })();
-

@@ -45,33 +45,26 @@
         }
     }
 
-    // Auto-initialize when DOM is ready
+    // Auto-initialize when DOM is ready (sync when body already exists)
     function initialize() {
-        // Use waitForElement if available, otherwise fallback to DOM ready
-        if (window.MarkdUtils && window.MarkdUtils.waitForElement) {
-            window.MarkdUtils.waitForElement('body').then(() => {
-                const body = document.body;
-                const downloadLink = body.getAttribute('data-download-link') || '#download';
-                initComponents({ downloadLink });
-            }).catch(() => {
-                // Fallback if waitForElement fails
-                const body = document.body;
-                const downloadLink = body.getAttribute('data-download-link') || '#download';
-                initComponents({ downloadLink });
-            });
-        } else {
-            // Fallback for older browsers
-            if (document.readyState === 'loading') {
-                document.addEventListener('DOMContentLoaded', function() {
-                    const body = document.body;
-                    const downloadLink = body.getAttribute('data-download-link') || '#download';
-                    initComponents({ downloadLink });
-                });
-            } else {
-                const body = document.body;
-                const downloadLink = body.getAttribute('data-download-link') || '#download';
-                initComponents({ downloadLink });
+        const run = () => {
+            const body = document.body;
+            const downloadLink = body.getAttribute('data-download-link') || '#download';
+            const showHome = body.getAttribute('data-navbar-show-home');
+            const navbar = {};
+            if (showHome === 'true') {
+                navbar.showHome = true;
             }
+            initComponents({ downloadLink, navbar });
+            if (window.MarkdTheme && typeof window.MarkdTheme.syncMedia === 'function') {
+                window.MarkdTheme.syncMedia();
+            }
+        };
+
+        if (document.body) {
+            run();
+        } else {
+            document.addEventListener('DOMContentLoaded', run);
         }
     }
 

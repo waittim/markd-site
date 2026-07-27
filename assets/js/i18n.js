@@ -15,6 +15,25 @@
         'zh': '简',
         'zh-TW': '繁'
     };
+    const htmlLangMap = {
+        'en': 'en',
+        'zh': 'zh-Hans',
+        'zh-TW': 'zh-Hant'
+    };
+
+    function applyDocumentLang() {
+        document.documentElement.lang = htmlLangMap[currentLang] || 'en';
+    }
+
+    function ensureCjkFont() {
+        if (!String(currentLang).startsWith('zh')) return;
+        if (document.getElementById('font-noto-sc')) return;
+        const link = document.createElement('link');
+        link.id = 'font-noto-sc';
+        link.rel = 'stylesheet';
+        link.href = 'https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700&display=swap';
+        document.head.appendChild(link);
+    }
 
     // Initialize language from browser or localStorage
     function initLanguage() {
@@ -45,6 +64,15 @@
     }
 
     function updateLanguage(saveAsManual = true) {
+        if (saveAsManual) {
+            localStorage.setItem('lang', currentLang);
+            localStorage.setItem('lang_manual', 'true');
+            isManualLang = true;
+        }
+
+        applyDocumentLang();
+        ensureCjkFont();
+
         if (!window.translations) {
             console.warn('Translations not loaded yet');
             // Try to load translations dynamically if loader is available
@@ -80,15 +108,6 @@
             return;
         }
 
-        if (saveAsManual) {
-            // User manually changed language, save preference
-            localStorage.setItem('lang', currentLang);
-            localStorage.setItem('lang_manual', 'true');
-            isManualLang = true;
-        } else {
-            // Auto-detected, don't save (keep current state)
-        }
-        
         // Update all elements with data-i18n attribute
         document.querySelectorAll('[data-i18n]').forEach(el => {
             const key = el.getAttribute('data-i18n');
@@ -153,11 +172,21 @@
         setLanguage(supportedLangs[nextIndex]);
     }
     
+    function setDropdownExpanded(expanded) {
+        document.querySelectorAll('.lang-toggle').forEach((btn) => {
+            btn.setAttribute('aria-expanded', expanded ? 'true' : 'false');
+        });
+    }
+
     function toggleLanguageDropdown() {
         const dropdowns = document.querySelectorAll('.lang-dropdown');
+        let anyActive = false;
         dropdowns.forEach(dropdown => {
-            dropdown.classList.toggle('active');
+            const willOpen = !dropdown.classList.contains('active');
+            dropdown.classList.toggle('active', willOpen);
+            if (willOpen) anyActive = true;
         });
+        setDropdownExpanded(anyActive);
     }
     
     function closeLanguageDropdown() {
@@ -165,6 +194,7 @@
         dropdowns.forEach(dropdown => {
             dropdown.classList.remove('active');
         });
+        setDropdownExpanded(false);
     }
     
     function updateLanguageDropdown() {
@@ -176,8 +206,10 @@
                 const lang = option.getAttribute('data-lang');
                 if (lang === currentLang) {
                     option.classList.add('active');
+                    option.setAttribute('aria-selected', 'true');
                 } else {
                     option.classList.remove('active');
+                    option.setAttribute('aria-selected', 'false');
                 }
             });
         });
@@ -186,21 +218,32 @@
     function initLanguageDropdown() {
         // Create dropdown menu if it doesn't exist
         const langButtons = document.querySelectorAll('.lang-toggle');
-        langButtons.forEach(btn => {
+        langButtons.forEach((btn, index) => {
             // Check if dropdown already exists
             if (btn.parentElement.querySelector('.lang-dropdown')) {
                 return;
             }
+
+            const dropdownId = `lang-dropdown-${index}`;
+            btn.setAttribute('aria-haspopup', 'listbox');
+            btn.setAttribute('aria-expanded', 'false');
+            btn.setAttribute('aria-controls', dropdownId);
             
             // Create dropdown container
             const dropdown = document.createElement('div');
             dropdown.className = 'lang-dropdown';
+            dropdown.id = dropdownId;
+            dropdown.setAttribute('role', 'listbox');
+            dropdown.setAttribute('aria-label', 'Language');
             
             // Create language options
             supportedLangs.forEach(lang => {
                 const option = document.createElement('button');
                 option.className = 'lang-option';
+                option.type = 'button';
+                option.setAttribute('role', 'option');
                 option.setAttribute('data-lang', lang);
+                option.setAttribute('aria-selected', lang === currentLang ? 'true' : 'false');
                 option.textContent = langLabels[lang] || lang;
                 if (lang === currentLang) {
                     option.classList.add('active');
@@ -221,6 +264,12 @@
         // Close dropdown when clicking outside
         document.addEventListener('click', (e) => {
             if (!e.target.closest('.lang-toggle') && !e.target.closest('.lang-dropdown')) {
+                closeLanguageDropdown();
+            }
+        });
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
                 closeLanguageDropdown();
             }
         });

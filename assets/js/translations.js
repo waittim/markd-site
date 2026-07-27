@@ -10,6 +10,9 @@ const translations = {
             about: "About",
             privacy: "Privacy"
         },
+        a11y: {
+            skip: "Skip to content"
+        },
         hero: {
             badge: "",
             titleLine1: "Your Life",
@@ -180,6 +183,9 @@ const translations = {
             about: "关于",
             privacy: "隐私"
         },
+        a11y: {
+            skip: "跳到主要内容"
+        },
         hero: {
             badge: "",
             titleLine1: "你的",
@@ -349,6 +355,9 @@ const translations = {
             home: "主頁",
             about: "關於",
             privacy: "隱私"
+        },
+        a11y: {
+            skip: "跳到主要內容"
         },
         hero: {
             badge: "",

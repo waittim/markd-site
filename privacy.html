@@ -5,13 +5,44 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Privacy Policy - Mark'd respects your privacy and protects your personal data.">
     <title>Privacy Policy - Mark'd</title>
-    
-    <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet">
-    
+
+    <script>
+      (function () {
+        try {
+          var manualTheme = localStorage.getItem('theme_manual') === 'true';
+          var theme = manualTheme ? localStorage.getItem('theme') : null;
+          if (theme !== 'light' && theme !== 'dark') {
+            theme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+          }
+          document.documentElement.setAttribute('data-theme', theme);
+
+          var manualLang = localStorage.getItem('lang_manual') === 'true';
+          var lang = manualLang ? localStorage.getItem('lang') : null;
+          if (!lang) {
+            var browserLang = (navigator.language || '').toLowerCase();
+            if (browserLang === 'zh-tw' || browserLang === 'zh-hant') lang = 'zh-TW';
+            else if (browserLang.indexOf('zh') === 0) lang = 'zh';
+            else lang = 'en';
+          }
+          var htmlLang = { en: 'en', zh: 'zh-Hans', 'zh-TW': 'zh-Hant' };
+          document.documentElement.lang = htmlLang[lang] || 'en';
+          if (String(lang).indexOf('zh') === 0) {
+            var fontLink = document.createElement('link');
+            fontLink.id = 'font-noto-sc';
+            fontLink.rel = 'stylesheet';
+            fontLink.href = 'https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700&display=swap';
+            document.head.appendChild(fontLink);
+          }
+        } catch (e) {}
+      })();
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
     <!-- Styles -->
     <link rel="stylesheet" href="assets/css/style.css">
-    
+
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-NCP461WXRW"></script>
     <script>
@@ -22,10 +53,11 @@
     </script>
 </head>
 <body data-page="privacy" data-download-link="index.html#download" data-navbar-show-home="true">
+    <a href="#main-content" class="skip-link" data-i18n="a11y.skip">Skip to content</a>
     <!-- Navigation will be inserted by components -->
 
     <!-- Content Page -->
-    <main class="content-page">
+    <main id="main-content" class="content-page">
         <div class="content-container">
             <h1 class="content-title sf-display" data-i18n="privacy.title">Privacy Policy</h1>
             <p class="content-subtitle" data-i18n="privacy.lastUpdated">Last updated: 2025-12-10</p>
@@ -87,26 +119,18 @@
     <!-- Footer will be inserted by components -->
 
     <!-- Scripts -->
-    <!-- Error handling (load first) -->
-    <script src="assets/js/error-handler.js"></script>
-    <!-- Utility functions -->
-    <script src="assets/js/utils.js"></script>
-    <!-- Performance monitoring -->
-    <script src="assets/js/performance.js"></script>
-    <!-- Load components -->
-    <script src="assets/js/components/config.js"></script>
-    <script src="assets/js/components/navbar.js"></script>
-    <script src="assets/js/components/footer.js"></script>
-    <script src="assets/js/components/index.js"></script>
-    <!-- Load modules in dependency order -->
-    <script src="assets/js/translations.js"></script>
-    <script src="assets/js/icons.js"></script>
-    <script src="assets/js/theme.js"></script>
-    <script src="assets/js/i18n.js"></script>
-    <script src="assets/js/animations.js"></script>
-    <!-- Lazy loading -->
-    <script src="assets/js/lazy-load.js"></script>
-    <!-- Main application -->
-    <script src="assets/js/main.js"></script>
+    <script defer src="assets/js/error-handler.js"></script>
+    <script defer src="assets/js/utils.js"></script>
+    <script defer src="assets/js/performance.js"></script>
+    <script defer src="assets/js/components/config.js"></script>
+    <script defer src="assets/js/theme.js"></script>
+    <script defer src="assets/js/components/navbar.js"></script>
+    <script defer src="assets/js/components/footer.js"></script>
+    <script defer src="assets/js/components/index.js"></script>
+    <script defer src="assets/js/translations.js"></script>
+    <script defer src="assets/js/icons.js"></script>
+    <script defer src="assets/js/i18n.js"></script>
+    <script defer src="assets/js/animations.js"></script>
+    <script defer src="assets/js/main.js"></script>
 </body>
 </html>

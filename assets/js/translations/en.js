@@ -3,12 +3,15 @@
    ============================================ */
 
 const translationsEn = {
-    nav: {
-        download: "Download",
-        home: "Home",
-        about: "About",
-        privacy: "Privacy"
-    },
+        nav: {
+            download: "Download",
+            home: "Home",
+            about: "About",
+            privacy: "Privacy"
+        },
+        a11y: {
+            skip: "Skip to content"
+        },
     hero: {
         badge: "",
         titleLine1: "Your Life",

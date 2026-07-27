@@ -44,16 +44,16 @@
                         <div class="footer-controls">
                             ${showControls ? `
                             <div class="footer-controls-group">
-                                <button class="footer-btn lang-toggle" aria-label="Switch Language">
-                                    <svg class="footer-btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <button type="button" class="footer-btn lang-toggle" aria-label="Switch Language" aria-haspopup="listbox" aria-expanded="false">
+                                    <svg class="footer-btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
                                         <circle cx="12" cy="12" r="10"/>
                                         <line x1="2" y1="12" x2="22" y2="12"/>
                                         <path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/>
                                     </svg>
                                     <span class="lang-text">中</span>
                                 </button>
-                                <button class="footer-btn theme-toggle" aria-label="Toggle Theme">
-                                    <svg class="footer-btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <button type="button" class="footer-btn theme-toggle" aria-label="Switch to dark theme">
+                                    <svg class="footer-btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
                                         <path d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/>
                                     </svg>
                                 </button>
