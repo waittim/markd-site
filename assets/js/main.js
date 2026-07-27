@@ -92,84 +92,44 @@ function setupEventListeners() {
         });
     });
 
+    // Fire analytics without delaying navigation (beacon / keepalive when possible)
+    function trackEvent(name, params) {
+        if (typeof gtag === 'undefined') return;
+
+        const payload = Object.assign({ transport_type: 'beacon' }, params);
+        gtag('event', name, payload);
+    }
+
     // App Store CTA tracking (hero + bottom CTA use .btn-primary)
     document.querySelectorAll('a.btn-primary[href*="apps.apple.com"], a.app-store-btn[href*="apps.apple.com"]').forEach(btn => {
-        btn.addEventListener('click', function(e) {
+        btn.addEventListener('click', function() {
             const href = this.getAttribute('href') || '';
             const buttonText = this.textContent.trim() || 'App Store Download';
 
-            if (typeof gtag === 'undefined') {
-                return;
-            }
-
-            e.preventDefault();
-
-            let navigated = false;
-            const safeNavigate = () => {
-                if (!navigated) {
-                    navigated = true;
-                    window.location.href = href;
-                }
-            };
-
-            gtag('event', 'app_store_click', {
+            trackEvent('app_store_click', {
                 button_text: buttonText,
                 link_url: href,
                 link_type: 'app_store_badge',
-                value: 1,
-                event_callback: () => {
-                    safeNavigate();
-                }
+                value: 1
             });
-
-            setTimeout(safeNavigate, 150);
         });
     });
 
     // Navbar download tracking
     document.querySelectorAll('.navbar-download-btn').forEach(btn => {
-        btn.addEventListener('click', function(e) {
+        btn.addEventListener('click', function() {
             const href = this.getAttribute('href') || '';
             const buttonText = this.textContent.trim() || 'Download';
-
-            if (typeof gtag === 'undefined') {
-                return;
-            }
 
             const isAnchorLink = href.startsWith('#') ||
                 (href.includes('#') && !href.startsWith('http://') && !href.startsWith('https://'));
 
-            if (isAnchorLink) {
-                gtag('event', 'navbar_download_click', {
-                    button_text: buttonText,
-                    link_url: href,
-                    link_type: 'navbar_anchor',
-                    value: 1
-                });
-                return;
-            }
-
-            e.preventDefault();
-
-            let navigated = false;
-            const safeNavigate = () => {
-                if (!navigated) {
-                    navigated = true;
-                    window.location.href = href;
-                }
-            };
-
-            gtag('event', 'navbar_download_click', {
+            trackEvent('navbar_download_click', {
                 button_text: buttonText,
                 link_url: href,
-                link_type: 'navbar_external',
-                value: 1,
-                event_callback: () => {
-                    safeNavigate();
-                }
+                link_type: isAnchorLink ? 'navbar_anchor' : 'navbar_external',
+                value: 1
             });
-
-            setTimeout(safeNavigate, 150);
         });
     });
 }
