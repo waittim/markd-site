@@ -6,37 +6,32 @@ const translations = {
     en: {
         nav: {
             download: "Download",
+            home: "Home",
             about: "About",
             privacy: "Privacy"
         },
         hero: {
-            badge: "iOS 26 Ready",
+            badge: "",
             titleLine1: "Your Life",
             titleLine2: "Library.",
             subtitlePre: "Not to record everything.",
             subtitleHighlight: "",
-            subtitlePost: "But to keep what matters.",
-            cta: "Download Mark'd",
-            phone: {
-                header: "Log",
-                card1Title: "Blue Bottle",
-                card1Time: "9:41 AM",
-                card1Desc: "Pour Over, Ethiopia",
-                card2Title: "Pinot Noir",
-                card2Time: "YESTERDAY",
-                card2Desc: "Burgundy, 2019",
-                tagDinner: "DINNER"
-            }
+            subtitlePost: "To keep what matters.",
+            cta: "Download"
         },
         features: {
-            titleLine1: "Keep what ",
-            titleHighlight: "matters,",
-            titleSuffix: "for your future self.",
+            titleLine1: "Capture in the moment.",
+            titleHighlight: "Keep for yourself.",
+            titleSuffix: "",
+            spotlight: {
+                title: "A private life library",
+                desc: "Photos, ratings, and notes stay on your device and iCloud. No feed. No public scores. Just your taste, over time."
+            },
             cards: {
-                scan: { title: "Scan & Mark", desc: "Point your camera at a barcode. Mark'd recognizes the product instantly, fusing digital data with reality." },
-                visual: { title: "Visual Memory", desc: "Capture the atmosphere of the moment. Your photos are archived in pristine, high-resolution quality." },
-                rating: { title: "Your Rating", desc: "No public averages and no algorithmic feeds—only your private scores and notes." },
-                share: { title: "Share Cards", desc: "Auto-layout your photo and rating into a refined card to share your discoveries with friends." },
+                scan: { title: "Scan & Mark", desc: "Point your camera at a barcode. Mark'd recognizes the product and attaches it to the moment." },
+                visual: { title: "Visual Memory", desc: "Keep the mood of the moment. Photos stay sharp, with no compression tradeoffs." },
+                rating: { title: "Your Rating", desc: "No public averages. No algorithmic feeds. Only your private scores and notes." },
+                share: { title: "Share Cards", desc: "Automatically generate a polished share card from your photo and rating." },
                 cloud: { title: "iCloud Sync", desc: "Your data lives on your device and your iCloud. Private, secure, and always in sync." }
             }
         },
@@ -49,7 +44,7 @@ const translations = {
                 "This is not a social platform designed for others. It's a private library where your preferences are stored.",
                 "When you look back at your records, you'll discover\nit's not that the world changed you, but that you've begun to understand yourself more clearly."
             ],
-            signature: "Mark'd — Remember your experience, understand your life.",
+            signature: "Mark'd. Remember your experience, understand your life.",
             link: "Read our Privacy Pledge",
             visualBadge: "Private & Secure"
         },
@@ -59,8 +54,8 @@ const translations = {
             support: "Support"
         },
         cta: {
-            title: "Start Your Journey",
-            subtitle: "Download Mark'd and begin building your personal library of experiences.",
+            title: "Build your library",
+            subtitle: "Download Mark'd and keep a private record of what you actually like.",
             appStore: "Download on the App Store",
             testFlight: "Try on TestFlight"
         },
@@ -86,7 +81,7 @@ const translations = {
                 },
                 quality: {
                     title: "Quality Over Quantity",
-                    content: "We're not about recording everything. We're about capturing what matters—those moments, products, and experiences that shape who you are."
+                    content: "We're not about recording everything. We're about capturing what matters: those moments, products, and experiences that shape who you are."
                 }
             },
             how: {
@@ -95,7 +90,7 @@ const translations = {
                     "Mark'd makes it effortless to capture and remember your experiences:"
                 ],
                 list: [
-                    "scan & mark: Point your camera at a barcode to instantly recognize products and add them to your library.",
+                    "Scan & Mark: Point your camera at a barcode to instantly recognize products and add them to your library.",
                     "Visual Memory: Capture photos with zero compression, preserving the moment exactly as you experienced it.",
                     "Personal Ratings: Rate items based on your own preferences, not public opinion.",
                     "Private Reflection: Add notes and thoughts that only you can see.",
@@ -104,7 +99,7 @@ const translations = {
             },
             team: {
                 title: "Behind Mark'd",
-                content: "We believe in the power of personal reflection and authentic taste. We're not trying to build the next social network—we're building a tool for you to understand yourself better."
+                content: "We believe in the power of personal reflection and authentic taste. We're not trying to build the next social network. We're building a tool for you to understand yourself better."
             },
             contact: {
                 title: "Get in Touch",
@@ -181,37 +176,32 @@ const translations = {
     zh: {
         nav: {
             download: "下载应用",
+            home: "主页",
             about: "关于",
             privacy: "隐私"
         },
         hero: {
-            badge: "适配 iOS 26",
+            badge: "",
             titleLine1: "你的",
             titleLine2: "生活图鉴",
             subtitlePre: "不是为了记录所有东西。",
             subtitleHighlight: "",
             subtitlePost: "而是为了留下重要的那些。",
-            cta: "下载 Mark'd",
-            phone: {
-                header: "记录",
-                card1Title: "蓝瓶咖啡",
-                card1Time: "上午 9:41",
-                card1Desc: "手冲, 埃塞俄比亚",
-                card2Title: "黑皮诺",
-                card2Time: "昨天",
-                card2Desc: "勃艮第, 2019",
-                tagDinner: "晚餐"
-            }
+            cta: "下载"
         },
         features: {
-            titleLine1: "把",
-            titleHighlight: "体验",
-            titleSuffix: "留给未来的你。",
+            titleLine1: "捕捉当下。",
+            titleHighlight: "留给自己。",
+            titleSuffix: "",
+            spotlight: {
+                title: "私人生活图鉴",
+                desc: "照片、评分与笔记保存在你的设备和 iCloud 中。没有动态流，没有公开分数，只有随时间沉淀的品味。"
+            },
             cards: {
-                scan: { title: "扫码即录", desc: "对准条形码。Mark'd 瞬间识别商品，将数字信息无缝融合进现实体验。" },
-                visual: { title: "视觉记忆", desc: "记录当下的氛围。你的照片会以高清画质妥善存档。" },
+                scan: { title: "扫码即录", desc: "对准条形码。Mark'd 瞬间识别商品，并把它记入这一刻。" },
+                visual: { title: "视觉记忆", desc: "留下当下的氛围。照片保持清晰，不做压缩妥协。" },
                 rating: { title: "私人评分", desc: "不是大众评分，没有算法推荐。只有你自己的私人评价和笔记。" },
-                share: { title: "分享卡片", desc: "自动排版你的照片和评分，生成简洁有质感的分享卡片，与好友分享你的发现。" },
+                share: { title: "分享卡片", desc: "想分享时，自动生成排版好的卡片。" },
                 cloud: { title: "iCloud 同步", desc: "数据保存在你的设备和 iCloud 中。私密、安全，时刻保持同步。" }
             }
         },
@@ -224,7 +214,7 @@ const translations = {
                 "这不是一个为了他人设计的社交平台。而是一座存放你偏好的私人图鉴。",
                 "当你回望自己的记录，你会发现\n不是世界改变了你，是你开始更清晰地理解自己。"
             ],
-            signature: "Mark'd — 记住你的体验，理解你的生活。",
+            signature: "Mark'd. 记住你的体验，理解你的生活。",
             link: "阅读隐私承诺",
             visualBadge: "私密且安全"
         },
@@ -234,8 +224,8 @@ const translations = {
             support: "技术支持"
         },
         cta: {
-            title: "开始你的旅程",
-            subtitle: "下载 Mark'd，开始构建你的个人体验图鉴。",
+            title: "开始建立你的图鉴",
+            subtitle: "下载 Mark'd，私下记录你真正喜欢的事物。",
             appStore: "在 App Store 下载",
             testFlight: "在 TestFlight 试用"
         },
@@ -261,7 +251,7 @@ const translations = {
                 },
                 quality: {
                     title: "质量胜过数量",
-                    content: "我们不是为了记录一切。我们是为了捕捉重要的东西——那些塑造你是谁的时刻、产品和体验。"
+                    content: "我们不是为了记录一切。我们是为了捕捉重要的东西：那些塑造你是谁的时刻、产品和体验。"
                 }
             },
             how: {
@@ -279,7 +269,7 @@ const translations = {
             },
             team: {
                 title: "Mark'd 背后",
-                content: "我们相信个人反思和真实品味的力量。这不是在尝试构建下一个社交网络——这是在为你构建一个更好地理解自己的工具。"
+                content: "我们相信个人反思和真实品味的力量。这不是在尝试构建下一个社交网络。这是在为你构建一个更好地理解自己的工具。"
             },
             contact: {
                 title: "联系我们",
@@ -356,37 +346,32 @@ const translations = {
     'zh-TW': {
         nav: {
             download: "下載應用",
+            home: "主頁",
             about: "關於",
             privacy: "隱私"
         },
         hero: {
-            badge: "適配 iOS 26",
+            badge: "",
             titleLine1: "你的",
             titleLine2: "生活圖鑑",
             subtitlePre: "不是為了記錄所有東西。",
             subtitleHighlight: "",
             subtitlePost: "而是為了留下重要的那些。",
-            cta: "下載 Mark'd",
-            phone: {
-                header: "記錄",
-                card1Title: "藍瓶咖啡",
-                card1Time: "上午 9:41",
-                card1Desc: "手沖, 衣索比亞",
-                card2Title: "黑皮諾",
-                card2Time: "昨天",
-                card2Desc: "勃艮第, 2019",
-                tagDinner: "晚餐"
-            }
+            cta: "下載"
         },
         features: {
-            titleLine1: "把",
-            titleHighlight: "體驗",
-            titleSuffix: "留給未來的你。",
+            titleLine1: "捕捉當下。",
+            titleHighlight: "留給自己。",
+            titleSuffix: "",
+            spotlight: {
+                title: "私人生活圖鑑",
+                desc: "照片、評分與筆記保存在你的裝置和 iCloud 中。沒有動態流，沒有公開分數，只有隨時間沉澱的品味。"
+            },
             cards: {
-                scan: { title: "掃碼即錄", desc: "對準條碼。Mark'd 瞬間識別商品，將數位資訊無縫融合進現實體驗。" },
-                visual: { title: "視覺記憶", desc: "記錄當下的氛圍。你的照片會以高畫質妥善封存。" },
+                scan: { title: "掃碼即錄", desc: "對準條碼。Mark'd 瞬間識別商品，並把它記入這一刻。" },
+                visual: { title: "視覺記憶", desc: "留下當下的氛圍。照片保持清晰，不做壓縮妥協。" },
                 rating: { title: "私人評分", desc: "不是大眾評分，沒有演算法推薦。只有你自己的私人評價和筆記。" },
-                share: { title: "分享卡片", desc: "自動排版你的照片和評分，生成簡潔有質感的分享卡片，與好友分享你的發現。" },
+                share: { title: "分享卡片", desc: "想分享時，自動生成排版好的卡片。" },
                 cloud: { title: "iCloud 同步", desc: "資料保存在你的裝置和 iCloud 中。私密、安全，時刻保持同步。" }
             }
         },
@@ -399,7 +384,7 @@ const translations = {
                 "這不是一個為了他人設計的社交平台。而是一座存放你偏好的私人圖鑑。",
                 "當你回望自己的記錄，你會發現\n不是世界改變了你，是你開始更清晰地理解自己。"
             ],
-            signature: "Mark'd — 記住你的體驗，理解你的生活。",
+            signature: "Mark'd. 記住你的體驗，理解你的生活。",
             link: "閱讀隱私承諾",
             visualBadge: "私密且安全"
         },
@@ -409,8 +394,8 @@ const translations = {
             support: "技術支援"
         },
         cta: {
-            title: "開始你的旅程",
-            subtitle: "下載 Mark'd，開始構建你的個人體驗圖鑑。",
+            title: "開始建立你的圖鑑",
+            subtitle: "下載 Mark'd，私下記錄你真正喜歡的事物。",
             appStore: "在 App Store 下載",
             testFlight: "在 TestFlight 試用"
         },
@@ -436,7 +421,7 @@ const translations = {
                 },
                 quality: {
                     title: "質量勝過數量",
-                    content: "我們不是為了記錄一切。我們是為了捕捉重要的東西——那些塑造你是誰的時刻、產品和體驗。"
+                    content: "我們不是為了記錄一切。我們是為了捕捉重要的東西：那些塑造你是誰的時刻、產品和體驗。"
                 }
             },
             how: {
@@ -454,7 +439,7 @@ const translations = {
             },
             team: {
                 title: "Mark'd 背後",
-                content: "我們相信個人反思和真實品味的力量。這不是在嘗試構建下一個社交網絡——這是在為你構建一個更好地理解自己的工具。"
+                content: "我們相信個人反思和真實品味的力量。這不是在嘗試構建下一個社交網絡。這是在為你構建一個更好地理解自己的工具。"
             },
             contact: {
                 title: "聯絡我們",

@@ -11,10 +11,10 @@
      * @param {string} options.downloadLink - Link for download button (default: "#download")
      * @param {boolean} options.showBrand - Show brand (default: true)
      * @param {boolean} options.showDownload - Show download button (default: true)
+     * @param {boolean} options.showHome - Show home link (default: false)
      * @returns {string} HTML string for navbar
      */
     function renderNavbar(options = {}) {
-        // Merge with default config if available
         let config = options;
         if (window.MarkdComponentConfig) {
             config = window.MarkdComponentConfig.mergeConfig('navbar', options);
@@ -23,6 +23,7 @@
         const downloadLink = config.downloadLink || '#download';
         const showBrand = config.showBrand !== false;
         const showDownload = config.showDownload !== false;
+        const showHome = config.showHome === true || config.showHome === 'true';
         
         return `
             <nav class="navbar">
@@ -35,7 +36,10 @@
                             <span class="navbar-brand-text">Mark'd</span>
                         </a>
                         ` : ''}
-                        ${showDownload ? `<a href="${downloadLink}" class="navbar-download-btn" data-i18n="nav.download">Download</a>` : ''}
+                        <div class="navbar-actions">
+                            ${showHome ? `<a href="index.html" class="navbar-link" data-i18n="nav.home">Home</a>` : ''}
+                            ${showDownload ? `<a href="${downloadLink}" class="navbar-download-btn" data-i18n="nav.download">Download</a>` : ''}
+                        </div>
                     </div>
                 </div>
             </nav>
@@ -54,11 +58,9 @@
             return;
         }
 
-        // Insert at the beginning of the target
         target.insertAdjacentHTML('afterbegin', renderNavbar(options));
     }
 
-    // Export to global namespace
     if (typeof window !== 'undefined') {
         window.MarkdComponents = window.MarkdComponents || {};
         window.MarkdComponents.Navbar = {
