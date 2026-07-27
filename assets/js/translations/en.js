@@ -10,7 +10,11 @@ const translationsEn = {
             privacy: "Privacy"
         },
         a11y: {
-            skip: "Skip to content"
+            skip: "Skip to content",
+            langToggle: "Switch language",
+            langMenu: "Language",
+            themeToLight: "Switch to light theme",
+            themeToDark: "Switch to dark theme"
         },
     hero: {
         badge: "",

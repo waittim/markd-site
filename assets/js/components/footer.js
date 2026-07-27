@@ -44,7 +44,7 @@
                         <div class="footer-controls">
                             ${showControls ? `
                             <div class="footer-controls-group">
-                                <button type="button" class="footer-btn lang-toggle" aria-label="Switch Language" aria-haspopup="listbox" aria-expanded="false">
+                                <button type="button" class="footer-btn lang-toggle" data-i18n-aria-label="a11y.langToggle" aria-label="Switch language" aria-haspopup="listbox" aria-expanded="false">
                                     <svg class="footer-btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
                                         <circle cx="12" cy="12" r="10"/>
                                         <line x1="2" y1="12" x2="22" y2="12"/>

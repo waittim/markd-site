@@ -139,6 +139,19 @@
             }
         });
 
+        // Update static aria-labels from translation keys
+        document.querySelectorAll('[data-i18n-aria-label]').forEach(el => {
+            // Theme toggle labels are state-dependent; MarkdTheme.refreshLabels owns them
+            if (el.classList.contains('theme-toggle')) {
+                return;
+            }
+            const key = el.getAttribute('data-i18n-aria-label');
+            const value = getNestedValue(t, key);
+            if (typeof value === 'string') {
+                el.setAttribute('aria-label', value);
+            }
+        });
+
         // Update language button (show current language)
         const langButtons = document.querySelectorAll('.lang-toggle');
         langButtons.forEach(btn => {
@@ -151,6 +164,11 @@
         
         // Update language dropdown if exists
         updateLanguageDropdown();
+
+        // Keep theme toggle aria-label in sync with current language
+        if (window.MarkdTheme && typeof window.MarkdTheme.refreshLabels === 'function') {
+            window.MarkdTheme.refreshLabels();
+        }
 
         // Update page title
         updatePageTitle();
@@ -199,7 +217,12 @@
     
     function updateLanguageDropdown() {
         const dropdowns = document.querySelectorAll('.lang-dropdown');
+        const menuLabel = (window.translations
+            && window.translations[currentLang]
+            && getNestedValue(window.translations[currentLang], 'a11y.langMenu'))
+            || 'Language';
         dropdowns.forEach(dropdown => {
+            dropdown.setAttribute('aria-label', menuLabel);
             // Update active state for each language option
             const options = dropdown.querySelectorAll('.lang-option');
             options.forEach(option => {
@@ -234,7 +257,11 @@
             dropdown.className = 'lang-dropdown';
             dropdown.id = dropdownId;
             dropdown.setAttribute('role', 'listbox');
-            dropdown.setAttribute('aria-label', 'Language');
+            const menuLabel = (window.translations
+                && window.translations[currentLang]
+                && getNestedValue(window.translations[currentLang], 'a11y.langMenu'))
+                || 'Language';
+            dropdown.setAttribute('aria-label', menuLabel);
             
             // Create language options
             supportedLangs.forEach(lang => {

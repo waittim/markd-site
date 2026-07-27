@@ -83,7 +83,9 @@
         const themeButtons = document.querySelectorAll('.theme-toggle');
         themeButtons.forEach(btn => {
             const icon = btn.querySelector('svg');
-            const nextLabel = currentTheme === 'dark' ? 'Switch to light theme' : 'Switch to dark theme';
+            const lightLabel = translateLabel('a11y.themeToLight', 'Switch to light theme');
+            const darkLabel = translateLabel('a11y.themeToDark', 'Switch to dark theme');
+            const nextLabel = currentTheme === 'dark' ? lightLabel : darkLabel;
             btn.setAttribute('aria-label', nextLabel);
             if (icon) {
                 if (currentTheme === 'dark') {
@@ -93,6 +95,16 @@
                 }
             }
         });
+    }
+
+    function translateLabel(key, fallback) {
+        if (window.MarkdI18n && typeof window.MarkdI18n.getTranslation === 'function') {
+            const value = window.MarkdI18n.getTranslation(key);
+            if (value && value !== key) {
+                return value;
+            }
+        }
+        return fallback;
     }
 
     function getCurrentTheme() {
@@ -111,6 +123,7 @@
             getCurrentTheme: getCurrentTheme,
             apply: applyTheme,
             syncMedia: syncThemeMedia,
+            refreshLabels: updateThemeButton,
             resetToAuto: resetToAuto,
             isManual: isManual
         };

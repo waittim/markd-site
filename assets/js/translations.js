@@ -11,7 +11,11 @@ const translations = {
             privacy: "Privacy"
         },
         a11y: {
-            skip: "Skip to content"
+            skip: "Skip to content",
+            langToggle: "Switch language",
+            langMenu: "Language",
+            themeToLight: "Switch to light theme",
+            themeToDark: "Switch to dark theme"
         },
         hero: {
             badge: "",
@@ -184,7 +188,11 @@ const translations = {
             privacy: "隐私"
         },
         a11y: {
-            skip: "跳到主要内容"
+            skip: "跳到主要内容",
+            langToggle: "切换语言",
+            langMenu: "语言",
+            themeToLight: "切换到浅色模式",
+            themeToDark: "切换到深色模式"
         },
         hero: {
             badge: "",
@@ -357,7 +365,11 @@ const translations = {
             privacy: "隱私"
         },
         a11y: {
-            skip: "跳到主要內容"
+            skip: "跳到主要內容",
+            langToggle: "切換語言",
+            langMenu: "語言",
+            themeToLight: "切換到淺色模式",
+            themeToDark: "切換到深色模式"
         },
         hero: {
             badge: "",

@@ -759,6 +759,9 @@ h1, h2, h3, h4, h5, h6 {
     color: var(--text-secondary);
     text-decoration: none;
     transition: color 0.2s;
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
 }
 
 .footer-links a:hover { color: var(--text-primary); }
