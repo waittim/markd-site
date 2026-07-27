@@ -719,6 +719,7 @@ h3, h4, h5, h6 {
     color: var(--text-secondary);
     margin-bottom: 36px;
     line-height: 1.55;
+    text-wrap: pretty;
 }
 
 .cta-buttons {

@@ -62,7 +62,7 @@ const translations = {
         },
         cta: {
             title: "Build your library",
-            subtitle: "Download Mark'd and keep a private record of what you actually like.",
+            subtitle: "Download Mark'd and keep a private record of\u00A0what\u00A0you\u00A0actually\u00A0like.",
             appStore: "Download on the App Store",
             testFlight: "Try on TestFlight"
         },
