@@ -177,7 +177,6 @@
     function setLanguage(lang) {
         if (supportedLangs.includes(lang) && lang !== currentLang) {
             currentLang = lang;
-            console.log('Language switched to:', currentLang);
             updateLanguage(true); // true = user manually toggled, save as preference
             closeLanguageDropdown();
         }

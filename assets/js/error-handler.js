@@ -35,7 +35,7 @@
             { name: 'translations', check: () => typeof window.translations !== 'undefined' },
             { name: 'MarkdTheme', check: () => typeof window.MarkdTheme !== 'undefined' },
             { name: 'MarkdI18n', check: () => typeof window.MarkdI18n !== 'undefined' },
-            { name: 'MarkdAnimations', check: () => typeof window.MarkdAnimations !== 'undefined' }
+            { name: 'MarkdApp', check: () => typeof window.MarkdApp !== 'undefined' }
         ];
 
         const missingModules = requiredModules.filter(module => !module.check());

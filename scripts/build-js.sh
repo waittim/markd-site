@@ -17,7 +17,6 @@ FILES=(
   assets/js/translations.js
   assets/js/icons.js
   assets/js/i18n.js
-  assets/js/animations.js
   assets/js/main.js
 )
 

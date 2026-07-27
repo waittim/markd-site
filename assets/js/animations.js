@@ -5,35 +5,13 @@
 (function() {
     'use strict';
 
-    function initScrollAnimations() {
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
+    // Hero entrances are CSS-driven via .fade-in-up on first paint.
+    // Kept as a no-op export so callers remain stable.
+    function initScrollAnimations() {}
 
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('fade-in-up');
-                    observer.unobserve(entry.target);
-                }
-            });
-        }, observerOptions);
-
-        document.querySelectorAll('.fade-in-up').forEach(el => {
-            observer.observe(el);
-        });
-    }
-
-    // Export to global namespace
     if (typeof window !== 'undefined') {
         window.MarkdAnimations = {
             init: initScrollAnimations
         };
     }
 })();
-
-
-
-
-

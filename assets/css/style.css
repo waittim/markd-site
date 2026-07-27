@@ -70,6 +70,7 @@
 html {
     height: 100%;
     scroll-behavior: smooth;
+    scroll-padding-top: 88px;
 }
 
 body {
@@ -87,7 +88,7 @@ body {
 
 .sf-display {
     font-weight: 700;
-    letter-spacing: -0.04em;
+    letter-spacing: -0.03em;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -96,16 +97,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* --- Glass (nav / selective surfaces) --- */
-.liquid-glass {
-    background: var(--glass-bg);
-    backdrop-filter: blur(28px) saturate(160%);
-    -webkit-backdrop-filter: blur(28px) saturate(160%);
-    border: 1px solid var(--glass-border);
-    box-shadow: var(--glass-shadow);
-    position: relative;
-    overflow: hidden;
-    border-radius: var(--radius-lg);
-}
+/* Nav uses .navbar-glass directly; shared glass tokens live in :root */
 
 /* --- Fluid Background --- */
 .fluid-bg {
@@ -187,6 +179,10 @@ h1, h2, h3, h4, h5, h6 {
 .skip-link:focus,
 .skip-link:focus-visible {
     transform: translateY(0);
+}
+
+#main-content:focus {
+    outline: none;
 }
 
 /* --- Focus --- */
@@ -392,7 +388,7 @@ h1, h2, h3, h4, h5, h6 {
 .hero-title {
     font-size: clamp(40px, 6vw, 72px);
     line-height: 1.02;
-    letter-spacing: -0.045em;
+    letter-spacing: -0.03em;
     margin-bottom: 20px;
     color: var(--text-primary);
 }
@@ -468,7 +464,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .features-title {
     font-size: clamp(36px, 5vw, 56px);
-    letter-spacing: -0.04em;
+    letter-spacing: -0.03em;
     color: var(--text-primary);
     display: flex;
     flex-direction: column;
@@ -493,7 +489,6 @@ h1, h2, h3, h4, h5, h6 {
     padding: 28px;
     border-radius: var(--radius-lg);
     background: var(--bg-secondary);
-    border: 1px solid var(--glass-border);
     box-shadow: var(--glass-shadow);
 }
 
@@ -602,7 +597,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .philosophy-title {
     font-size: clamp(36px, 5.5vw, 64px);
-    letter-spacing: -0.04em;
+    letter-spacing: -0.03em;
     color: var(--text-primary);
     margin-bottom: 48px;
 }
@@ -630,6 +625,7 @@ h1, h2, h3, h4, h5, h6 {
     display: inline-flex;
     align-items: center;
     gap: 8px;
+    min-height: 44px;
     font-size: 15px;
     font-weight: 700;
     color: var(--text-secondary);
@@ -667,7 +663,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .cta-title {
     font-size: clamp(32px, 4.5vw, 48px);
-    letter-spacing: -0.04em;
+    letter-spacing: -0.03em;
     margin-bottom: 16px;
     color: var(--text-primary);
 }
@@ -687,6 +683,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* Legacy class alias for any remaining references */
+/* Legacy alias — prefer .btn-primary */
 .app-store-btn {
     display: inline-flex;
     align-items: center;
@@ -891,7 +888,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .content-title {
     font-size: clamp(36px, 5vw, 52px);
-    letter-spacing: -0.04em;
+    letter-spacing: -0.03em;
     margin-bottom: 16px;
     color: var(--text-primary);
 }
@@ -1028,7 +1025,7 @@ h1, h2, h3, h4, h5, h6 {
     }
 
     .navbar-download-btn {
-        padding: 8px 14px;
+        padding: 10px 14px;
     }
 
     .btn-primary {
