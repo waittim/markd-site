@@ -66,7 +66,7 @@ Two mechanisms that neighboring diary, public-rating, or social “seed” produ
 ## Evidence on Hand
 
 - Live site copy and translations: `assets/js/translations.js` (and per-locale stubs).
-- Product screenshots: `assets/images/screenshot-*-720.png`, `assets/images/collection-*-720.png`.
+- Product screenshots: `assets/images/screenshot-*-720.webp` (PNG fallback retained).
 - App icons: `assets/images/Markd-iOS-*.png`.
 - Privacy and about pages: `privacy.html`, `about.html`.
 - App Store listing linked from CTAs (`id6755139749`).

@@ -1,0 +1,126 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-07-26T20:55:00-07:00",
+  "title": "Design System: Mark'd Marketing Site",
+  "extensions": {
+    "colorMeta": {
+      "bg-primary-light": {
+        "role": "neutral",
+        "displayName": "System Gray Canvas",
+        "canonical": "#F2F2F7",
+        "tonalRamp": ["#1a1a1c", "#2e2e32", "#4a4a50", "#6e6e76", "#9a9aa3", "#c7c7cc", "#e5e5ea", "#F2F2F7"]
+      },
+      "accent-light": {
+        "role": "primary",
+        "displayName": "Library Blue",
+        "canonical": "#2B62D9",
+        "tonalRamp": ["#0f1f4d", "#152a66", "#1c3680", "#23439f", "#2B62D9", "#4a7ae8", "#6b95f0", "#9bb8f7"]
+      },
+      "text-primary-light": {
+        "role": "neutral",
+        "displayName": "Ink",
+        "canonical": "#1D1D1F",
+        "tonalRamp": ["#000000", "#0d0d0e", "#1D1D1F", "#3a3a3c", "#5c5c60", "#8e8e93", "#c7c7cc", "#f5f5f7"]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "SF Display / System",
+        "purpose": "Hero and section headlines via .sf-display"
+      },
+      "body": {
+        "displayName": "SF Pro Text / System",
+        "purpose": "Body copy, descriptions, content pages"
+      }
+    },
+    "shadows": [
+      {
+        "name": "glass-nav",
+        "value": "0 8px 32px -8px rgba(29, 29, 31, 0.08)",
+        "purpose": "Floating navbar glass pill in light mode"
+      },
+      {
+        "name": "phone-screenshot",
+        "value": "0 28px 48px rgba(29, 29, 31, 0.28)",
+        "purpose": "Product mockup drop shadow on hero"
+      }
+    ],
+    "motion": [
+      {
+        "name": "ease-out-expo",
+        "value": "cubic-bezier(0.16, 1, 0.3, 1)",
+        "purpose": "Hero fade-in-up entrance"
+      },
+      {
+        "name": "ease-standard",
+        "value": "cubic-bezier(0.45, 0.05, 0.55, 0.95)",
+        "purpose": "Ambient orb float animation"
+      }
+    ],
+    "breakpoints": [
+      { "name": "sm", "value": "480px" },
+      { "name": "md", "value": "700px" },
+      { "name": "lg", "value": "768px" },
+      { "name": "xl", "value": "900px" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "App Store download CTA; inverted text/background from theme tokens.",
+      "html": "<a class=\"ds-btn-primary\" href=\"#\">Download on the App Store</a>",
+      "css": ".ds-btn-primary { display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 48px; padding: 14px 22px; border-radius: 9999px; background: #1D1D1F; color: #F2F2F7; font-size: 15px; font-weight: 600; text-decoration: none; transition: transform 0.2s ease, opacity 0.2s ease; } .ds-btn-primary:hover { opacity: 0.92; transform: translateY(-1px); } .ds-btn-primary:focus-visible { outline: 2px solid #2B62D9; outline-offset: 3px; }"
+    },
+    {
+      "name": "Navbar Glass",
+      "kind": "nav",
+      "refersTo": "navbar-glass",
+      "description": "Fixed top pill navigation with blur and download chip.",
+      "html": "<nav class=\"ds-nav\"><div class=\"ds-nav-inner\"><span class=\"ds-nav-brand\">Mark'd</span><a class=\"ds-nav-cta\" href=\"#\">Download</a></div></nav>",
+      "css": ".ds-nav { position: fixed; top: 16px; left: 0; right: 0; z-index: 50; display: flex; justify-content: center; padding: 0 20px; } .ds-nav-inner { width: 100%; max-width: 1080px; height: 56px; display: flex; align-items: center; justify-content: space-between; padding: 0 16px; border-radius: 9999px; background: linear-gradient(135deg, rgba(255,255,255,0.72), rgba(255,255,255,0.48)); border: 1px solid rgba(255,255,255,0.55); box-shadow: 0 8px 32px -8px rgba(29,29,31,0.08); backdrop-filter: blur(28px) saturate(160%); } .ds-nav-brand { font-weight: 700; font-size: 18px; letter-spacing: -0.02em; color: #1D1D1F; } .ds-nav-cta { display: inline-flex; align-items: center; min-height: 44px; padding: 10px 16px; border-radius: 9999px; background: #1D1D1F; color: #F2F2F7; font-size: 14px; font-weight: 600; text-decoration: none; }"
+    },
+    {
+      "name": "Feature Spotlight Card",
+      "kind": "card",
+      "refersTo": "feature-spotlight",
+      "description": "Two-column feature block with product screenshot and copy.",
+      "html": "<article class=\"ds-spotlight\"><div class=\"ds-spotlight-copy\"><h3>Private life library</h3><p>Photos, ratings, and notes stay on your device.</p></div></article>",
+      "css": ".ds-spotlight { display: grid; gap: 32px; padding: 40px 48px; border-radius: 28px; background: #FFFFFF; box-shadow: 0 8px 32px -8px rgba(29,29,31,0.08); } .ds-spotlight h3 { font-size: 32px; font-weight: 700; letter-spacing: -0.03em; margin-bottom: 16px; color: #1D1D1F; } .ds-spotlight p { font-size: 17px; line-height: 1.6; color: rgba(29,29,31,0.68); max-width: 42ch; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Quiet Library",
+    "overview": "Apple-native marketing surface for a private life-library app. Calm system typography, glass navigation, and real product screenshots. The site persuades through privacy and taste—not growth hacks or social proof.",
+    "keyCharacteristics": [
+      "System-first SF / Noto SC typography",
+      "Token-driven light/dark themes",
+      "Glass nav + ambient orbs",
+      "WCAG AA contrast and 44px touch targets",
+      "WebP screenshots with PNG fallback"
+    ],
+    "rules": [
+      {
+        "name": "The One Accent Rule",
+        "body": "Blue accent on links, focus, and signature lines only—not every heading.",
+        "section": "colors"
+      },
+      {
+        "name": "The Flat Card Rule",
+        "body": "Do not stack border and large shadow on the same card.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "Use semantic CSS variables for theme-aware color",
+      "Keep en / zh-Hans / zh-Hant copy and aria-labels in sync",
+      "Run optimize-images.py and build-js.sh after asset or JS changes"
+    ],
+    "donts": [
+      "Fabricate testimonials or download metrics",
+      "Imply Android or server access to user library data",
+      "Use gradient text or metric-stat hero templates"
+    ]
+  }
+}

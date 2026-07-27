@@ -592,14 +592,23 @@
         applyTheme(false); // false = initial load, don't mark as manual
     }
 
+    function themedImageSrc(el, theme) {
+        const primary = theme === 'dark' ? el.dataset.srcDark : el.dataset.srcLight;
+        const fallback = theme === 'dark' ? el.dataset.fallbackDark : el.dataset.fallbackLight;
+        if (!primary) return;
+
+        el.onerror = () => {
+            if (fallback && el.getAttribute('src') !== fallback) {
+                el.onerror = null;
+                el.src = fallback;
+            }
+        };
+        el.src = primary;
+    }
+
     function syncThemeMedia() {
         document.querySelectorAll('[data-src-light][data-src-dark]').forEach((el) => {
-            const next = currentTheme === 'dark' ? el.dataset.srcDark : el.dataset.srcLight;
-            if (!next) return;
-            const current = el.getAttribute('src') || '';
-            if (!current.endsWith(next) && current !== next) {
-                el.setAttribute('src', next);
-            }
+            themedImageSrc(el, currentTheme);
         });
     }
 

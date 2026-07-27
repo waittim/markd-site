@@ -101,8 +101,10 @@
 
             <div class="hero-visual fade-in-up delay-200">
                 <img
-                    data-src-light="assets/images/screenshot-light-720.png"
-                    data-src-dark="assets/images/screenshot-dark-720.png"
+                    data-src-light="assets/images/screenshot-light-720.webp"
+                    data-src-dark="assets/images/screenshot-dark-720.webp"
+                    data-fallback-light="assets/images/screenshot-light-720.png"
+                    data-fallback-dark="assets/images/screenshot-dark-720.png"
                     alt="Mark'd Library screen"
                     class="phone-screenshot"
                     width="360"
@@ -127,8 +129,10 @@
             <article class="feature-spotlight">
                 <div class="feature-spotlight-visual">
                     <img
-                        data-src-light="assets/images/collection-light-720.png"
-                        data-src-dark="assets/images/collection-dark-720.png"
+                        data-src-light="assets/images/collection-light-720.webp"
+                        data-src-dark="assets/images/collection-dark-720.webp"
+                        data-fallback-light="assets/images/collection-light-720.png"
+                        data-fallback-dark="assets/images/collection-dark-720.png"
                         alt="Mark'd collection screen with private ratings and notes"
                         class="feature-spotlight-img"
                         width="280"
@@ -224,9 +228,21 @@
 
     <script>
       (function () {
+        function themedSrc(el, theme) {
+          var primary = theme === 'dark' ? el.getAttribute('data-src-dark') : el.getAttribute('data-src-light');
+          var fallback = theme === 'dark' ? el.getAttribute('data-fallback-dark') : el.getAttribute('data-fallback-light');
+          if (!primary) return;
+          el.onerror = function () {
+            if (fallback && el.getAttribute('src') !== fallback) {
+              el.onerror = null;
+              el.src = fallback;
+            }
+          };
+          el.src = primary;
+        }
         var theme = document.documentElement.getAttribute('data-theme') || 'light';
         document.querySelectorAll('[data-src-light][data-src-dark]').forEach(function (el) {
-          el.src = theme === 'dark' ? el.getAttribute('data-src-dark') : el.getAttribute('data-src-light');
+          themedSrc(el, theme);
         });
       })();
     </script>
