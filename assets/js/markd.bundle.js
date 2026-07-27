@@ -1205,7 +1205,7 @@ const translations = {
         },
         cta: {
             title: "开始建立你的图鉴",
-            subtitle: "下载 Mark'd，私下记录你真正喜欢的事物。",
+            subtitle: "下载 Mark'd，记录你真正喜欢的事物。",
             appStore: "在 App Store 下载",
             testFlight: "在 TestFlight 试用"
         },
@@ -1382,7 +1382,7 @@ const translations = {
         },
         cta: {
             title: "開始建立你的圖鑑",
-            subtitle: "下載 Mark'd，私下記錄你真正喜歡的事物。",
+            subtitle: "下載 Mark'd，記錄你真正喜歡的事物。",
             appStore: "在 App Store 下載",
             testFlight: "在 TestFlight 試用"
         },

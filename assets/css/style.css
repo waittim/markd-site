@@ -18,6 +18,9 @@
     --glass-bg: linear-gradient(135deg, rgba(255, 255, 255, 0.72), rgba(255, 255, 255, 0.48));
     --glass-border: rgba(255, 255, 255, 0.55);
     --glass-shadow: 0 8px 32px -8px rgba(29, 29, 31, 0.08);
+    --nav-chip-bg: rgba(29, 29, 31, 0.08);
+    --nav-chip-bg-hover: rgba(29, 29, 31, 0.12);
+    --nav-chip-bg-active: rgba(29, 29, 31, 0.16);
 
     --orb-blend: multiply;
     --orb-opacity: 0.55;
@@ -49,6 +52,9 @@
     --glass-bg: linear-gradient(135deg, rgba(40, 40, 44, 0.72), rgba(28, 28, 32, 0.5));
     --glass-border: rgba(255, 255, 255, 0.12);
     --glass-shadow: 0 8px 32px -8px rgba(0, 0, 0, 0.45);
+    --nav-chip-bg: rgba(255, 255, 255, 0.12);
+    --nav-chip-bg-hover: rgba(255, 255, 255, 0.18);
+    --nav-chip-bg-active: rgba(255, 255, 255, 0.22);
 
     --orb-blend: screen;
     --orb-opacity: 0.28;
@@ -335,25 +341,26 @@ h3, h4, h5, h6 {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    background: var(--btn-bg);
-    color: var(--btn-fg);
-    padding: 0.625rem 1rem;
+    background: var(--nav-chip-bg);
+    color: var(--text-primary);
+    padding: 0.5rem 0.875rem;
     min-height: 2.75rem;
     border-radius: var(--radius-pill);
-    font-size: 0.875rem;
+    font-size: 0.8125rem;
     font-weight: 600;
+    letter-spacing: -0.01em;
     text-decoration: none;
     white-space: nowrap;
-    transition: opacity 100ms ease-out, transform 100ms ease-out;
+    transition: background-color 100ms ease-out, transform 100ms ease-out, opacity 100ms ease-out;
 }
 
 .navbar-download-btn:hover {
-    opacity: 0.9;
+    background: var(--nav-chip-bg-hover);
 }
 
 .navbar-download-btn:active {
     transform: scale(0.97);
-    opacity: 0.85;
+    background: var(--nav-chip-bg-active);
 }
 
 /* --- Hero Section --- */
@@ -1114,7 +1121,8 @@ h3, h4, h5, h6 {
     }
 
     .navbar-download-btn {
-        padding: 10px 14px;
+        padding: 0.375rem 0.75rem;
+        font-size: 0.75rem;
     }
 
     .btn-primary {
@@ -1200,6 +1208,11 @@ h3, h4, h5, h6 {
     .navbar-download-btn,
     .app-store-btn {
         border: 2px solid var(--text-primary);
+    }
+
+    .navbar-download-btn {
+        background: var(--bg-secondary);
+        color: var(--text-primary);
     }
 }
 
