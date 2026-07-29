@@ -442,7 +442,8 @@ h3, h4, h5, h6 {
 }
 
 .hero-subtitle span {
-    display: inline;
+    display: inline-block;
+    white-space: nowrap;
 }
 
 .hero-subtitle span + span::before {
