@@ -589,14 +589,45 @@
      * Get translated text string
      */
     function getText(key, fallback) {
-        if (window.MarkdI18n && typeof window.MarkdI18n.t === 'function') {
-            const translated = window.MarkdI18n.t(key);
-            if (translated && translated !== key) return translated;
+        if (window.MarkdI18n) {
+            if (typeof window.MarkdI18n.getTranslation === 'function') {
+                const translated = window.MarkdI18n.getTranslation(key);
+                if (translated && translated !== key) return translated;
+            }
+            if (typeof window.MarkdI18n.t === 'function') {
+                const translated = window.MarkdI18n.t(key);
+                if (translated && translated !== key) return translated;
+            }
+            if (typeof window.MarkdI18n.getCurrentLang === 'function' && window.translations) {
+                const lang = window.MarkdI18n.getCurrentLang();
+                if (window.translations[lang] && window.translations[lang][key]) {
+                    return window.translations[lang][key];
+                }
+            }
         }
         return fallback;
     }
 
     let overlayEl = null;
+
+    /**
+     * Refresh overlay text to match current language
+     */
+    function updateOverlayText() {
+        if (!overlayEl) return;
+        const titleEl = overlayEl.querySelector('.inapp-title');
+        const subtitleEl = overlayEl.querySelector('.inapp-subtitle');
+        const steps = overlayEl.querySelectorAll('.inapp-step-item');
+        const dismissBtn = overlayEl.querySelector('.inapp-dismiss-btn');
+
+        if (titleEl) titleEl.textContent = getText('inapp_title', 'Open in Safari');
+        if (subtitleEl) subtitleEl.textContent = getText('inapp_subtitle', 'In-app browsers restrict direct App Store access.');
+        if (steps && steps.length >= 2) {
+            steps[0].textContent = getText('inapp_step1', '1. Tap top-right menu (•••)');
+            steps[1].textContent = getText('inapp_step2', '2. Select "Open in Safari" or Default Browser');
+        }
+        if (dismissBtn) dismissBtn.textContent = getText('inapp_dismiss', 'Got it');
+    }
 
     /**
      * Build and inject the overlay DOM element
@@ -612,9 +643,9 @@
 
         overlayEl.innerHTML = `
             <div class="inapp-arrow-container">
-                <svg class="inapp-arrow-svg" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M12 52 C 24 50, 44 42, 48 18" stroke="white" stroke-width="4" stroke-linecap="round" fill="none"/>
-                    <path d="M34 14 L 50 16 L 48 32" stroke="white" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+                <svg class="inapp-arrow-svg" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M 24 78 C 36 74, 62 55, 73 25" stroke="white" stroke-width="7" stroke-linecap="round" fill="none"/>
+                    <path d="M 50 29 L 74 23 L 69 47" stroke="white" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
                 </svg>
             </div>
             <div class="inapp-card">
@@ -651,10 +682,8 @@
     function showOverlay(appStoreUrl) {
         const overlay = createOverlay();
         
-        // Refresh translated content if language changed
-        if (window.MarkdI18n && typeof window.MarkdI18n.updateDOM === 'function') {
-            window.MarkdI18n.updateDOM(overlay);
-        }
+        // Refresh translated content for current language
+        updateOverlayText();
 
         requestAnimationFrame(() => {
             overlay.classList.add('is-visible');
@@ -2106,6 +2135,7 @@ if (typeof window !== 'undefined') {
             initDropdown: initLanguageDropdown,
             getCurrentLang: getCurrentLang,
             getTranslation: getTranslation,
+            t: getTranslation,
             update: updateLanguage,
             resetToAuto: resetToAuto,
             isManual: isManual,

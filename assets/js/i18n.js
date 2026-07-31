@@ -384,6 +384,7 @@
             initDropdown: initLanguageDropdown,
             getCurrentLang: getCurrentLang,
             getTranslation: getTranslation,
+            t: getTranslation,
             update: updateLanguage,
             resetToAuto: resetToAuto,
             isManual: isManual,
