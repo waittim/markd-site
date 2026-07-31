@@ -132,6 +132,11 @@ function setupEventListeners() {
             });
         });
     });
+
+    // In-App Browser download interceptor initialization
+    if (window.MarkdInAppBrowser && typeof window.MarkdInAppBrowser.init === 'function') {
+        window.MarkdInAppBrowser.init();
+    }
 }
 
 function initializeApp() {

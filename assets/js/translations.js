@@ -178,7 +178,12 @@ const translations = {
                 title: "Contact Us",
                 content: "If you have any questions about this Privacy Policy, please contact us at:"
             }
-        }
+        },
+        inapp_title: "Open in Safari",
+        inapp_subtitle: "In-app browsers restrict direct App Store access.",
+        inapp_step1: "1. Tap top-right menu (•••)",
+        inapp_step2: "2. Select 'Open in Safari' or Default Browser",
+        inapp_dismiss: "Got it"
     },
     zh: {
         nav: {
@@ -355,7 +360,12 @@ const translations = {
                 title: "联系我们",
                 content: "如果你对本隐私政策有任何疑问，请通过以下方式联系我们："
             }
-        }
+        },
+        inapp_title: "在 Safari 中打开",
+        inapp_subtitle: "当前内置浏览器无法直接跳转 App Store",
+        inapp_step1: "1. 点击右上角「•••」菜单",
+        inapp_step2: "2. 选择「在 Safari 或默认浏览器中打开」",
+        inapp_dismiss: "我知道了"
     },
     'zh-TW': {
         nav: {
@@ -532,7 +542,12 @@ const translations = {
                 title: "聯絡我們",
                 content: "如果你對本隱私政策有任何疑問，請透過以下方式聯絡我們："
             }
-        }
+        },
+        inapp_title: "在 Safari 中開啟",
+        inapp_subtitle: "當前內建瀏覽器無法直接跳轉 App Store",
+        inapp_step1: "1. 點擊右上角「•••」選單",
+        inapp_step2: "2. 選擇「在 Safari 或預設瀏覽器中開啟」",
+        inapp_dismiss: "我知道了"
     }
 };
 
