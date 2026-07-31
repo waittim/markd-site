@@ -645,7 +645,7 @@
             <div class="inapp-arrow-container">
                 <svg class="inapp-arrow-svg" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M 24 78 C 36 74, 62 55, 73 25" stroke="currentColor" stroke-width="7" stroke-linecap="round" fill="none"/>
-                    <path d="M 50 29 L 74 23 L 69 47" stroke="currentColor" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+                    <path d="M 55 38 L 74 21 L 75 43" stroke="currentColor" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
                 </svg>
             </div>
             <div class="inapp-card">
