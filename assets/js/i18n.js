@@ -74,38 +74,19 @@
         ensureCjkFont();
 
         if (!window.translations) {
-            console.warn('Translations not loaded yet');
-            // Try to load translations dynamically if loader is available
-            if (window.MarkdTranslationsLoader) {
-                window.MarkdTranslationsLoader.load(currentLang).then(translation => {
-                    window.translations = window.translations || {};
-                    window.translations[currentLang] = translation;
-                    updateLanguage(saveAsManual);
-                }).catch(error => {
-                    console.error('Failed to load translation:', error);
-                });
-            }
+            console.warn('Translations dictionary not loaded');
             return;
         }
 
-        const t = window.translations[currentLang];
+        let t = window.translations[currentLang];
         if (!t) {
-            console.warn(`Translations for language '${currentLang}' not found`);
-            // Try to load dynamically
-            if (window.MarkdTranslationsLoader) {
-                window.MarkdTranslationsLoader.load(currentLang).then(translation => {
-                    window.translations[currentLang] = translation;
-                    updateLanguage(saveAsManual);
-                }).catch(error => {
-                    console.error('Failed to load translation:', error);
-                    // Fallback to English
-                    if (currentLang !== 'en' && window.translations.en) {
-                        currentLang = 'en';
-                        updateLanguage(saveAsManual);
-                    }
-                });
+            console.warn(`Translations for language '${currentLang}' not found, falling back to English`);
+            if (currentLang !== 'en' && window.translations.en) {
+                currentLang = 'en';
+                t = window.translations.en;
+            } else {
+                return;
             }
-            return;
         }
 
         // Update all elements with data-i18n attribute

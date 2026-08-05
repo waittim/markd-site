@@ -9,6 +9,7 @@ FILES=(
   assets/js/error-handler.js
   assets/js/utils.js
   assets/js/performance.js
+  assets/js/lazy-load.js
   assets/js/components/config.js
   assets/js/components/inapp-browser.js
   assets/js/theme.js

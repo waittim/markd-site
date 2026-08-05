@@ -18,14 +18,11 @@ markd-site/
 ├── index.html                 # Landing page
 ├── about.html                 # About page
 ├── privacy.html               # Privacy policy
-├── test-language.html         # Language switching smoke test
 ├── CNAME                      # Custom domain (mark-d.com)
 ├── PRODUCT.md                 # Product brief
 ├── DESIGN.md                  # Design notes
 ├── start-server.sh            # Local Python HTTP server helper
 ├── start-server.command       # macOS double-click launcher
-├── archive/
-│   └── template.html          # Archived React prototype
 ├── scripts/
 │   ├── build-js.sh            # Concatenate JS modules into markd.bundle.js
 │   └── optimize-images.py     # Generate WebP variants (requires Pillow)
@@ -37,23 +34,18 @@ markd-site/
     │   ├── error-handler.js
     │   ├── utils.js
     │   ├── performance.js
+    │   ├── lazy-load.js       # Image and background lazy loading
     │   ├── theme.js
     │   ├── i18n.js
     │   ├── translations.js
-    │   ├── translations-loader.js   # Optional split-loader (not in bundle)
     │   ├── icons.js
-    │   ├── animations.js           # No-op stub; hero motion is CSS-driven
-    │   ├── lazy-load.js            # Optional; not in current bundle
     │   ├── main.js
-    │   ├── components/
-    │   │   ├── config.js
-    │   │   ├── navbar.js
-    │   │   ├── footer.js
-    │   │   └── index.js
-    │   └── translations/           # Split locale files (optional)
-    │       ├── en.js
-    │       ├── zh.js
-    │       └── zh-TW.js
+    │   └── components/
+    │       ├── config.js
+    │       ├── inapp-browser.js
+    │       ├── navbar.js
+    │       ├── footer.js
+    │       └── index.js
     └── images/                     # App icons and screenshots (PNG + WebP)
 ```
 
@@ -118,17 +110,17 @@ Bundle order (from `scripts/build-js.sh`):
 1. `error-handler.js`
 2. `utils.js`
 3. `performance.js`
-4. `components/config.js`
-5. `theme.js`
-6. `components/navbar.js`
-7. `components/footer.js`
-8. `components/index.js`
-9. `translations.js`
-10. `icons.js`
-11. `i18n.js`
-12. `main.js`
-
-`animations.js`, `lazy-load.js`, and `translations-loader.js` exist in the tree but are not included in the current production bundle.
+4. `lazy-load.js`
+5. `components/config.js`
+6. `components/inapp-browser.js`
+7. `theme.js`
+8. `components/navbar.js`
+9. `components/footer.js`
+10. `components/index.js`
+11. `translations.js`
+12. `icons.js`
+13. `i18n.js`
+14. `main.js`
 
 ## Local Development
 
