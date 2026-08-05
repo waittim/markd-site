@@ -20,29 +20,69 @@ colors:
   focus-ring-dark: "{colors.accent-dark}"
 typography:
   display:
-    fontFamily: "-apple-system, BlinkMacSystemFont, \"SF Pro Text\", \"Noto Sans SC\", \"Segoe UI\", sans-serif"
+    fontFamily: "SF Pro Text, -apple-system, BlinkMacSystemFont, \"Noto Sans SC\", \"Segoe UI\", sans-serif"
+    fontSize: "clamp(40px, 6vw, 72px)"
     fontWeight: 700
     letterSpacing: "-0.03em"
     lineHeight: 1.02
+  headline:
+    fontFamily: "SF Pro Text, -apple-system, BlinkMacSystemFont, \"Noto Sans SC\", \"Segoe UI\", sans-serif"
+    fontSize: "clamp(36px, 5vw, 56px)"
+    fontWeight: 700
+    letterSpacing: "-0.03em"
+  headline-xl:
+    fontSize: "clamp(2.25rem, 5.5vw, 4rem)"
+  headline-lg:
+    fontSize: "clamp(2.25rem, 5vw, 3.25rem)"
+  headline-md:
+    fontSize: "clamp(2rem, 4.5vw, 3rem)"
+  spotlight:
+    fontFamily: "SF Pro Text, -apple-system, BlinkMacSystemFont, \"Noto Sans SC\", \"Segoe UI\", sans-serif"
+    fontSize: "clamp(28px, 3vw, 40px)"
+    fontWeight: 700
+    letterSpacing: "-0.03em"
+  title-lg:
+    fontSize: "clamp(1.5rem, 3vw, 2rem)"
+  title-md:
+    fontSize: "clamp(1.125rem, 2.2vw, 1.375rem)"
   body:
-    fontFamily: "-apple-system, BlinkMacSystemFont, \"SF Pro Text\", \"Noto Sans SC\", \"Segoe UI\", sans-serif"
+    fontFamily: "SF Pro Text, -apple-system, BlinkMacSystemFont, \"Noto Sans SC\", \"Segoe UI\", sans-serif"
     fontSize: "17px"
     fontWeight: 500
     lineHeight: 1.6
+  body-fluid:
+    fontSize: "clamp(16px, 1.6vw, 20px)"
+  body-subtitle:
+    fontSize: "clamp(16px, 1.8vw, 19px)"
   cjk:
-    fontFamily: "\"Noto Sans SC\", sans-serif"
+    fontFamily: "Noto Sans SC, sans-serif"
     fontWeight: 400
     fontSize: "17px"
     lineHeight: 1.6
   label:
-    fontFamily: "-apple-system, BlinkMacSystemFont, \"SF Pro Text\", \"Noto Sans SC\", \"Segoe UI\", sans-serif"
+    fontFamily: "SF Pro Text, -apple-system, BlinkMacSystemFont, \"Noto Sans SC\", \"Segoe UI\", sans-serif"
     fontSize: "14px"
     fontWeight: 600
     letterSpacing: "-0.02em"
+  label-xs:
+    fontSize: "0.75rem"
+  label-sm:
+    fontSize: "12px"
+  label-btn:
+    fontSize: "0.8125rem"
+  label-md:
+    fontSize: "15px"
+  label-lg:
+    fontSize: "18px"
 rounded:
+  xs: "8px"
   sm: "12px"
   md: "20px"
   lg: "28px"
+  xl: "24px"
+  card: "16px"
+  icon-hero: "14px"
+  icon-cta: "18px"
   pill: "9999px"
 spacing:
   page-inline: "24px"
