@@ -19,6 +19,21 @@ window.MarkdApp = {
     createIcon: (name, size) => window.MarkdIcons ? window.MarkdIcons.createIcon(name, size) : ''
 };
 
+// Unified Root Namespace
+window.Markd = {
+    get app() { return window.MarkdApp; },
+    get i18n() { return window.MarkdI18n; },
+    get theme() { return window.MarkdTheme; },
+    get components() { return window.MarkdComponents; },
+    get icons() { return window.MarkdIcons; },
+    get utils() { return window.MarkdUtils; },
+    get performance() { return window.MarkdPerformance; },
+    get errorHandler() { return window.MarkdErrorHandler; },
+    get inAppBrowser() { return window.MarkdInAppBrowser; },
+    get lazyLoad() { return window.MarkdLazyLoad; },
+    get config() { return window.MarkdComponentConfig; }
+};
+
 function prefersReducedMotion() {
     return window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 }
@@ -42,6 +57,9 @@ function initApp() {
 
 // Event Listeners
 function setupEventListeners() {
+    // Enable instant :active feedback on iOS Safari / WebKit touch devices
+    document.addEventListener('touchstart', function() {}, { passive: true });
+
     document.querySelectorAll('.theme-toggle').forEach(btn => {
         btn.addEventListener('click', function(e) {
             e.preventDefault();
