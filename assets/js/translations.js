@@ -80,7 +80,7 @@ const translations = {
                     content: "Logs, photos, ratings, and notes stay on your device. If you turn on iCloud, they sync to your personal iCloud account. We do not sell that data, and the app does not show ads."
                 },
                 authenticity: {
-                    title: "Your library",
+                    title: "For You, Not an Audience",
                     content: "Records stay in your library. There is no feed, and there is no public average."
                 },
                 quality: {
@@ -186,7 +186,7 @@ const translations = {
     zh: {
         meta: {
             title: {
-                home: "Mark'd - Your Life Library",
+                home: "Mark'd - 你的私人生活图鉴",
                 about: "关于 - Mark'd",
                 privacy: "隐私政策 - Mark'd"
             }
@@ -204,32 +204,32 @@ const translations = {
             themeToDark: "切换到深色模式"
         },
         hero: {
-            titleLine1: "你的",
-            titleLine2: "生活图鉴",
-            subtitlePre: "不是为了记录所有东西。",
-            subtitlePost: "而是为了留下重要的那些。"
+            titleLine1: "属于你的",
+            titleLine2: "私人生活图鉴",
+            subtitlePre: "不必事事记录。",
+            subtitlePost: "只留下真正触动你的那些瞬间。"
         },
         features: {
             titleLine1: "捕捉当下。",
             titleHighlight: "留给自己。",
             spotlight: {
-                title: "私人生活图鉴",
-                desc: "照片、评分与笔记保存在你的设备和 iCloud 中。没有动态流，没有公开分数，只有随时间沉淀的品味。"
+                title: "一本专属的私人生活图鉴",
+                desc: "照片、评分与随笔安放于你的设备与个人 iCloud。没有喧嚣的动态流，没有公开的评分，只有随岁月沉淀的真实品味。"
             },
             cards: {
-                scan: { title: "扫码即录", desc: "对准条形码。Mark'd 瞬间识别商品，并把它记入这一刻。" },
-                visual: { title: "视觉记忆", desc: "留下当下的氛围。照片保持清晰，不做压缩妥协。" },
-                rating: { title: "私人评分", desc: "写下你自己的分数，并在旁边留一句笔记。" },
-                share: { title: "分享卡片", desc: "想分享时，自动生成排版好的卡片。" },
-                cloud: { title: "iCloud 同步", desc: "数据保存在你的设备和 iCloud 中。私密、安全，时刻保持同步。" }
+                scan: { title: "扫码即录", desc: "对准条形码，Mark'd 即刻识别商品信息，轻松将记忆与当下温柔相连。" },
+                visual: { title: "视觉记忆", desc: "封存当下的真实氛围。完整保留原片细节与质感，绝不在画质上妥协。" },
+                rating: { title: "私人评分", desc: "给出专属你的星级，记下一两句心境随笔。无需参考大众均分，只忠于自己的喜好。" },
+                share: { title: "分享卡片", desc: "一键生成排版考究的视觉卡片。想与好友分享美好时，随时轻巧传递。" },
+                cloud: { title: "iCloud 同步", desc: "数据静静安放在本地设备与个人 iCloud 中。私密、安全，时刻保持同步。" }
             }
         },
         philosophy: {
             titleLine1: "你的品味，",
             titleLine2: "而非算法。",
             content: [
-                "你遇见一瓶酒、一家咖啡馆、一种香气。它可能很快过去，也可能成为你想再找回的一段记忆。",
-                "Mark'd 把这份记录留在你的设备和 iCloud 里。回头翻阅时，笔记仍然只属于你。"
+                "偶然遇见的一瓶好酒、转角巧遇的咖啡馆、一种触动思绪的香气——它们可能转瞬即逝，也可能成为日后反复回味的珍贵记忆。",
+                "Mark'd 将这份记录安放在你的设备与个人 iCloud 里。当你再次翻阅，那些感受始终只属于你自己。"
             ],
             signature: "Mark'd. 记住你的体验，理解你的生活。",
             link: "阅读隐私承诺"
@@ -239,54 +239,54 @@ const translations = {
             support: "技术支持"
         },
         cta: {
-            title: "开始建立你的图鉴",
-            subtitle: "下载 Mark'd，记录你真正喜欢的事物。",
+            title: "开始建立你的生活图鉴",
+            subtitle: "下载 Mark'd，静心记录那些你真正热爱的微小事物。",
             appStore: "在 App Store 下载"
         },
         about: {
             title: "关于 Mark'd",
-            subtitle: "一本私人图鉴，记下你真正喜欢的事物。",
+            subtitle: "一本私密的精神自留地，记下你真正喜欢的事物。",
             mission: {
-                title: "我们的使命",
+                title: "我们的初衷",
                 content: [
-                    "Mark'd 用来记下你真正喜欢的事物。分数和笔记留在那一刻旁边，方便你以后回头看自己的品味。",
-                    "这本图鉴是给你自己的，不是给观众看的。"
+                    "Mark'd 诞生于一个纯粹的想法：为你真正喜欢的事物留下一方纯净的记录天地。让真实的评分与心境随时间留存，在未来的某一天，回望属于你自己的品味轨迹。",
+                    "这本图鉴是为你自己而建的，无需迎合任何观众，也不必背负社交的压力。"
                 ]
             },
             values: {
-                title: "我们的价值观",
+                title: "我们坚持什么",
                 privacy: {
-                    title: "隐私优先",
-                    content: "记录、照片、评分和笔记保存在你的设备上。打开 iCloud 后，它们会同步到你自己的 iCloud。我们不出售这些数据，应用里也没有广告。"
+                    title: "隐私至上",
+                    content: "你的记录、照片、评分和随笔完整保存在本地设备上。启用 iCloud 后，也仅同步于你的个人私有云端。我们不出售这些数据，应用内永远没有广告打扰。"
                 },
                 authenticity: {
-                    title: "你的图鉴",
-                    content: "记录留在你的图鉴里。没有动态流，也没有公开平均分。"
+                    title: "真实自留地",
+                    content: "这里没有纷杂的社交动态，也没有被算法裹挟的大众平均分。你的每一次记录，都只忠于你当下的真实所感。"
                 },
                 quality: {
-                    title: "留下重要的",
-                    content: "不必记下所有东西。留下你还想再找到的那一餐、那瓶酒或那个地方。"
+                    title: "只留真正在意的",
+                    content: "不必执着于记录全部日常。只留下那顿回味悠长的晚餐、那瓶惊喜的酒，或是那个想再次踏足的角落。"
                 }
             },
             how: {
-                title: "工作原理",
+                title: "三步留存",
                 content: [
-                    "一条记录，一个瞬间就够了。"
+                    "一次记录，只需片刻瞬间。"
                 ],
                 list: [
-                    "把相机对准条形码，或拍一张照片。",
-                    "写下你的分数，并留一句笔记。",
-                    "记录保存在你的设备上；打开同步后，也会进入你的 iCloud。",
-                    "只有想发给别人时，才生成分享卡片。"
+                    "把相机对准条形码，或随手拍一张照片。",
+                    "给出属于你的星级，记下当下的心境与随笔。",
+                    "记录静静保存在你的设备上；开启同步后，也会进入你的个人 iCloud。",
+                    "只有在想与朋友分享共鸣时，才随心生成精致的分享卡片。"
                 ]
             },
             team: {
-                title: "Mark'd 背后",
-                content: "Mark'd 由一个小团队制作。它是一本私人图鉴，不是社交网络。"
+                title: "关于我们",
+                content: "Mark'd 由一个小而专注的独立团队打造。我们坚信工具应当服务于内心的自我对话与审视，而非沦为社交平台上的喧嚣表演。"
             },
             contact: {
-                title: "联系我们",
-                content: "有问题或反馈，写信给我们。"
+                title: "来信交流",
+                content: "有任何疑问、产品建议，或是想和我们聊聊你的使用感受？欢迎随时来信："
             }
         },
         privacy: {
@@ -348,7 +348,7 @@ const translations = {
             },
             changes: {
                 title: "政策变更",
-                content: "我们可能会不时更新本隐私政策。我们会在本页发布新的隐私政策并更新\"最后更新\"日期来通知你任何变更。"
+                content: "我们可能会不时更新本隐私政策。我们会在本页发布新的隐私政策并更新「最后更新」日期来通知你任何变更。"
             },
             contact: {
                 title: "联系我们",
@@ -366,7 +366,7 @@ const translations = {
     'zh-TW': {
         meta: {
             title: {
-                home: "Mark'd - Your Life Library",
+                home: "Mark'd - 你的私人生活圖鑑",
                 about: "關於 - Mark'd",
                 privacy: "隱私政策 - Mark'd"
             }
@@ -384,32 +384,32 @@ const translations = {
             themeToDark: "切換到深色模式"
         },
         hero: {
-            titleLine1: "你的",
-            titleLine2: "生活圖鑑",
-            subtitlePre: "不是為了記錄所有東西。",
-            subtitlePost: "而是為了留下重要的那些。"
+            titleLine1: "屬於你的",
+            titleLine2: "私人生活圖鑑",
+            subtitlePre: "不必事事記錄。",
+            subtitlePost: "只留下真正觸動你的那些瞬間。"
         },
         features: {
             titleLine1: "捕捉當下。",
             titleHighlight: "留給自己。",
             spotlight: {
-                title: "私人生活圖鑑",
-                desc: "照片、評分與筆記保存在你的裝置和 iCloud 中。沒有動態流，沒有公開分數，只有隨時間沉澱的品味。"
+                title: "一本專屬的私人生活圖鑑",
+                desc: "照片、評分與隨筆安放於你的裝置與個人 iCloud。沒有喧囂的動態流，沒有公開的評分，只有隨歲月沉澱的真實品味。"
             },
             cards: {
-                scan: { title: "掃碼即錄", desc: "對準條碼。Mark'd 瞬間識別商品，並把它記入這一刻。" },
-                visual: { title: "視覺記憶", desc: "留下當下的氛圍。照片保持清晰，不做壓縮妥協。" },
-                rating: { title: "私人評分", desc: "寫下你自己的分數，並在旁邊留一句筆記。" },
-                share: { title: "分享卡片", desc: "想分享時，自動生成排版好的卡片。" },
-                cloud: { title: "iCloud 同步", desc: "資料保存在你的裝置和 iCloud 中。私密、安全，時刻保持同步。" }
+                scan: { title: "掃碼即錄", desc: "對準條碼，Mark'd 即刻識別商品資訊，輕鬆將記憶與當下溫柔相連。" },
+                visual: { title: "視覺記憶", desc: "封存當下的真實氛圍。完整保留原片細節與質感，絕不在畫質上妥協。" },
+                rating: { title: "私人評分", desc: "給出專屬你的星級，記下一兩句心境隨筆。無需參考大眾均分，只忠於自己的喜好。" },
+                share: { title: "分享卡片", desc: "一鍵生成排版考究的視覺卡片。想與好友分享美好時，隨時輕巧傳遞。" },
+                cloud: { title: "iCloud 同步", desc: "資料靜靜安放在本機裝置與個人 iCloud 中。私密、安全，時刻保持同步。" }
             }
         },
         philosophy: {
             titleLine1: "你的品味，",
             titleLine2: "而非演算法。",
             content: [
-                "你遇見一瓶酒、一家咖啡館、一種香氣。它可能很快過去，也可能成為你想再找回的一段記憶。",
-                "Mark'd 把這份記錄留在你的裝置和 iCloud 裡。回頭翻閱時，筆記仍然只屬於你。"
+                "偶然遇見的一瓶好酒、轉角巧遇的咖啡館、一種觸動思緒的香氣——它們可能轉瞬即逝，也可能成為日後反覆回味的珍貴記憶。",
+                "Mark'd 將這份記錄安放在你的裝置與個人 iCloud 裡。當你再次翻閱，那些感受始終只屬於你自己。"
             ],
             signature: "Mark'd. 記住你的體驗，理解你的生活。",
             link: "閱讀隱私承諾"
@@ -419,54 +419,54 @@ const translations = {
             support: "技術支援"
         },
         cta: {
-            title: "開始建立你的圖鑑",
-            subtitle: "下載 Mark'd，記錄你真正喜歡的事物。",
+            title: "開始建立你的生活圖鑑",
+            subtitle: "下載 Mark'd，靜心記錄那些你真正熱愛的微小事物。",
             appStore: "在 App Store 下載"
         },
         about: {
             title: "關於 Mark'd",
-            subtitle: "一本私人圖鑑，記下你真正喜歡的事物。",
+            subtitle: "一本私密的心靈自留地，記下你真正喜歡的事物。",
             mission: {
-                title: "我們的使命",
+                title: "我們的初衷",
                 content: [
-                    "Mark'd 用來記下你真正喜歡的事物。分數和筆記留在那一刻旁邊，方便你以後回頭看自己的品味。",
-                    "這本圖鑑是給你自己的，不是給觀眾看的。"
+                    "Mark'd 誕生於一個純粹的想法：為你真正喜歡的事物留下一方純淨的記錄天地。讓真實的評分與心境隨時間留存，在未來的某一天，回望屬於你自己的品味軌跡。",
+                    "這本圖鑑是為你自己而建的，無需迎合任何觀眾，也不必背負社群的壓力。"
                 ]
             },
             values: {
-                title: "我們的價值觀",
+                title: "我們堅持什麼",
                 privacy: {
-                    title: "隱私優先",
-                    content: "記錄、照片、評分和筆記保存在你的裝置上。打開 iCloud 後，它們會同步到你自己的 iCloud。我們不出售這些資料，應用裡也沒有廣告。"
+                    title: "隱私至上",
+                    content: "你的記錄、照片、評分和隨筆完整儲存在你的裝置上。啟用 iCloud 後，也僅同步於你的個人私有雲端。我們不出售這些資料，App 內永遠沒有廣告打擾。"
                 },
                 authenticity: {
-                    title: "你的圖鑑",
-                    content: "記錄留在你的圖鑑裡。沒有動態流，也沒有公開平均分。"
+                    title: "真實自留地",
+                    content: "這裡沒有紛雜的社群動態，也沒有被演算法裹挾的大眾平均分。你的每一次記錄，都只忠於你當下的真實所感。"
                 },
                 quality: {
-                    title: "留下重要的",
-                    content: "不必記下所有東西。留下你還想再找到的那一餐、那瓶酒或那個地方。"
+                    title: "只留真正在意的",
+                    content: "不必執著於記錄全部日常。只留下那頓回味悠長的晚餐、那瓶驚喜的酒，或是那個想再次踏足的角落。"
                 }
             },
             how: {
-                title: "工作原理",
+                title: "三步留存",
                 content: [
-                    "一條記錄，一個瞬間就夠了。"
+                    "一次記錄，只需片刻瞬間。"
                 ],
                 list: [
-                    "把相機對準條碼，或拍一張照片。",
-                    "寫下你的分數，並留一句筆記。",
-                    "記錄保存在你的裝置上；打開同步後，也會進入你的 iCloud。",
-                    "只有想發給別人時，才生成分享卡片。"
+                    "把相機對準條碼，或隨手拍一張照片。",
+                    "給出屬於你的星級，記下當下的心境與隨筆。",
+                    "記錄靜靜儲存在你的裝置上；開啟同步後，也會進入你的個人 iCloud。",
+                    "只有在想與朋友分享共鳴時，才隨心生成精緻的分享卡片。"
                 ]
             },
             team: {
-                title: "Mark'd 背後",
-                content: "Mark'd 由一個小團隊製作。它是一本私人圖鑑，不是社交網絡。"
+                title: "關於我們",
+                content: "Mark'd 由一個小而專注的獨立團隊打造。我們堅信工具應當服務於內心的自我對話與審視，而非淪為社群平台上的喧囂表演。"
             },
             contact: {
-                title: "聯絡我們",
-                content: "有問題或回饋，寫信給我們。"
+                title: "來信交流",
+                content: "有任何疑問、產品建議，或是想和我們聊聊你的使用體驗？歡迎隨時來信："
             }
         },
         privacy: {
@@ -506,7 +506,7 @@ const translations = {
             security: {
                 title: "資料安全",
                 content: [
-                    "我們認真對待資料安全。所有儲存在本地裝置上的資料都受到 iOS 安全措施的保护。",
+                    "我們認真對待資料安全。所有儲存在本地裝置上的資料都受到 iOS 安全措施的保護。",
                     "如果你使用 iCloud 同步，你的資料在傳輸和儲存時都使用 Apple 的加密標準進行加密。"
                 ]
             },
@@ -549,4 +549,3 @@ const translations = {
 if (typeof window !== 'undefined') {
     window.translations = translations;
 }
-
