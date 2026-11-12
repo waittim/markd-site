@@ -179,7 +179,7 @@ Hybrid: soft shadows + glass blur, not stacked borders and shadows together.
 ### Shadow Vocabulary
 - **Glass nav** (`--glass-shadow`): `0 8px 32px -8px rgba(29, 29, 31, 0.08)` light / `rgba(0,0,0,0.45)` dark.
 - **Phone screenshot** (`filter: drop-shadow(...)`): lifted product mockups on hero/spotlight.
-- **Capability hover:** same glass shadow on lift (`translateY(-3px)`).
+- **Capability list:** no card fill. Hairline rules separate the group; titles and sentences sit on the page.
 
 ### Named Rules
 **The Flat Card Rule.** Feature spotlight uses shadow OR border, not both. Default spotlight: shadow only on `--bg-secondary`.
@@ -208,7 +208,7 @@ Hybrid: soft shadows + glass blur, not stacked borders and shadows together.
 
 ### Cards
 - **Feature spotlight:** `--bg-secondary`, `--radius-lg`, generous padding (40px desktop).
-- **Capability:** flat at rest; hover lift + shadow only.
+- **Capability:** open type on the canvas, not a repeated card. iCloud closes the group as a full-width row.
 
 ### Footer
 - Top border `--glass-border`; brand + text links + circular 44px icon buttons for language/theme.
