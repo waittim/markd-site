@@ -1,23 +1,16 @@
-# Images Directory
+# Images
 
-## App Store Badge
+Pages use these files only:
 
-Place your App Store download badge here:
-- File name: `app-store-badge.svg` (or `.png`)
-- Recommended size: 180x60px (3:1 ratio)
-- Format: SVG preferred, PNG acceptable
+- `Markd-iOS-Default-240.png` and `Markd-iOS-Dark-240.png` for the app icon
+- `screenshot-*-720.webp` and `collection-*-720.webp` are the full 1349×2760 masters, with PNG fallbacks of the same size
 
-You can download the official App Store badge from:
-https://developer.apple.com/app-store/marketing/guidelines/
+The `720` in the filename is historical. Pages still scale these images down with CSS.
 
-## Alternative: TestFlight Badge
+Keep full-size masters out of this directory. GitHub Pages publishes everything here.
 
-If you want to use a TestFlight badge instead, you can:
-1. Create a custom badge image
-2. Update the link in `index.html` CTA section
-3. Place the image file here
+After replacing a 720 PNG, regenerate its WebP sibling:
 
-
-
-
-
+```bash
+python3 scripts/optimize-images.py
+```

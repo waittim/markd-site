@@ -17,7 +17,7 @@
         const isWeChat = /MicroMessenger/i.test(ua);
         const isFB = /FB_IAB|FBAV|FBAN/i.test(ua);
         const isTikTok = /ByteLocale|musical_ly|TikTok/i.test(ua);
-        const isLine = /Line/i.test(ua);
+        const isLine = /Line\//i.test(ua);
         const isTwitter = /Twitter/i.test(ua);
         
         // General iOS WebView (iOS devices with non-Safari webview string)
@@ -30,25 +30,12 @@
         return isInstagram || isWeChat || isFB || isTikTok || isLine || isTwitter || isIOSWebView;
     }
 
-    /**
-     * Get translated text string
-     */
+    const APP_STORE_ID = '6755139749';
+
     function getText(key, fallback) {
-        if (window.MarkdI18n) {
-            if (typeof window.MarkdI18n.getTranslation === 'function') {
-                const translated = window.MarkdI18n.getTranslation(key);
-                if (translated && translated !== key) return translated;
-            }
-            if (typeof window.MarkdI18n.t === 'function') {
-                const translated = window.MarkdI18n.t(key);
-                if (translated && translated !== key) return translated;
-            }
-            if (typeof window.MarkdI18n.getCurrentLang === 'function' && window.translations) {
-                const lang = window.MarkdI18n.getCurrentLang();
-                if (window.translations[lang] && window.translations[lang][key]) {
-                    return window.translations[lang][key];
-                }
-            }
+        if (window.MarkdI18n && typeof window.MarkdI18n.getTranslation === 'function') {
+            const translated = window.MarkdI18n.getTranslation(key);
+            if (translated && translated !== key) return translated;
         }
         return fallback;
     }
@@ -65,13 +52,13 @@
         const steps = overlayEl.querySelectorAll('.inapp-step-item');
         const dismissBtn = overlayEl.querySelector('.inapp-dismiss-btn');
 
-        if (titleEl) titleEl.textContent = getText('inapp_title', 'Open in Safari');
-        if (subtitleEl) subtitleEl.textContent = getText('inapp_subtitle', 'In-app browsers restrict direct App Store access.');
+        if (titleEl) titleEl.textContent = getText('inapp.title', 'Open in Safari');
+        if (subtitleEl) subtitleEl.textContent = getText('inapp.subtitle', 'In-app browsers restrict direct App Store access.');
         if (steps && steps.length >= 2) {
-            steps[0].textContent = getText('inapp_step1', '1. Tap top-right menu (•••)');
-            steps[1].textContent = getText('inapp_step2', '2. Select "Open in Safari" or Default Browser');
+            steps[0].textContent = getText('inapp.step1', '1. Tap top-right menu (•••)');
+            steps[1].textContent = getText('inapp.step2', '2. Select "Open in Safari" or Default Browser');
         }
-        if (dismissBtn) dismissBtn.textContent = getText('inapp_dismiss', 'Got it');
+        if (dismissBtn) dismissBtn.textContent = getText('inapp.dismiss', 'Got it');
     }
 
     /**
@@ -94,13 +81,13 @@
                 </svg>
             </div>
             <div class="inapp-card">
-                <div class="inapp-title" data-i18n="inapp_title">${getText('inapp_title', 'Open in Safari')}</div>
-                <div class="inapp-subtitle" data-i18n="inapp_subtitle">${getText('inapp_subtitle', 'In-app browsers restrict direct App Store access.')}</div>
+                <div class="inapp-title" data-i18n="inapp.title">${getText('inapp.title', 'Open in Safari')}</div>
+                <div class="inapp-subtitle" data-i18n="inapp.subtitle">${getText('inapp.subtitle', 'In-app browsers restrict direct App Store access.')}</div>
                 <div class="inapp-steps">
-                    <div class="inapp-step-item" data-i18n="inapp_step1">${getText('inapp_step1', '1. Tap top-right menu (•••)')}</div>
-                    <div class="inapp-step-item" data-i18n="inapp_step2">${getText('inapp_step2', '2. Select "Open in Safari" or Default Browser')}</div>
+                    <div class="inapp-step-item" data-i18n="inapp.step1">${getText('inapp.step1', '1. Tap top-right menu (•••)')}</div>
+                    <div class="inapp-step-item" data-i18n="inapp.step2">${getText('inapp.step2', '2. Select "Open in Safari" or Default Browser')}</div>
                 </div>
-                <button type="button" class="inapp-dismiss-btn" data-i18n="inapp_dismiss">${getText('inapp_dismiss', 'Got it')}</button>
+                <button type="button" class="inapp-dismiss-btn" data-i18n="inapp.dismiss">${getText('inapp.dismiss', 'Got it')}</button>
             </div>
         `;
 
@@ -136,7 +123,7 @@
 
         // Attempt direct scheme jump: itms-apps://
         const appIdMatch = appStoreUrl && appStoreUrl.match(/id(\d+)/);
-        const appId = appIdMatch ? appIdMatch[1] : '6755139749';
+        const appId = appIdMatch ? appIdMatch[1] : APP_STORE_ID;
         const schemeUrl = `itms-apps://apps.apple.com/app/id${appId}`;
 
         try {
@@ -160,13 +147,7 @@
     function bindDownloadLinks() {
         if (!isInAppBrowser()) return;
 
-        const downloadSelectors = [
-            'a.btn-primary[href*="apps.apple.com"]',
-            'a.app-store-btn[href*="apps.apple.com"]',
-            'a[href*="apps.apple.com"]'
-        ];
-
-        document.querySelectorAll(downloadSelectors.join(',')).forEach(btn => {
+        document.querySelectorAll('a[href*="apps.apple.com"]').forEach(btn => {
             btn.addEventListener('click', function(e) {
                 e.preventDefault();
                 const href = this.getAttribute('href') || '';

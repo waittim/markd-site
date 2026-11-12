@@ -8,7 +8,7 @@ Marketing site for Mark'd — a private life library for iOS. Static HTML/CSS/JS
 - English, Simplified Chinese, and Traditional Chinese (`en` / `zh` / `zh-TW`)
 - Responsive layout for mobile and desktop
 - Shared navbar / footer components
-- Single deferred JS bundle for page load
+- Blocking head script for theme and language, then one deferred JS bundle
 - No framework; vanilla HTML, CSS, and JavaScript
 
 ## Project Structure
@@ -30,23 +30,18 @@ markd-site/
     ├── css/
     │   └── style.css          # All site styles and design tokens
     ├── js/
+    │   ├── boot.js            # Sync head script: theme, language, CJK font
     │   ├── markd.bundle.js    # Built bundle (loaded by pages; do not edit by hand)
-    │   ├── error-handler.js
-    │   ├── utils.js
-    │   ├── performance.js
-    │   ├── lazy-load.js       # Image and background lazy loading
     │   ├── theme.js
     │   ├── i18n.js
     │   ├── translations.js
-    │   ├── icons.js
     │   ├── main.js
     │   └── components/
-    │       ├── config.js
     │       ├── inapp-browser.js
     │       ├── navbar.js
     │       ├── footer.js
     │       └── index.js
-    └── images/                     # App icons and screenshots (PNG + WebP)
+    └── images/                # App icons and screenshots (PNG + WebP)
 ```
 
 ## Design Tokens
@@ -93,13 +88,14 @@ Privacy policy: data collection, usage, security, user rights, contact.
 
 ## JavaScript
 
-Pages load one file:
+Pages load one blocking head script and one deferred bundle:
 
 ```html
+<script src="assets/js/boot.js"></script>
 <script defer src="assets/js/markd.bundle.js"></script>
 ```
 
-Edit source modules under `assets/js/`, then rebuild:
+`boot.js` sets theme and language before first paint. Edit source modules under `assets/js/`, then rebuild the bundle:
 
 ```bash
 ./scripts/build-js.sh
@@ -107,20 +103,14 @@ Edit source modules under `assets/js/`, then rebuild:
 
 Bundle order (from `scripts/build-js.sh`):
 
-1. `error-handler.js`
-2. `utils.js`
-3. `performance.js`
-4. `lazy-load.js`
-5. `components/config.js`
-6. `components/inapp-browser.js`
-7. `theme.js`
-8. `components/navbar.js`
-9. `components/footer.js`
-10. `components/index.js`
-11. `translations.js`
-12. `icons.js`
-13. `i18n.js`
-14. `main.js`
+1. `components/inapp-browser.js`
+2. `theme.js`
+3. `components/navbar.js`
+4. `components/footer.js`
+5. `components/index.js`
+6. `translations.js`
+7. `i18n.js`
+8. `main.js`
 
 ## Local Development
 
@@ -159,7 +149,7 @@ Possible, but some browsers may block or mis-resolve paths. Use a local server i
 
 ## Image Optimization
 
-Generate WebP siblings for the 720px screenshots (PNG kept as fallback):
+Generate WebP siblings for the full-resolution screenshot PNGs (1349×2760, PNG kept as fallback):
 
 ```bash
 pip3 install pillow
@@ -186,6 +176,6 @@ Site: https://mark-d.com
 ## Notes
 
 - All styles live in `assets/css/style.css` (no Tailwind in production pages)
-- Icons are inline SVG helpers in `icons.js`
-- Chinese pages load Noto Sans SC from Google Fonts when needed
+- Icons used by the page are inline SVG
+- Chinese pages load Noto Sans SC; Traditional Chinese loads Noto Sans TC
 - See `PRODUCT.md` and `DESIGN.md` for product and design context

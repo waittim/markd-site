@@ -9,8 +9,6 @@
     --text-primary: #1D1D1F;
     --text-secondary: rgba(29, 29, 31, 0.68);
     --accent: #2B62D9;
-    --accent-secondary: #3A6FE0;
-    --gradient-end: var(--accent-secondary);
     --btn-bg: var(--text-primary);
     --btn-fg: var(--bg-primary);
     --focus-ring: var(--accent);
@@ -28,16 +26,11 @@
     --orb-color-2: rgba(186, 230, 253, 0.45);
 
     --radius-sm: 12px;
-    --radius-md: 20px;
     --radius-lg: 28px;
     --rule: rgba(29, 29, 31, 0.12);
     --radius-pill: 9999px;
     --radius-menu: 14px;
     --radius-menu-item: 10px;
-
-    --phone-bg: #F2F2F7;
-    --phone-card-bg: rgba(255, 255, 255, 0.7);
-    --phone-text: #1D1D1F;
 }
 
 [data-theme='dark'] {
@@ -46,8 +39,6 @@
     --text-primary: #F5F5F7;
     --text-secondary: rgba(235, 235, 245, 0.62);
     --accent: #7AA4FF;
-    --accent-secondary: #5BB8FF;
-    --gradient-end: var(--accent-secondary);
     --btn-bg: var(--text-primary);
     --btn-fg: var(--bg-primary);
     --focus-ring: var(--accent);
@@ -64,9 +55,6 @@
     --orb-color-1: rgba(59, 130, 246, 0.4);
     --orb-color-2: rgba(56, 189, 248, 0.28);
 
-    --phone-bg: #0B0B0D;
-    --phone-card-bg: rgba(44, 44, 46, 0.7);
-    --phone-text: #F5F5F7;
     --rule: rgba(245, 245, 247, 0.16);
 }
 
@@ -97,6 +85,10 @@ body {
     min-height: 100%;
     line-height: 1.6;
     letter-spacing: 0;
+}
+
+html[lang="zh-Hant"] body {
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Noto Sans TC", "Noto Sans SC", "Segoe UI", sans-serif;
 }
 
 .sf-display {
@@ -755,34 +747,6 @@ h3, h4, h5, h6 {
     flex-wrap: wrap;
 }
 
-/* Legacy class alias for any remaining references */
-/* Legacy alias — prefer .btn-primary */
-.app-store-btn {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0.5rem;
-    padding: 0.875rem 1.375rem;
-    min-height: 3rem;
-    background: var(--btn-bg);
-    color: var(--btn-fg);
-    border-radius: var(--radius-pill);
-    text-decoration: none;
-    font-size: 0.9375rem;
-    font-weight: 600;
-    white-space: nowrap;
-    transition: transform 100ms ease-out, opacity 100ms ease-out;
-}
-
-.app-store-btn:hover {
-    opacity: 0.92;
-}
-
-.app-store-btn:active {
-    transform: scale(0.97);
-    opacity: 0.88;
-}
-
 /* --- Footer --- */
 .footer {
     padding: 3rem calc(1.5rem + env(safe-area-inset-right, 0px)) calc(3rem + env(safe-area-inset-bottom, 0px)) calc(1.5rem + env(safe-area-inset-left, 0px));
@@ -900,15 +864,6 @@ h3, h4, h5, h6 {
 .footer-btn-icon {
     width: 16px;
     height: 16px;
-}
-
-.footer-lang-btn {
-    display: flex;
-    align-items: center;
-    gap: 4px;
-    font-size: 12px;
-    font-weight: 500;
-    letter-spacing: 0.015em;
 }
 
 .lang-toggle {
@@ -1197,7 +1152,6 @@ h3, h4, h5, h6 {
     .footer-brand,
     .footer-links a,
     .philosophy-link,
-    .app-store-btn,
     .lang-option {
         transition: none;
     }
@@ -1242,8 +1196,7 @@ h3, h4, h5, h6 {
     }
 
     .btn-primary,
-    .navbar-download-btn,
-    .app-store-btn {
+    .navbar-download-btn {
         border: 2px solid var(--text-primary);
     }
 
@@ -1252,15 +1205,6 @@ h3, h4, h5, h6 {
         color: var(--text-primary);
     }
 }
-
-/* --- Utilities --- */
-.container {
-    max-width: 1080px;
-    margin: 0 auto;
-    padding: 0 24px;
-}
-
-.text-center { text-align: center; }
 
 /* ============================================
    In-App Browser Download Prompt Overlay

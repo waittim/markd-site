@@ -6,36 +6,7 @@
     <meta name="description" content="Privacy Policy - Mark'd respects your privacy and protects your personal data.">
     <title>Privacy Policy - Mark'd</title>
 
-    <script>
-      (function () {
-        try {
-          var manualTheme = localStorage.getItem('theme_manual') === 'true';
-          var theme = manualTheme ? localStorage.getItem('theme') : null;
-          if (theme !== 'light' && theme !== 'dark') {
-            theme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-          }
-          document.documentElement.setAttribute('data-theme', theme);
-
-          var manualLang = localStorage.getItem('lang_manual') === 'true';
-          var lang = manualLang ? localStorage.getItem('lang') : null;
-          if (!lang) {
-            var browserLang = (navigator.language || '').toLowerCase();
-            if (browserLang === 'zh-tw' || browserLang === 'zh-hant') lang = 'zh-TW';
-            else if (browserLang.indexOf('zh') === 0) lang = 'zh';
-            else lang = 'en';
-          }
-          var htmlLang = { en: 'en', zh: 'zh-Hans', 'zh-TW': 'zh-Hant' };
-          document.documentElement.lang = htmlLang[lang] || 'en';
-          if (String(lang).indexOf('zh') === 0) {
-            var fontLink = document.createElement('link');
-            fontLink.id = 'font-noto-sc';
-            fontLink.rel = 'stylesheet';
-            fontLink.href = 'https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700&display=swap';
-            document.head.appendChild(fontLink);
-          }
-        } catch (e) {}
-      })();
-    </script>
+    <script src="assets/js/boot.js"></script>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -64,7 +35,10 @@
 
             <div class="content-section">
                 <h2 data-i18n="privacy.intro.title">Our Commitment to Privacy</h2>
-                <div data-i18n="privacy.intro.content"></div>
+                <div data-i18n="privacy.intro.content">
+                    <p>At Mark'd, we believe privacy is a fundamental right. This Privacy Policy explains how we collect, use, and protect your information when you use Mark'd.</p>
+                    <p>By using Mark'd, you agree to the collection and use of information in accordance with this policy.</p>
+                </div>
             </div>
 
             <div class="content-section">
@@ -81,19 +55,33 @@
 
             <div class="content-section">
                 <h2 data-i18n="privacy.use.title">How We Use Your Data</h2>
-                <ul data-i18n="privacy.use.list"></ul>
+                <ul data-i18n="privacy.use.list">
+                    <li>To provide and maintain the Mark'd service</li>
+                    <li>To improve and optimize the app experience</li>
+                    <li>To respond to your support requests</li>
+                </ul>
                 <p data-i18n="privacy.use.note">We do not sell, rent, or share your personal data with third parties for marketing purposes.</p>
             </div>
 
             <div class="content-section">
                 <h2 data-i18n="privacy.security.title">Data Security</h2>
-                <div data-i18n="privacy.security.content"></div>
+                <div data-i18n="privacy.security.content">
+                    <p>We take data security seriously. All data stored locally on your device is protected by iOS security measures.</p>
+                    <p>If you use iCloud sync, your data is encrypted both in transit and at rest using Apple's encryption standards.</p>
+                </div>
             </div>
 
             <div class="content-section">
                 <h2 data-i18n="privacy.rights.title">Your Rights</h2>
-                <div data-i18n="privacy.rights.content"></div>
-                <ul data-i18n="privacy.rights.list"></ul>
+                <div data-i18n="privacy.rights.content">
+                    <p>You have the right to:</p>
+                </div>
+                <ul data-i18n="privacy.rights.list">
+                    <li>Access all data stored in Mark'd (it's all on your device)</li>
+                    <li>Delete any or all of your data at any time</li>
+                    <li>Disable iCloud sync if you prefer to keep data only on your device</li>
+                    <li>Export your data in a standard format</li>
+                </ul>
             </div>
 
             <div class="content-section">

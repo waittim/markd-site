@@ -2,34 +2,24 @@
    Mark'd Website - Navbar Component
    ============================================ */
 
-(function() {
+(function () {
     'use strict';
 
-    /**
-     * Render navbar component
-     * @param {Object} options - Configuration options
-     * @param {string} options.downloadLink - Link for download button (default: "#download")
-     * @param {boolean} options.showBrand - Show brand (default: true)
-     * @param {boolean} options.showDownload - Show download button (default: true)
-     * @param {boolean} options.showHome - Show home link (default: false)
-     * @returns {string} HTML string for navbar
-     */
+    function escapeAttr(value) {
+        return String(value)
+            .replace(/&/g, '&amp;')
+            .replace(/"/g, '&quot;')
+            .replace(/</g, '&lt;');
+    }
+
     function renderNavbar(options = {}) {
-        let config = options;
-        if (window.MarkdComponentConfig) {
-            config = window.MarkdComponentConfig.mergeConfig('navbar', options);
-        }
-        
-        const downloadLink = config.downloadLink || '#download';
-        const showBrand = config.showBrand !== false;
-        const showDownload = config.showDownload !== false;
-        const showHome = config.showHome === true || config.showHome === 'true';
-        
+        const downloadLink = escapeAttr(options.downloadLink || '#download');
+        const showHome = options.showHome === true;
+
         return `
             <nav class="navbar">
                 <div class="navbar-container">
                     <div class="navbar-glass">
-                        ${showBrand ? `
                         <a href="index.html" class="navbar-brand">
                             <img
                                 data-src-light="assets/images/Markd-iOS-Default-240.png"
@@ -42,10 +32,9 @@
                             >
                             <span class="navbar-brand-text">Mark'd</span>
                         </a>
-                        ` : ''}
                         <div class="navbar-actions">
                             ${showHome ? `<a href="index.html" class="navbar-link" data-i18n="nav.home">Home</a>` : ''}
-                            ${showDownload ? `<a href="${downloadLink}" class="navbar-download-btn" data-i18n="nav.download">Download</a>` : ''}
+                            <a href="${downloadLink}" class="navbar-download-btn" data-i18n="nav.download">Download</a>
                         </div>
                     </div>
                 </div>
@@ -53,11 +42,6 @@
         `;
     }
 
-    /**
-     * Insert navbar into page
-     * @param {string} selector - CSS selector for insertion point (default: "body")
-     * @param {Object} options - Configuration options
-     */
     function insertNavbar(selector = 'body', options = {}) {
         const target = document.querySelector(selector);
         if (!target) {

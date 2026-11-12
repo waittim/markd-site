@@ -2,78 +2,38 @@
    Mark'd Website - Main Application Entry
    ============================================ */
 
-// App State (will be initialized by modules)
-let currentTheme = 'light';
-let currentLang = 'en';
-
-window.currentLang = currentLang;
-window.currentTheme = currentTheme;
-
-// Main App Object
-window.MarkdApp = {
-    getCurrentLang: () => window.MarkdI18n ? window.MarkdI18n.getCurrentLang() : currentLang,
-    getCurrentTheme: () => window.MarkdTheme ? window.MarkdTheme.getCurrentTheme() : currentTheme,
-    toggleTheme: () => window.MarkdTheme ? window.MarkdTheme.toggle() : null,
-    toggleLanguage: () => window.MarkdI18n ? window.MarkdI18n.toggle() : null,
-    getTranslation: (key) => window.MarkdI18n ? window.MarkdI18n.getTranslation(key) : key,
-    createIcon: (name, size) => window.MarkdIcons ? window.MarkdIcons.createIcon(name, size) : ''
-};
-
-// Unified Root Namespace
-window.Markd = {
-    get app() { return window.MarkdApp; },
-    get i18n() { return window.MarkdI18n; },
-    get theme() { return window.MarkdTheme; },
-    get components() { return window.MarkdComponents; },
-    get icons() { return window.MarkdIcons; },
-    get utils() { return window.MarkdUtils; },
-    get performance() { return window.MarkdPerformance; },
-    get errorHandler() { return window.MarkdErrorHandler; },
-    get inAppBrowser() { return window.MarkdInAppBrowser; },
-    get lazyLoad() { return window.MarkdLazyLoad; },
-    get config() { return window.MarkdComponentConfig; }
-};
-
 function prefersReducedMotion() {
     return window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 }
 
-// Initialize App
 function initApp() {
     if (window.MarkdTheme) {
         window.MarkdTheme.init();
-        currentTheme = window.MarkdTheme.getCurrentTheme();
-        window.currentTheme = currentTheme;
     }
 
     if (window.MarkdI18n) {
         window.MarkdI18n.init();
-        currentLang = window.MarkdI18n.getCurrentLang();
-        window.currentLang = currentLang;
     }
 
     setupEventListeners();
 }
 
-// Event Listeners
 function setupEventListeners() {
     // Enable instant :active feedback on iOS Safari / WebKit touch devices
-    document.addEventListener('touchstart', function() {}, { passive: true });
+    document.addEventListener('touchstart', function () {}, { passive: true });
 
-    document.querySelectorAll('.theme-toggle').forEach(btn => {
-        btn.addEventListener('click', function(e) {
+    document.querySelectorAll('.theme-toggle').forEach((btn) => {
+        btn.addEventListener('click', function (e) {
             e.preventDefault();
             e.stopPropagation();
             if (window.MarkdTheme) {
                 window.MarkdTheme.toggle();
-                currentTheme = window.MarkdTheme.getCurrentTheme();
-                window.currentTheme = currentTheme;
             }
         });
     });
 
-    document.querySelectorAll('.lang-toggle').forEach(btn => {
-        btn.addEventListener('click', function(e) {
+    document.querySelectorAll('.lang-toggle').forEach((btn) => {
+        btn.addEventListener('click', function (e) {
             e.preventDefault();
             e.stopPropagation();
             if (window.MarkdI18n) {
@@ -86,8 +46,7 @@ function setupEventListeners() {
         window.MarkdI18n.initDropdown();
     }
 
-    // Smooth scroll for in-page anchors (respect reduced motion)
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
         anchor.addEventListener('click', function (e) {
             const href = this.getAttribute('href');
             if (!href || href === '#') return;
@@ -110,17 +69,14 @@ function setupEventListeners() {
         });
     });
 
-    // Fire analytics without delaying navigation (beacon / keepalive when possible)
     function trackEvent(name, params) {
         if (typeof gtag === 'undefined') return;
-
         const payload = Object.assign({ transport_type: 'beacon' }, params);
         gtag('event', name, payload);
     }
 
-    // App Store CTA tracking (hero + bottom CTA use .btn-primary)
-    document.querySelectorAll('a.btn-primary[href*="apps.apple.com"], a.app-store-btn[href*="apps.apple.com"]').forEach(btn => {
-        btn.addEventListener('click', function() {
+    document.querySelectorAll('a.btn-primary[href*="apps.apple.com"]').forEach((btn) => {
+        btn.addEventListener('click', function () {
             const href = this.getAttribute('href') || '';
             const buttonText = this.textContent.trim() || 'App Store Download';
 
@@ -133,12 +89,10 @@ function setupEventListeners() {
         });
     });
 
-    // Navbar download tracking
-    document.querySelectorAll('.navbar-download-btn').forEach(btn => {
-        btn.addEventListener('click', function() {
+    document.querySelectorAll('.navbar-download-btn').forEach((btn) => {
+        btn.addEventListener('click', function () {
             const href = this.getAttribute('href') || '';
             const buttonText = this.textContent.trim() || 'Download';
-
             const isAnchorLink = href.startsWith('#') ||
                 (href.includes('#') && !href.startsWith('http://') && !href.startsWith('https://'));
 
@@ -151,7 +105,6 @@ function setupEventListeners() {
         });
     });
 
-    // In-App Browser download interceptor initialization
     if (window.MarkdInAppBrowser && typeof window.MarkdInAppBrowser.init === 'function') {
         window.MarkdInAppBrowser.init();
     }

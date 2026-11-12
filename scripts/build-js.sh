@@ -1,23 +1,18 @@
 #!/usr/bin/env bash
 # Concatenate site JS into a single defer-friendly bundle.
+# boot.js stays separate: pages load it synchronously from <head>.
 # Edit source modules under assets/js/, then re-run this script.
 set -euo pipefail
 ROOT="$(cd "$(dirname "$0")/.." && pwd)"
 OUT="$ROOT/assets/js/markd.bundle.js"
 
 FILES=(
-  assets/js/error-handler.js
-  assets/js/utils.js
-  assets/js/performance.js
-  assets/js/lazy-load.js
-  assets/js/components/config.js
   assets/js/components/inapp-browser.js
   assets/js/theme.js
   assets/js/components/navbar.js
   assets/js/components/footer.js
   assets/js/components/index.js
   assets/js/translations.js
-  assets/js/icons.js
   assets/js/i18n.js
   assets/js/main.js
 )

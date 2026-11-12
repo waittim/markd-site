@@ -6,36 +6,7 @@
     <meta name="description" content="About Mark'd. A private library for what you actually like.">
     <title>About - Mark'd</title>
 
-    <script>
-      (function () {
-        try {
-          var manualTheme = localStorage.getItem('theme_manual') === 'true';
-          var theme = manualTheme ? localStorage.getItem('theme') : null;
-          if (theme !== 'light' && theme !== 'dark') {
-            theme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-          }
-          document.documentElement.setAttribute('data-theme', theme);
-
-          var manualLang = localStorage.getItem('lang_manual') === 'true';
-          var lang = manualLang ? localStorage.getItem('lang') : null;
-          if (!lang) {
-            var browserLang = (navigator.language || '').toLowerCase();
-            if (browserLang === 'zh-tw' || browserLang === 'zh-hant') lang = 'zh-TW';
-            else if (browserLang.indexOf('zh') === 0) lang = 'zh';
-            else lang = 'en';
-          }
-          var htmlLang = { en: 'en', zh: 'zh-Hans', 'zh-TW': 'zh-Hant' };
-          document.documentElement.lang = htmlLang[lang] || 'en';
-          if (String(lang).indexOf('zh') === 0) {
-            var fontLink = document.createElement('link');
-            fontLink.id = 'font-noto-sc';
-            fontLink.rel = 'stylesheet';
-            fontLink.href = 'https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700&display=swap';
-            document.head.appendChild(fontLink);
-          }
-        } catch (e) {}
-      })();
-    </script>
+    <script src="assets/js/boot.js"></script>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>

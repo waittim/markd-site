@@ -9,18 +9,18 @@ This specification details the environment detection, protocol scheme fallback, 
 
 ## 1. Technical Architecture & Flow
 
-### 1.1 In-App Browser Detection (`assets/js/utils.js` / `main.js`)
+### 1.1 In-App Browser Detection (`assets/js/components/inapp-browser.js`)
 We inspect `navigator.userAgent` to detect common in-app browser environments:
 - **Instagram**: `/Instagram/i`
 - **WeChat**: `/MicroMessenger/i`
 - **Facebook**: `/FB_IAB|FBAV|FBAN/i`
 - **TikTok / Douyin**: `/ByteLocale|musical_ly|TikTok/i`
-- **Line**: `/Line/i`
+- **Line**: `/Line\//i`
 - **Twitter/X**: `/Twitter/i`
 - **General iOS WebView**: `/iPhone|iPod|iPad/i` combined with non-Safari webview signatures
 
 ### 1.2 Download Button Click Behavior
-When a user clicks any App Store CTA (`a.btn-primary[href*="apps.apple.com"]`, `a.app-store-btn`, etc.):
+When a user clicks any App Store link (`a[href*="apps.apple.com"]`):
 1. **If In-App Browser detected**:
    - Intercept click event (`e.preventDefault()`).
    - Trigger full-screen frosted glass overlay pointing to top-right menu `•••`.

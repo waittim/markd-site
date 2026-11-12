@@ -6,36 +6,7 @@
     <meta name="description" content="Mark'd - Your Life Library. A private library for what you actually like.">
     <title>Mark'd - Your Life Library</title>
 
-    <script>
-      (function () {
-        try {
-          var manualTheme = localStorage.getItem('theme_manual') === 'true';
-          var theme = manualTheme ? localStorage.getItem('theme') : null;
-          if (theme !== 'light' && theme !== 'dark') {
-            theme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-          }
-          document.documentElement.setAttribute('data-theme', theme);
-
-          var manualLang = localStorage.getItem('lang_manual') === 'true';
-          var lang = manualLang ? localStorage.getItem('lang') : null;
-          if (!lang) {
-            var browserLang = (navigator.language || '').toLowerCase();
-            if (browserLang === 'zh-tw' || browserLang === 'zh-hant') lang = 'zh-TW';
-            else if (browserLang.indexOf('zh') === 0) lang = 'zh';
-            else lang = 'en';
-          }
-          var htmlLang = { en: 'en', zh: 'zh-Hans', 'zh-TW': 'zh-Hant' };
-          document.documentElement.lang = htmlLang[lang] || 'en';
-          if (String(lang).indexOf('zh') === 0) {
-            var fontLink = document.createElement('link');
-            fontLink.id = 'font-noto-sc';
-            fontLink.rel = 'stylesheet';
-            fontLink.href = 'https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700&display=swap';
-            document.head.appendChild(fontLink);
-          }
-        } catch (e) {}
-      })();
-    </script>
+    <script src="assets/js/boot.js"></script>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -99,10 +70,10 @@
 
             <div class="hero-visual fade-in-up delay-200">
                 <img
-                    data-src-light="assets/images/screenshot-light-720.webp"
-                    data-src-dark="assets/images/screenshot-dark-720.webp"
-                    data-fallback-light="assets/images/screenshot-light-720.png"
-                    data-fallback-dark="assets/images/screenshot-dark-720.png"
+                    data-src-light="assets/images/screenshot-light-720.webp?v=1349"
+                    data-src-dark="assets/images/screenshot-dark-720.webp?v=1349"
+                    data-fallback-light="assets/images/screenshot-light-720.png?v=1349"
+                    data-fallback-dark="assets/images/screenshot-dark-720.png?v=1349"
                     alt="Mark'd Library screen"
                     class="phone-screenshot"
                     width="360"
@@ -127,10 +98,10 @@
             <article class="feature-spotlight">
                 <div class="feature-spotlight-visual">
                     <img
-                        data-src-light="assets/images/collection-light-720.webp"
-                        data-src-dark="assets/images/collection-dark-720.webp"
-                        data-fallback-light="assets/images/collection-light-720.png"
-                        data-fallback-dark="assets/images/collection-dark-720.png"
+                        data-src-light="assets/images/collection-light-720.webp?v=1349"
+                        data-src-dark="assets/images/collection-dark-720.webp?v=1349"
+                        data-fallback-light="assets/images/collection-light-720.png?v=1349"
+                        data-fallback-dark="assets/images/collection-dark-720.png?v=1349"
                         alt="Mark'd collection screen with private ratings and notes"
                         class="feature-spotlight-img"
                         width="280"
@@ -232,24 +203,9 @@
     <!-- Footer will be inserted by components -->
 
     <script>
-      (function () {
-        function themedSrc(el, theme) {
-          var primary = theme === 'dark' ? el.getAttribute('data-src-dark') : el.getAttribute('data-src-light');
-          var fallback = theme === 'dark' ? el.getAttribute('data-fallback-dark') : el.getAttribute('data-fallback-light');
-          if (!primary) return;
-          el.onerror = function () {
-            if (fallback && el.getAttribute('src') !== fallback) {
-              el.onerror = null;
-              el.src = fallback;
-            }
-          };
-          el.src = primary;
-        }
-        var theme = document.documentElement.getAttribute('data-theme') || 'light';
-        document.querySelectorAll('[data-src-light][data-src-dark]').forEach(function (el) {
-          themedSrc(el, theme);
-        });
-      })();
+      if (window.MarkdBoot && window.MarkdBoot.applyThemedImages) {
+        window.MarkdBoot.applyThemedImages();
+      }
     </script>
 
     <!-- Scripts -->

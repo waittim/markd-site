@@ -1,5 +1,8 @@
 #!/usr/bin/env python3
-"""Generate WebP variants for product screenshots (keeps PNG as fallback)."""
+"""Generate WebP variants for the full-resolution screenshot PNGs (PNG stays as fallback).
+
+Those PNGs are 1349×2760. This script does not resize them.
+"""
 from pathlib import Path
 
 try:
@@ -23,7 +26,7 @@ def main() -> None:
             continue
         dst = src.with_suffix('.webp')
         img = Image.open(src)
-        img.save(dst, 'WEBP', quality=82, method=6)
+        img.save(dst, 'WEBP', quality=90, method=6)
         print(f'{name}: {src.stat().st_size // 1024}KB -> {dst.stat().st_size // 1024}KB')
 
 if __name__ == '__main__':

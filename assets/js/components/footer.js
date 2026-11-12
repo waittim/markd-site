@@ -2,47 +2,43 @@
    Mark'd Website - Footer Component
    ============================================ */
 
-(function() {
+(function () {
     'use strict';
 
-    /**
-     * Render footer component
-     * @param {Object} options - Configuration options
-     * @param {boolean} options.showBrand - Show brand (default: true)
-     * @param {boolean} options.showLinks - Show links (default: true)
-     * @param {boolean} options.showControls - Show controls (default: true)
-     * @param {boolean} options.showCopyright - Show copyright (default: true)
-     * @returns {string} HTML string for footer
-     */
-    function renderFooter(options = {}) {
-        // Merge with default config if available
-        let config = options;
-        if (window.MarkdComponentConfig) {
-            config = window.MarkdComponentConfig.mergeConfig('footer', options);
+    function initialLangLabel() {
+        const lang = document.documentElement.getAttribute('data-lang') || 'en';
+        if (window.MarkdBoot && typeof window.MarkdBoot.langLabel === 'function') {
+            return window.MarkdBoot.langLabel(lang);
         }
-        
-        const showBrand = config.showBrand !== false;
-        const showLinks = config.showLinks !== false;
-        const showControls = config.showControls !== false;
-        const showCopyright = config.showCopyright !== false;
-        
+        if (lang === 'zh') return '简';
+        if (lang === 'zh-TW') return '繁';
+        return 'En';
+    }
+
+    function initialThemePath() {
+        if (window.MarkdTheme && typeof window.MarkdTheme.iconPathData === 'function') {
+            return window.MarkdTheme.iconPathData();
+        }
+        return 'M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z';
+    }
+
+    function renderFooter() {
+        const langLabel = initialLangLabel();
+        const themePath = initialThemePath();
+
         return `
             <footer class="footer">
                 <div class="footer-container">
                     <div class="footer-content">
-                        ${showBrand ? '<a href="index.html" class="footer-brand">Mark\'d</a>' : ''}
+                        <a href="index.html" class="footer-brand">Mark'd</a>
 
-                        ${showLinks ? `
                         <div class="footer-links">
                             <a href="privacy.html" data-i18n="footer.privacy">Privacy Policy</a>
                             <a href="about.html" data-i18n="nav.about">About</a>
                             <a href="mailto:support@mark-d.com" data-i18n="footer.support">Support</a>
                         </div>
-                        ` : ''}
 
-                        ${showControls || showCopyright ? `
                         <div class="footer-controls">
-                            ${showControls ? `
                             <div class="footer-controls-group">
                                 <button type="button" class="footer-btn lang-toggle" data-i18n-aria-label="a11y.langToggle" aria-label="Switch language" aria-haspopup="listbox" aria-expanded="false">
                                     <svg class="footer-btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
@@ -50,47 +46,37 @@
                                         <line x1="2" y1="12" x2="22" y2="12"/>
                                         <path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/>
                                     </svg>
-                                    <span class="lang-text">中</span>
+                                    <span class="lang-text">${langLabel}</span>
                                 </button>
                                 <button type="button" class="footer-btn theme-toggle" aria-label="Switch to dark theme">
                                     <svg class="footer-btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-                                        <path d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/>
+                                        <path d="${themePath}"/>
                                     </svg>
                                 </button>
                             </div>
-                            ` : ''}
-                            ${showCopyright ? '<div class="footer-copyright">© <span id="year"></span></div>' : ''}
+                            <div class="footer-copyright">© <span id="year"></span></div>
                         </div>
-                        ` : ''}
                     </div>
                 </div>
             </footer>
         `;
     }
 
-    /**
-     * Insert footer into page
-     * @param {string} selector - CSS selector for insertion point (default: "body")
-     * @param {Object} options - Configuration options
-     */
-    function insertFooter(selector = 'body', options = {}) {
+    function insertFooter(selector = 'body') {
         const target = document.querySelector(selector);
         if (!target) {
             console.error(`Footer: Target element "${selector}" not found`);
             return;
         }
 
-        // Insert at the end of the target
-        target.insertAdjacentHTML('beforeend', renderFooter(options));
-        
-        // Set current year
+        target.insertAdjacentHTML('beforeend', renderFooter());
+
         const yearEl = document.getElementById('year');
         if (yearEl) {
             yearEl.textContent = new Date().getFullYear();
         }
     }
 
-    // Export to global namespace
     if (typeof window !== 'undefined') {
         window.MarkdComponents = window.MarkdComponents || {};
         window.MarkdComponents.Footer = {
@@ -99,4 +85,3 @@
         };
     }
 })();
-

@@ -4,11 +4,17 @@
 
 const translations = {
     en: {
+        meta: {
+            title: {
+                home: "Mark'd - Your Life Library",
+                about: "About - Mark'd",
+                privacy: "Privacy Policy - Mark'd"
+            }
+        },
         nav: {
             download: "Download",
             home: "Home",
-            about: "About",
-            privacy: "Privacy"
+            about: "About"
         },
         a11y: {
             skip: "Skip to content",
@@ -18,18 +24,14 @@ const translations = {
             themeToDark: "Switch to dark theme"
         },
         hero: {
-            badge: "",
             titleLine1: "Your Life",
             titleLine2: "Library.",
             subtitlePre: "Not to record everything.",
-            subtitleHighlight: "",
-            subtitlePost: "To keep what matters.",
-            cta: "Download"
+            subtitlePost: "To keep what matters."
         },
         features: {
             titleLine1: "Capture in the moment.",
             titleHighlight: "Keep for yourself.",
-            titleSuffix: "",
             spotlight: {
                 title: "A private life library",
                 desc: "Photos, ratings, and notes stay on your device and iCloud. No feed. No public scores. Just your taste, over time."
@@ -50,19 +52,16 @@ const translations = {
                 "Mark'd keeps that record on your device and in your iCloud. When you come back to it, the notes are still only yours."
             ],
             signature: "Mark'd. Remember your experience, understand your life.",
-            link: "Read our Privacy Pledge",
-            visualBadge: "Private & Secure"
+            link: "Read our Privacy Pledge"
         },
         footer: {
             privacy: "Privacy Policy",
-            terms: "Terms of Use",
             support: "Support"
         },
         cta: {
             title: "Build your library",
             subtitle: "Download Mark'd and keep a private record of\u00A0what\u00A0you\u00A0actually\u00A0like.",
-            appStore: "Download on the App Store",
-            testFlight: "Try on TestFlight"
+            appStore: "Download on the App Store"
         },
         about: {
             title: "About Mark'd",
@@ -176,18 +175,26 @@ const translations = {
                 content: "If you have any questions about this Privacy Policy, please contact us at:"
             }
         },
-        inapp_title: "Open in Safari",
-        inapp_subtitle: "In-app browsers restrict direct App Store access.",
-        inapp_step1: "1. Tap top-right menu (•••)",
-        inapp_step2: "2. Select 'Open in Safari' or Default Browser",
-        inapp_dismiss: "Got it"
+        inapp: {
+            title: "Open in Safari",
+            subtitle: "In-app browsers restrict direct App Store access.",
+            step1: "1. Tap top-right menu (•••)",
+            step2: "2. Select 'Open in Safari' or Default Browser",
+            dismiss: "Got it"
+        }
     },
     zh: {
+        meta: {
+            title: {
+                home: "Mark'd - Your Life Library",
+                about: "关于 - Mark'd",
+                privacy: "隐私政策 - Mark'd"
+            }
+        },
         nav: {
             download: "下载应用",
             home: "主页",
-            about: "关于",
-            privacy: "隐私"
+            about: "关于"
         },
         a11y: {
             skip: "跳到主要内容",
@@ -197,18 +204,14 @@ const translations = {
             themeToDark: "切换到深色模式"
         },
         hero: {
-            badge: "",
             titleLine1: "你的",
             titleLine2: "生活图鉴",
             subtitlePre: "不是为了记录所有东西。",
-            subtitleHighlight: "",
-            subtitlePost: "而是为了留下重要的那些。",
-            cta: "下载"
+            subtitlePost: "而是为了留下重要的那些。"
         },
         features: {
             titleLine1: "捕捉当下。",
             titleHighlight: "留给自己。",
-            titleSuffix: "",
             spotlight: {
                 title: "私人生活图鉴",
                 desc: "照片、评分与笔记保存在你的设备和 iCloud 中。没有动态流，没有公开分数，只有随时间沉淀的品味。"
@@ -229,19 +232,16 @@ const translations = {
                 "Mark'd 把这份记录留在你的设备和 iCloud 里。回头翻阅时，笔记仍然只属于你。"
             ],
             signature: "Mark'd. 记住你的体验，理解你的生活。",
-            link: "阅读隐私承诺",
-            visualBadge: "私密且安全"
+            link: "阅读隐私承诺"
         },
         footer: {
             privacy: "隐私政策",
-            terms: "使用条款",
             support: "技术支持"
         },
         cta: {
             title: "开始建立你的图鉴",
             subtitle: "下载 Mark'd，记录你真正喜欢的事物。",
-            appStore: "在 App Store 下载",
-            testFlight: "在 TestFlight 试用"
+            appStore: "在 App Store 下载"
         },
         about: {
             title: "关于 Mark'd",
@@ -355,18 +355,26 @@ const translations = {
                 content: "如果你对本隐私政策有任何疑问，请通过以下方式联系我们："
             }
         },
-        inapp_title: "在 Safari 中打开",
-        inapp_subtitle: "当前内置浏览器无法直接跳转 App Store",
-        inapp_step1: "1. 点击右上角「•••」菜单",
-        inapp_step2: "2. 选择「在 Safari 或默认浏览器中打开」",
-        inapp_dismiss: "我知道了"
+        inapp: {
+            title: "在 Safari 中打开",
+            subtitle: "当前内置浏览器无法直接跳转 App Store",
+            step1: "1. 点击右上角「•••」菜单",
+            step2: "2. 选择「在 Safari 或默认浏览器中打开」",
+            dismiss: "我知道了"
+        }
     },
     'zh-TW': {
+        meta: {
+            title: {
+                home: "Mark'd - Your Life Library",
+                about: "關於 - Mark'd",
+                privacy: "隱私政策 - Mark'd"
+            }
+        },
         nav: {
             download: "下載應用",
             home: "主頁",
-            about: "關於",
-            privacy: "隱私"
+            about: "關於"
         },
         a11y: {
             skip: "跳到主要內容",
@@ -376,18 +384,14 @@ const translations = {
             themeToDark: "切換到深色模式"
         },
         hero: {
-            badge: "",
             titleLine1: "你的",
             titleLine2: "生活圖鑑",
             subtitlePre: "不是為了記錄所有東西。",
-            subtitleHighlight: "",
-            subtitlePost: "而是為了留下重要的那些。",
-            cta: "下載"
+            subtitlePost: "而是為了留下重要的那些。"
         },
         features: {
             titleLine1: "捕捉當下。",
             titleHighlight: "留給自己。",
-            titleSuffix: "",
             spotlight: {
                 title: "私人生活圖鑑",
                 desc: "照片、評分與筆記保存在你的裝置和 iCloud 中。沒有動態流，沒有公開分數，只有隨時間沉澱的品味。"
@@ -408,19 +412,16 @@ const translations = {
                 "Mark'd 把這份記錄留在你的裝置和 iCloud 裡。回頭翻閱時，筆記仍然只屬於你。"
             ],
             signature: "Mark'd. 記住你的體驗，理解你的生活。",
-            link: "閱讀隱私承諾",
-            visualBadge: "私密且安全"
+            link: "閱讀隱私承諾"
         },
         footer: {
             privacy: "隱私政策",
-            terms: "使用條款",
             support: "技術支援"
         },
         cta: {
             title: "開始建立你的圖鑑",
             subtitle: "下載 Mark'd，記錄你真正喜歡的事物。",
-            appStore: "在 App Store 下載",
-            testFlight: "在 TestFlight 試用"
+            appStore: "在 App Store 下載"
         },
         about: {
             title: "關於 Mark'd",
@@ -534,11 +535,13 @@ const translations = {
                 content: "如果你對本隱私政策有任何疑問，請透過以下方式聯絡我們："
             }
         },
-        inapp_title: "在 Safari 中開啟",
-        inapp_subtitle: "當前內建瀏覽器無法直接跳轉 App Store",
-        inapp_step1: "1. 點擊右上角「•••」選單",
-        inapp_step2: "2. 選擇「在 Safari 或預設瀏覽器中開啟」",
-        inapp_dismiss: "我知道了"
+        inapp: {
+            title: "在 Safari 中開啟",
+            subtitle: "當前內建瀏覽器無法直接跳轉 App Store",
+            step1: "1. 點擊右上角「•••」選單",
+            step2: "2. 選擇「在 Safari 或預設瀏覽器中開啟」",
+            dismiss: "我知道了"
+        }
     }
 };
 
