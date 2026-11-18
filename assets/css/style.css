@@ -217,6 +217,25 @@ h3, h4, h5, h6 {
     transform: translateY(0);
 }
 
+.static-nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px 24px;
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: calc(16px + env(safe-area-inset-top, 0px)) 24px 0;
+    font-size: 0.875rem;
+    font-weight: 600;
+}
+
+.static-nav a {
+    color: var(--text-primary);
+    text-decoration: none;
+    min-height: 2.75rem;
+    display: inline-flex;
+    align-items: center;
+}
+
 #main-content:focus {
     outline: none;
 }

@@ -1,0 +1,7 @@
+# Mark'd — https://mark-d.com
+# Search engines and answer engines may fetch the public pages.
+
+User-agent: *
+Allow: /
+
+Sitemap: https://mark-d.com/sitemap.xml
