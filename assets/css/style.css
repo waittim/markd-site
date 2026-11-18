@@ -370,10 +370,11 @@ h3, h4, h5, h6 {
 /* --- Hero Section --- */
 .hero {
     position: relative;
-    padding: calc(96px + env(safe-area-inset-top, 0px)) 24px 80px;
+    padding: calc(96px + env(safe-area-inset-top, 0px)) 24px calc(40px + env(safe-area-inset-bottom, 0px));
     overflow: hidden;
     display: flex;
-    align-items: center;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .hero-layout {
@@ -463,8 +464,9 @@ h3, h4, h5, h6 {
 }
 
 .phone-screenshot {
-    max-width: 320px;
-    width: 100%;
+    width: auto;
+    max-width: min(360px, 34vw);
+    max-height: min(72dvh, 720px);
     height: auto;
     border-radius: 0;
     /* Image already includes device frame + transparent corners */
@@ -480,9 +482,11 @@ h3, h4, h5, h6 {
 
 /* --- Features Section --- */
 .features {
-    padding: 112px 24px;
+    padding: calc(96px + env(safe-area-inset-top, 0px)) 24px calc(48px + env(safe-area-inset-bottom, 0px));
     position: relative;
-    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     background-color: var(--bg-primary);
 }
 
@@ -491,10 +495,11 @@ h3, h4, h5, h6 {
     margin: 0 auto;
     position: relative;
     z-index: 10;
+    width: 100%;
 }
 
 .features-header {
-    margin-bottom: 56px;
+    margin-bottom: clamp(24px, 4dvh, 48px);
     max-width: none;
 }
 
@@ -523,7 +528,7 @@ h3, h4, h5, h6 {
     grid-template-columns: 1fr;
     gap: 32px;
     align-items: center;
-    margin-bottom: 28px;
+    margin-bottom: 0;
     padding: 28px;
     border-radius: var(--radius-lg);
     corner-shape: squircle;
@@ -546,8 +551,9 @@ h3, h4, h5, h6 {
 }
 
 .feature-spotlight-img {
-    width: 100%;
-    max-width: 240px;
+    width: auto;
+    max-width: min(280px, 100%);
+    max-height: min(50dvh, 500px);
     height: auto;
     border-radius: 0;
     filter: drop-shadow(0 20px 36px rgba(29, 29, 31, 0.26));
@@ -573,7 +579,6 @@ h3, h4, h5, h6 {
     display: grid;
     grid-template-columns: 1fr;
     column-gap: 64px;
-    border-top: 1px solid var(--rule);
 }
 
 .capability {
@@ -638,12 +643,53 @@ h3, h4, h5, h6 {
     }
 }
 
+.capabilities {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: calc(96px + env(safe-area-inset-top, 0px)) 24px calc(56px + env(safe-area-inset-bottom, 0px));
+    background-color: var(--bg-secondary);
+}
+
+.capabilities .capability-grid {
+    align-content: start;
+    row-gap: clamp(28px, 4dvh, 48px);
+}
+
+.capabilities .capability {
+    padding-block: 0;
+}
+
+.capabilities .capability-wide {
+    display: block;
+    grid-column: 1 / -1;
+    margin-top: clamp(4px, 1.5dvh, 16px);
+    padding-top: clamp(24px, 3dvh, 36px);
+    border-top: 1px solid var(--rule);
+}
+
+.capabilities .capability-wide h3,
+.capabilities .capability-wide p {
+    margin-bottom: 0;
+}
+
+.capabilities .capability-wide h3 {
+    margin-bottom: 0.5rem;
+}
+
+.capabilities .capability-wide p {
+    max-width: 40em;
+    text-wrap: pretty;
+}
+
 /* --- Philosophy Section --- */
 .philosophy {
-    padding: 128px 24px;
+    padding: calc(96px + env(safe-area-inset-top, 0px)) 24px calc(56px + env(safe-area-inset-bottom, 0px));
     position: relative;
-    overflow: hidden;
-    background-color: var(--bg-secondary);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: var(--bg-primary);
 }
 
 .philosophy-container {
@@ -704,14 +750,22 @@ h3, h4, h5, h6 {
 
 /* --- CTA Section --- */
 .cta-section {
-    padding: 104px 24px;
+    padding: 0;
     text-align: center;
-    background-color: var(--bg-primary);
+    background-color: var(--bg-secondary);
+    display: flex;
+    flex-direction: column;
 }
 
 .cta-container {
+    flex: 1;
+    width: min(560px, calc(100% - 48px));
     max-width: 560px;
     margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: calc(96px + env(safe-area-inset-top, 0px)) 0 32px;
 }
 
 .cta-app-icon {
@@ -1032,13 +1086,38 @@ h3, h4, h5, h6 {
     text-decoration: underline;
 }
 
+/* --- Homepage chapters: one viewport, native snap --- */
+body[data-page="home"] main > section {
+    min-height: 100vh;
+    min-height: 100dvh;
+    height: 100vh;
+    height: 100dvh;
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+}
+
+html:has(body[data-page="home"]) {
+    scroll-snap-type: y mandatory;
+    scroll-behavior: auto;
+    scroll-padding-top: 0;
+}
+
+body[data-page="home"] main > section.cta-section {
+    scroll-snap-stop: normal;
+}
+
+body[data-page="home"] .footer {
+    scroll-snap-align: end;
+    padding-top: 1.75rem;
+    padding-bottom: calc(1.75rem + env(safe-area-inset-bottom, 0px));
+    background-color: var(--bg-primary);
+    box-shadow: inset 0 1px 0 var(--rule);
+}
+
 /* --- Responsive --- */
 @media (max-width: 768px) {
     .hero {
-        padding-top: calc(88px + env(safe-area-inset-top, 0px));
-        padding-bottom: 56px;
-        min-height: auto;
-        align-items: flex-start;
+        padding: calc(80px + env(safe-area-inset-top, 0px)) 20px calc(24px + env(safe-area-inset-bottom, 0px));
     }
 
     .hero-copy {
@@ -1060,11 +1139,23 @@ h3, h4, h5, h6 {
     }
 
     .phone-screenshot {
-        max-width: 260px;
+        max-width: min(200px, 52vw);
+        max-height: min(38dvh, 340px);
     }
 
-    .features {
-        padding: 72px 20px;
+    .features,
+    .capabilities,
+    .philosophy {
+        padding: calc(80px + env(safe-area-inset-top, 0px)) 20px calc(28px + env(safe-area-inset-bottom, 0px));
+    }
+
+    .feature-spotlight-img {
+        max-width: min(168px, 44vw);
+        max-height: min(32dvh, 260px);
+    }
+
+    .capabilities .capability-grid {
+        row-gap: clamp(20px, 3dvh, 28px);
     }
 
     .features-title {
@@ -1074,10 +1165,6 @@ h3, h4, h5, h6 {
 
     .feature-spotlight {
         padding: 24px 20px;
-    }
-
-    .philosophy {
-        padding: 88px 20px;
     }
 
     .philosophy-container {
@@ -1123,9 +1210,24 @@ h3, h4, h5, h6 {
     }
 }
 
+/* --- Short viewports: keep chapters reachable instead of clipping --- */
+@media (max-height: 700px) {
+    html:has(body[data-page="home"]) {
+        scroll-snap-type: y proximity;
+    }
+
+    body[data-page="home"] main > section {
+        height: auto;
+    }
+}
+
 /* --- Reduced motion --- */
 @media (prefers-reduced-motion: reduce) {
     html { scroll-behavior: auto; }
+
+    html:has(body[data-page="home"]) {
+        scroll-snap-type: y proximity;
+    }
 
     body {
         transition: none;
