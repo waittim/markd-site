@@ -154,23 +154,45 @@ h3, h4, h5, h6 {
     100% { transform: translate(20px, -24px); }
 }
 
-/* --- Animation Utilities --- */
-.fade-in-up {
-    animation: fadeInUp 0.48s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-    opacity: 0;
-    transform: translateY(24px);
-}
+/* --- Opening: one settle. Copy leads, the phone follows with more mass, light blooms. --- */
+@media (prefers-reduced-motion: no-preference) {
+    .hero-copy {
+        animation: heroCopyIn 0.5s cubic-bezier(0.16, 1, 0.3, 1) 0.04s both;
+    }
 
-@keyframes fadeInUp {
-    to {
-        opacity: 1;
-        transform: translateY(0);
+    .hero-visual {
+        animation: heroPhoneIn 0.84s cubic-bezier(0.16, 1, 0.3, 1) 0.14s both;
+    }
+
+    .orb {
+        animation:
+            orbArrive 1.05s cubic-bezier(0.16, 1, 0.3, 1) both,
+            floatOrb 18s cubic-bezier(0.45, 0.05, 0.55, 0.95) infinite alternate;
+    }
+
+    .orb-2 {
+        animation-delay: 0.12s, 3s;
     }
 }
 
-.delay-100 { animation-delay: 0.06s; }
-.delay-200 { animation-delay: 0.12s; }
-.delay-300 { animation-delay: 0.18s; }
+@keyframes heroCopyIn {
+    from {
+        opacity: 0;
+        transform: translateY(6px);
+    }
+}
+
+@keyframes heroPhoneIn {
+    from {
+        opacity: 0;
+        transform: translateY(22px);
+    }
+}
+
+@keyframes orbArrive {
+    from { opacity: 0; }
+    to { opacity: var(--orb-opacity); }
+}
 
 /* --- Skip link --- */
 .skip-link {
@@ -1233,11 +1255,17 @@ body[data-page="home"] .footer {
         transition: none;
     }
 
-    .fade-in-up,
-    .orb,
+    .hero-copy,
+    .hero-visual,
     .inapp-arrow-container {
         animation: none !important;
         opacity: 1 !important;
+        transform: none !important;
+    }
+
+    .orb {
+        animation: none !important;
+        opacity: var(--orb-opacity) !important;
         transform: none !important;
     }
 
