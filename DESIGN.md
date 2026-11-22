@@ -179,7 +179,7 @@ Hybrid: soft shadows + glass blur, not stacked borders and shadows together.
 ### Shadow Vocabulary
 - **Glass nav** (`--glass-shadow`): `0 8px 32px -8px rgba(29, 29, 31, 0.08)` light / `rgba(0,0,0,0.45)` dark.
 - **Phone screenshot** (`filter: drop-shadow(...)`): lifted product mockups on hero/spotlight.
-- **Capability list:** no card fill. Hairline rules separate the group; titles and sentences sit on the page.
+- **Capability list:** no card fill. Pure typographic rhythm and whitespace on mobile; hairline rule separates wide row on desktop; titles and sentences sit cleanly on the page.
 
 ### Named Rules
 **The Flat Card Rule.** Feature spotlight uses shadow OR border, not both. Default spotlight: shadow only on `--bg-secondary`.
