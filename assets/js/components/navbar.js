@@ -22,6 +22,7 @@
                     <div class="navbar-glass">
                         <a href="index.html" class="navbar-brand">
                             <img
+                                src="assets/images/Markd-iOS-Default-240.png"
                                 data-src-light="assets/images/Markd-iOS-Default-240.png"
                                 data-src-dark="assets/images/Markd-iOS-Dark-240.png"
                                 alt="Mark'd"
