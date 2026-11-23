@@ -34,7 +34,7 @@ const translations = {
             titleHighlight: "Keep for yourself.",
             spotlight: {
                 title: "A private life library",
-                desc: "Photos, ratings, and notes stay on your device and iCloud. No feed. No public scores. Just your taste, over time."
+                desc: "Photos, ratings, and notes stay on your device and iCloud.\nNo feed or public scores, just your taste over time."
             },
             cards: {
                 scan: { title: "Scan & Mark", desc: "Point your camera at a barcode. Mark'd recognizes the product and attaches it to the moment." },
@@ -214,7 +214,7 @@ const translations = {
             titleHighlight: "留给自己。",
             spotlight: {
                 title: "一本专属的私人生活图鉴",
-                desc: "照片、评分与随笔安放于你的设备与个人 iCloud。没有喧嚣的动态流，没有公开的评分，只有随岁月沉淀的真实品味。"
+                desc: "照片、评分与随笔安放于个人设备与 iCloud。\n没有动态流与公开评分，只有沉淀的真实品味。"
             },
             cards: {
                 scan: { title: "扫码即录", desc: "对准条形码，Mark'd 即刻识别商品信息，轻松将记忆与当下温柔相连。" },
@@ -394,7 +394,7 @@ const translations = {
             titleHighlight: "留給自己。",
             spotlight: {
                 title: "一本專屬的私人生活圖鑑",
-                desc: "照片、評分與隨筆安放於你的裝置與個人 iCloud。沒有喧囂的動態流，沒有公開的評分，只有隨歲月沉澱的真實品味。"
+                desc: "照片、評分與隨筆安放於個人裝置與 iCloud。\n沒有動態流與公開評分，只有沉澱的真實品味。"
             },
             cards: {
                 scan: { title: "掃碼即錄", desc: "對準條碼，Mark'd 即刻識別商品資訊，輕鬆將記憶與當下溫柔相連。" },
