@@ -585,42 +585,63 @@ h3, h4, h5, h6 {
     background: var(--bg-secondary);
     border-radius: var(--radius-lg);
     corner-shape: squircle;
-    padding: clamp(20px, 2.5vw, 32px);
+    padding: clamp(24px, 2.8vw, 36px);
     box-shadow: var(--glass-shadow);
     overflow: clip;
+    position: relative;
+    min-height: clamp(480px, 52vh, 580px);
+}
+
+.feature-spotlight-copy {
+    margin-bottom: clamp(16px, 2vw, 24px);
+}
+
+.feature-spotlight-title {
+    font-size: clamp(1.35rem, 1.85vw, 1.65rem);
+    letter-spacing: -0.025em;
+    line-height: 1.22;
+    margin-bottom: 0.6rem;
+    color: var(--text-primary);
+    font-weight: 700;
+}
+
+.feature-spotlight-desc {
+    font-size: clamp(0.9rem, 1.05vw, 1rem);
+    line-height: 1.6;
+    color: var(--text-secondary);
+    max-width: 44ch;
+    font-weight: 500;
+    text-wrap: balance;
 }
 
 .feature-spotlight-visual {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-bottom: 20px;
     flex: 1;
+    min-height: 240px;
+    position: relative;
+    padding: 8px 0;
+}
+
+.feature-spotlight-frame {
+    position: relative;
+    display: inline-flex;
+    justify-content: center;
 }
 
 .feature-spotlight-img {
     width: auto;
-    max-width: min(220px, 100%);
+    max-width: min(230px, 90%);
     max-height: min(34dvh, 330px);
     height: auto;
     border-radius: 0;
-    filter: drop-shadow(0 18px 32px rgba(29, 29, 31, 0.22));
+    filter: drop-shadow(0 24px 44px rgba(29, 29, 31, 0.26));
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.feature-spotlight-copy h3 {
-    font-size: clamp(1.3rem, 1.8vw, 1.65rem);
-    letter-spacing: -0.022em;
-    line-height: 1.2;
-    margin-bottom: 0.5rem;
-    color: var(--text-primary);
-}
-
-.feature-spotlight-copy p {
-    font-size: clamp(0.9375rem, 1.05vw, 1rem);
-    line-height: 1.55;
-    color: var(--text-secondary);
-    max-width: 40ch;
-    font-weight: 500;
+.feature-spotlight:hover .feature-spotlight-img {
+    transform: translateY(-2px);
 }
 
 .capability-grid {
@@ -1140,13 +1161,14 @@ body[data-page="home"] .footer {
         gap: 24px;
     }
 
-    .feature-spotlight-img {
-        max-width: min(160px, 42vw);
-        max-height: min(28dvh, 240px);
-    }
-
     .feature-spotlight {
         padding: 24px 20px;
+        min-height: auto;
+    }
+
+    .feature-spotlight-img {
+        max-width: min(200px, 60vw);
+        max-height: min(34dvh, 300px);
     }
 
     .philosophy-container {
