@@ -586,14 +586,17 @@ h3, h4, h5, h6 {
 }
 
 .features-content-side .features-header {
-    margin-bottom: clamp(20px, 2.5vw, 32px);
+    margin-bottom: clamp(22px, 2.6vw, 34px);
     max-width: none;
 }
 
 .features-content-side .features-title {
-    font-size: clamp(1.8rem, 2.6vw, 2.5rem);
-    letter-spacing: -0.028em;
-    line-height: 1.18;
+    font-size: clamp(2.15rem, 3.2vw, 3.1rem);
+    letter-spacing: -0.03em;
+    line-height: 1.12;
+    flex-direction: column;
+    gap: 0.08em;
+    align-items: flex-start;
 }
 
 .feature-spotlight {
