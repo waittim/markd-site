@@ -33,7 +33,7 @@ const translations = {
             titleLine1: "Capture in the moment.",
             titleHighlight: "Keep for yourself.",
             spotlight: {
-                title: "A private life library",
+                title: "A quiet personal collection",
                 desc: "Photos, ratings, and notes stay on your device and iCloud.\nNo feed or public scores, just your taste over time."
             },
             cards: {
@@ -213,7 +213,7 @@ const translations = {
             titleLine1: "捕捉当下。",
             titleHighlight: "留给自己。",
             spotlight: {
-                title: "一本专属的私人生活图鉴",
+                title: "只属于你的私家典藏",
                 desc: "照片、评分与随笔安放于个人设备与 iCloud。\n没有动态流与公开评分，只有沉淀的真实品味。"
             },
             cards: {
@@ -393,7 +393,7 @@ const translations = {
             titleLine1: "捕捉當下。",
             titleHighlight: "留給自己。",
             spotlight: {
-                title: "一本專屬的私人生活圖鑑",
+                title: "只屬於你的私家典藏",
                 desc: "照片、評分與隨筆安放於個人裝置與 iCloud。\n沒有動態流與公開評分，只有沉澱的真實品味。"
             },
             cards: {
