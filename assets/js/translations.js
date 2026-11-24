@@ -269,7 +269,7 @@ const translations = {
                 }
             },
             how: {
-                title: "三步留存",
+                title: "极简留存",
                 content: [
                     "一次记录，只需片刻瞬间。"
                 ],
@@ -449,7 +449,7 @@ const translations = {
                 }
             },
             how: {
-                title: "三步留存",
+                title: "極簡留存",
                 content: [
                     "一次記錄，只需片刻瞬間。"
                 ],

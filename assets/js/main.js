@@ -22,24 +22,28 @@ function setupEventListeners() {
     // Enable instant :active feedback on iOS Safari / WebKit touch devices
     document.addEventListener('touchstart', function () {}, { passive: true });
 
-    document.querySelectorAll('.theme-toggle').forEach((btn) => {
-        btn.addEventListener('click', function (e) {
+    // Event delegation for theme toggle (works reliably across dynamic re-renders)
+    document.addEventListener('click', function (e) {
+        const btn = e.target.closest('.theme-toggle');
+        if (btn) {
             e.preventDefault();
             e.stopPropagation();
             if (window.MarkdTheme) {
                 window.MarkdTheme.toggle();
             }
-        });
+        }
     });
 
-    document.querySelectorAll('.lang-toggle').forEach((btn) => {
-        btn.addEventListener('click', function (e) {
+    // Event delegation for lang toggle (works reliably across dynamic re-renders)
+    document.addEventListener('click', function (e) {
+        const btn = e.target.closest('.lang-toggle');
+        if (btn) {
             e.preventDefault();
             e.stopPropagation();
             if (window.MarkdI18n) {
                 window.MarkdI18n.toggleDropdown();
             }
-        });
+        }
     });
 
     if (window.MarkdI18n) {
