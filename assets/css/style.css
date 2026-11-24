@@ -26,6 +26,7 @@
     --orb-color-2: rgba(186, 230, 253, 0.45);
 
     --radius-sm: 12px;
+    --radius-md: 20px;
     --radius-lg: 28px;
     --rule: rgba(29, 29, 31, 0.12);
     --radius-pill: 9999px;
@@ -1135,7 +1136,7 @@ h3, h4, h5, h6 {
 
 .value-card {
     background: var(--bg-secondary);
-    border-radius: var(--radius-md);
+    border-radius: var(--radius-md, 20px);
     corner-shape: squircle;
     padding: 24px 20px;
     box-shadow: var(--glass-shadow);
@@ -1225,7 +1226,7 @@ h3, h4, h5, h6 {
     gap: 16px;
     padding: 20px 24px;
     background: var(--bg-secondary);
-    border-radius: var(--radius-md);
+    border-radius: var(--radius-md, 20px);
     corner-shape: squircle;
     border: 1px solid rgba(255, 255, 255, 0.06);
     box-shadow: var(--glass-shadow);
